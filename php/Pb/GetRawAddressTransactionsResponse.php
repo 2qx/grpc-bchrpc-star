@@ -14,10 +14,14 @@ use Google\Protobuf\Internal\GPBUtil;
 class GetRawAddressTransactionsResponse extends \Google\Protobuf\Internal\Message
 {
     /**
+     * Transactions that have been included in a block.
+     *
      * Generated from protobuf field <code>repeated bytes confirmed_transactions = 1;</code>
      */
     private $confirmed_transactions;
     /**
+     * Transactions in mempool which have not been included in a block.
+     *
      * Generated from protobuf field <code>repeated bytes unconfirmed_transactions = 2;</code>
      */
     private $unconfirmed_transactions;
@@ -29,7 +33,9 @@ class GetRawAddressTransactionsResponse extends \Google\Protobuf\Internal\Messag
      *     Optional. Data for populating the Message object.
      *
      *     @type string[]|\Google\Protobuf\Internal\RepeatedField $confirmed_transactions
+     *           Transactions that have been included in a block.
      *     @type string[]|\Google\Protobuf\Internal\RepeatedField $unconfirmed_transactions
+     *           Transactions in mempool which have not been included in a block.
      * }
      */
     public function __construct($data = NULL) {
@@ -38,6 +44,8 @@ class GetRawAddressTransactionsResponse extends \Google\Protobuf\Internal\Messag
     }
 
     /**
+     * Transactions that have been included in a block.
+     *
      * Generated from protobuf field <code>repeated bytes confirmed_transactions = 1;</code>
      * @return \Google\Protobuf\Internal\RepeatedField
      */
@@ -47,6 +55,8 @@ class GetRawAddressTransactionsResponse extends \Google\Protobuf\Internal\Messag
     }
 
     /**
+     * Transactions that have been included in a block.
+     *
      * Generated from protobuf field <code>repeated bytes confirmed_transactions = 1;</code>
      * @param string[]|\Google\Protobuf\Internal\RepeatedField $var
      * @return $this
@@ -60,6 +70,8 @@ class GetRawAddressTransactionsResponse extends \Google\Protobuf\Internal\Messag
     }
 
     /**
+     * Transactions in mempool which have not been included in a block.
+     *
      * Generated from protobuf field <code>repeated bytes unconfirmed_transactions = 2;</code>
      * @return \Google\Protobuf\Internal\RepeatedField
      */
@@ -69,6 +81,8 @@ class GetRawAddressTransactionsResponse extends \Google\Protobuf\Internal\Messag
     }
 
     /**
+     * Transactions in mempool which have not been included in a block.
+     *
      * Generated from protobuf field <code>repeated bytes unconfirmed_transactions = 2;</code>
      * @param string[]|\Google\Protobuf\Internal\RepeatedField $var
      * @return $this

@@ -14,26 +14,38 @@ use Google\Protobuf\Internal\GPBUtil;
 class Output extends \Google\Protobuf\Internal\Message
 {
     /**
+     * The number of the output, starting from zero.
+     *
      * Generated from protobuf field <code>uint32 index = 1;</code>
      */
     protected $index = 0;
     /**
+     * The number of satoshis to be transferred.
+     *
      * Generated from protobuf field <code>int64 value = 2;</code>
      */
     protected $value = 0;
     /**
+     * The public key script used to pay coins.
+     *
      * Generated from protobuf field <code>bytes pubkey_script = 3;</code>
      */
     protected $pubkey_script = '';
     /**
+     * The bitcoin addresses associated with this output.
+     *
      * Generated from protobuf field <code>string address = 4;</code>
      */
     protected $address = '';
     /**
+     * The type of script.
+     *
      * Generated from protobuf field <code>string script_class = 5;</code>
      */
     protected $script_class = '';
     /**
+     * The script expressed in Bitcoin Cash Script.
+     *
      * Generated from protobuf field <code>string disassembled_script = 6;</code>
      */
     protected $disassembled_script = '';
@@ -45,11 +57,17 @@ class Output extends \Google\Protobuf\Internal\Message
      *     Optional. Data for populating the Message object.
      *
      *     @type int $index
+     *           The number of the output, starting from zero.
      *     @type int|string $value
+     *           The number of satoshis to be transferred.
      *     @type string $pubkey_script
+     *           The public key script used to pay coins.
      *     @type string $address
+     *           The bitcoin addresses associated with this output.
      *     @type string $script_class
+     *           The type of script.
      *     @type string $disassembled_script
+     *           The script expressed in Bitcoin Cash Script.
      * }
      */
     public function __construct($data = NULL) {
@@ -58,6 +76,8 @@ class Output extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * The number of the output, starting from zero.
+     *
      * Generated from protobuf field <code>uint32 index = 1;</code>
      * @return int
      */
@@ -67,6 +87,8 @@ class Output extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * The number of the output, starting from zero.
+     *
      * Generated from protobuf field <code>uint32 index = 1;</code>
      * @param int $var
      * @return $this
@@ -80,6 +102,8 @@ class Output extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * The number of satoshis to be transferred.
+     *
      * Generated from protobuf field <code>int64 value = 2;</code>
      * @return int|string
      */
@@ -89,6 +113,8 @@ class Output extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * The number of satoshis to be transferred.
+     *
      * Generated from protobuf field <code>int64 value = 2;</code>
      * @param int|string $var
      * @return $this
@@ -102,6 +128,8 @@ class Output extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * The public key script used to pay coins.
+     *
      * Generated from protobuf field <code>bytes pubkey_script = 3;</code>
      * @return string
      */
@@ -111,6 +139,8 @@ class Output extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * The public key script used to pay coins.
+     *
      * Generated from protobuf field <code>bytes pubkey_script = 3;</code>
      * @param string $var
      * @return $this
@@ -124,6 +154,8 @@ class Output extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * The bitcoin addresses associated with this output.
+     *
      * Generated from protobuf field <code>string address = 4;</code>
      * @return string
      */
@@ -133,6 +165,8 @@ class Output extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * The bitcoin addresses associated with this output.
+     *
      * Generated from protobuf field <code>string address = 4;</code>
      * @param string $var
      * @return $this
@@ -146,6 +180,8 @@ class Output extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * The type of script.
+     *
      * Generated from protobuf field <code>string script_class = 5;</code>
      * @return string
      */
@@ -155,6 +191,8 @@ class Output extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * The type of script.
+     *
      * Generated from protobuf field <code>string script_class = 5;</code>
      * @param string $var
      * @return $this
@@ -168,6 +206,8 @@ class Output extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * The script expressed in Bitcoin Cash Script.
+     *
      * Generated from protobuf field <code>string disassembled_script = 6;</code>
      * @return string
      */
@@ -177,6 +217,8 @@ class Output extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * The script expressed in Bitcoin Cash Script.
+     *
      * Generated from protobuf field <code>string disassembled_script = 6;</code>
      * @param string $var
      * @return $this

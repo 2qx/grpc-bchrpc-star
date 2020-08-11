@@ -14,6 +14,8 @@ use Google\Protobuf\Internal\GPBUtil;
 class GetBlockInfoResponse extends \Google\Protobuf\Internal\Message
 {
     /**
+     * Marshaled block header data, as well as metadata.
+     *
      * Generated from protobuf field <code>.pb.BlockInfo info = 1;</code>
      */
     protected $info = null;
@@ -25,6 +27,7 @@ class GetBlockInfoResponse extends \Google\Protobuf\Internal\Message
      *     Optional. Data for populating the Message object.
      *
      *     @type \Pb\BlockInfo $info
+     *           Marshaled block header data, as well as metadata.
      * }
      */
     public function __construct($data = NULL) {
@@ -33,6 +36,8 @@ class GetBlockInfoResponse extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * Marshaled block header data, as well as metadata.
+     *
      * Generated from protobuf field <code>.pb.BlockInfo info = 1;</code>
      * @return \Pb\BlockInfo
      */
@@ -42,6 +47,8 @@ class GetBlockInfoResponse extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * Marshaled block header data, as well as metadata.
+     *
      * Generated from protobuf field <code>.pb.BlockInfo info = 1;</code>
      * @param \Pb\BlockInfo $var
      * @return $this

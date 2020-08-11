@@ -22,7 +22,9 @@ class GetBlockFilterRequest extends \Google\Protobuf\Internal\Message
      *     Optional. Data for populating the Message object.
      *
      *     @type string $hash
+     *           The block hash as a byte array or base64 encoded string, little-endian.
      *     @type int $height
+     *           The block number.
      * }
      */
     public function __construct($data = NULL) {
@@ -31,6 +33,8 @@ class GetBlockFilterRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * The block hash as a byte array or base64 encoded string, little-endian.
+     *
      * Generated from protobuf field <code>bytes hash = 1;</code>
      * @return string
      */
@@ -40,6 +44,8 @@ class GetBlockFilterRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * The block hash as a byte array or base64 encoded string, little-endian.
+     *
      * Generated from protobuf field <code>bytes hash = 1;</code>
      * @param string $var
      * @return $this
@@ -53,6 +59,8 @@ class GetBlockFilterRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * The block number.
+     *
      * Generated from protobuf field <code>int32 height = 2;</code>
      * @return int
      */
@@ -62,6 +70,8 @@ class GetBlockFilterRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * The block number.
+     *
      * Generated from protobuf field <code>int32 height = 2;</code>
      * @param int $var
      * @return $this

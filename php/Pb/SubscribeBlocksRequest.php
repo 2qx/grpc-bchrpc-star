@@ -38,14 +38,16 @@ class SubscribeBlocksRequest extends \Google\Protobuf\Internal\Message
      */
     protected $full_block = false;
     /**
-     * When full_transactions is true, provide full transaction info for a marshaled block.
-     * Default is false, only the transaction hashes are included for a marshaled block. See `TransactionData`.
+     * When full_transactions is true, provide full transaction info
+     * for a marshaled block.
+     * Default is false, only the transaction hashes are included for
+     * a marshaled block. See `TransactionData`.
      *
      * Generated from protobuf field <code>bool full_transactions = 2;</code>
      */
     protected $full_transactions = false;
     /**
-     * When serialize_block is true, blocks are serialized using bitcoin protocol encoding. 
+     * When serialize_block is true, blocks are serialized using bitcoin protocol encoding.
      * Default is false, block will be Marshaled (see `BlockInfo` and `BlockNotification`)
      *
      * Generated from protobuf field <code>bool serialize_block = 3;</code>
@@ -62,10 +64,12 @@ class SubscribeBlocksRequest extends \Google\Protobuf\Internal\Message
      *           When full_block is true, a complete marshaled block is sent. See `Block`.
      *           Default is false, block metadata is sent. See `BlockInfo`.
      *     @type bool $full_transactions
-     *           When full_transactions is true, provide full transaction info for a marshaled block.
-     *           Default is false, only the transaction hashes are included for a marshaled block. See `TransactionData`.
+     *           When full_transactions is true, provide full transaction info
+     *           for a marshaled block.
+     *           Default is false, only the transaction hashes are included for
+     *           a marshaled block. See `TransactionData`.
      *     @type bool $serialize_block
-     *           When serialize_block is true, blocks are serialized using bitcoin protocol encoding. 
+     *           When serialize_block is true, blocks are serialized using bitcoin protocol encoding.
      *           Default is false, block will be Marshaled (see `BlockInfo` and `BlockNotification`)
      * }
      */
@@ -103,8 +107,10 @@ class SubscribeBlocksRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * When full_transactions is true, provide full transaction info for a marshaled block.
-     * Default is false, only the transaction hashes are included for a marshaled block. See `TransactionData`.
+     * When full_transactions is true, provide full transaction info
+     * for a marshaled block.
+     * Default is false, only the transaction hashes are included for
+     * a marshaled block. See `TransactionData`.
      *
      * Generated from protobuf field <code>bool full_transactions = 2;</code>
      * @return bool
@@ -115,8 +121,10 @@ class SubscribeBlocksRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * When full_transactions is true, provide full transaction info for a marshaled block.
-     * Default is false, only the transaction hashes are included for a marshaled block. See `TransactionData`.
+     * When full_transactions is true, provide full transaction info
+     * for a marshaled block.
+     * Default is false, only the transaction hashes are included for
+     * a marshaled block. See `TransactionData`.
      *
      * Generated from protobuf field <code>bool full_transactions = 2;</code>
      * @param bool $var
@@ -131,7 +139,7 @@ class SubscribeBlocksRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * When serialize_block is true, blocks are serialized using bitcoin protocol encoding. 
+     * When serialize_block is true, blocks are serialized using bitcoin protocol encoding.
      * Default is false, block will be Marshaled (see `BlockInfo` and `BlockNotification`)
      *
      * Generated from protobuf field <code>bool serialize_block = 3;</code>
@@ -143,7 +151,7 @@ class SubscribeBlocksRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * When serialize_block is true, blocks are serialized using bitcoin protocol encoding. 
+     * When serialize_block is true, blocks are serialized using bitcoin protocol encoding.
      * Default is false, block will be Marshaled (see `BlockInfo` and `BlockNotification`)
      *
      * Generated from protobuf field <code>bool serialize_block = 3;</code>

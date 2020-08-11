@@ -14,6 +14,8 @@ use Google\Protobuf\Internal\GPBUtil;
 class GetTransactionResponse extends \Google\Protobuf\Internal\Message
 {
     /**
+     * A marshaled transaction.
+     *
      * Generated from protobuf field <code>.pb.Transaction transaction = 1;</code>
      */
     protected $transaction = null;
@@ -25,6 +27,7 @@ class GetTransactionResponse extends \Google\Protobuf\Internal\Message
      *     Optional. Data for populating the Message object.
      *
      *     @type \Pb\Transaction $transaction
+     *           A marshaled transaction.
      * }
      */
     public function __construct($data = NULL) {
@@ -33,6 +36,8 @@ class GetTransactionResponse extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * A marshaled transaction.
+     *
      * Generated from protobuf field <code>.pb.Transaction transaction = 1;</code>
      * @return \Pb\Transaction
      */
@@ -42,6 +47,8 @@ class GetTransactionResponse extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * A marshaled transaction.
+     *
      * Generated from protobuf field <code>.pb.Transaction transaction = 1;</code>
      * @param \Pb\Transaction $var
      * @return $this

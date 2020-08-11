@@ -14,19 +14,25 @@ use Google\Protobuf\Internal\GPBUtil;
 class TransactionFilter extends \Google\Protobuf\Internal\Message
 {
     /**
+     * Filter by address(es)
+     *
      * Generated from protobuf field <code>repeated string addresses = 1;</code>
      */
     private $addresses;
     /**
+     * Filter by output hash and index.
+     *
      * Generated from protobuf field <code>repeated .pb.Transaction.Input.Outpoint outpoints = 2;</code>
      */
     private $outpoints;
     /**
+     * Filter by data elements contained in pubkey scripts.
+     *
      * Generated from protobuf field <code>repeated bytes data_elements = 3;</code>
      */
     private $data_elements;
     /**
-     * Subscribed/Unsubscribe to everything. Other filters
+     * Subscribe/Unsubscribe to everything. Other filters
      * will be ignored.
      *
      * Generated from protobuf field <code>bool all_transactions = 4;</code>
@@ -40,10 +46,13 @@ class TransactionFilter extends \Google\Protobuf\Internal\Message
      *     Optional. Data for populating the Message object.
      *
      *     @type string[]|\Google\Protobuf\Internal\RepeatedField $addresses
+     *           Filter by address(es)
      *     @type \Pb\Transaction\Input\Outpoint[]|\Google\Protobuf\Internal\RepeatedField $outpoints
+     *           Filter by output hash and index.
      *     @type string[]|\Google\Protobuf\Internal\RepeatedField $data_elements
+     *           Filter by data elements contained in pubkey scripts.
      *     @type bool $all_transactions
-     *           Subscribed/Unsubscribe to everything. Other filters
+     *           Subscribe/Unsubscribe to everything. Other filters
      *           will be ignored.
      * }
      */
@@ -53,6 +62,8 @@ class TransactionFilter extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * Filter by address(es)
+     *
      * Generated from protobuf field <code>repeated string addresses = 1;</code>
      * @return \Google\Protobuf\Internal\RepeatedField
      */
@@ -62,6 +73,8 @@ class TransactionFilter extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * Filter by address(es)
+     *
      * Generated from protobuf field <code>repeated string addresses = 1;</code>
      * @param string[]|\Google\Protobuf\Internal\RepeatedField $var
      * @return $this
@@ -75,6 +88,8 @@ class TransactionFilter extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * Filter by output hash and index.
+     *
      * Generated from protobuf field <code>repeated .pb.Transaction.Input.Outpoint outpoints = 2;</code>
      * @return \Google\Protobuf\Internal\RepeatedField
      */
@@ -84,6 +99,8 @@ class TransactionFilter extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * Filter by output hash and index.
+     *
      * Generated from protobuf field <code>repeated .pb.Transaction.Input.Outpoint outpoints = 2;</code>
      * @param \Pb\Transaction\Input\Outpoint[]|\Google\Protobuf\Internal\RepeatedField $var
      * @return $this
@@ -97,6 +114,8 @@ class TransactionFilter extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * Filter by data elements contained in pubkey scripts.
+     *
      * Generated from protobuf field <code>repeated bytes data_elements = 3;</code>
      * @return \Google\Protobuf\Internal\RepeatedField
      */
@@ -106,6 +125,8 @@ class TransactionFilter extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * Filter by data elements contained in pubkey scripts.
+     *
      * Generated from protobuf field <code>repeated bytes data_elements = 3;</code>
      * @param string[]|\Google\Protobuf\Internal\RepeatedField $var
      * @return $this
@@ -119,7 +140,7 @@ class TransactionFilter extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Subscribed/Unsubscribe to everything. Other filters
+     * Subscribe/Unsubscribe to everything. Other filters
      * will be ignored.
      *
      * Generated from protobuf field <code>bool all_transactions = 4;</code>
@@ -131,7 +152,7 @@ class TransactionFilter extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Subscribed/Unsubscribe to everything. Other filters
+     * Subscribe/Unsubscribe to everything. Other filters
      * will be ignored.
      *
      * Generated from protobuf field <code>bool all_transactions = 4;</code>

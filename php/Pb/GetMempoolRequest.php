@@ -14,7 +14,8 @@ use Google\Protobuf\Internal\GPBUtil;
 class GetMempoolRequest extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Provide full transaction info instead of only the hashes.
+     * When `full_transactions` is true, full transaction data is provided
+     * instead of just transaction hashes. Default is false.
      *
      * Generated from protobuf field <code>bool full_transactions = 1;</code>
      */
@@ -27,7 +28,8 @@ class GetMempoolRequest extends \Google\Protobuf\Internal\Message
      *     Optional. Data for populating the Message object.
      *
      *     @type bool $full_transactions
-     *           Provide full transaction info instead of only the hashes.
+     *           When `full_transactions` is true, full transaction data is provided
+     *           instead of just transaction hashes. Default is false.
      * }
      */
     public function __construct($data = NULL) {
@@ -36,7 +38,8 @@ class GetMempoolRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Provide full transaction info instead of only the hashes.
+     * When `full_transactions` is true, full transaction data is provided
+     * instead of just transaction hashes. Default is false.
      *
      * Generated from protobuf field <code>bool full_transactions = 1;</code>
      * @return bool
@@ -47,7 +50,8 @@ class GetMempoolRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Provide full transaction info instead of only the hashes.
+     * When `full_transactions` is true, full transaction data is provided
+     * instead of just transaction hashes. Default is false.
      *
      * Generated from protobuf field <code>bool full_transactions = 1;</code>
      * @param bool $var

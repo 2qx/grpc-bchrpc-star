@@ -14,6 +14,8 @@ use Google\Protobuf\Internal\GPBUtil;
 class GetHeadersResponse extends \Google\Protobuf\Internal\Message
 {
     /**
+     * List of block headers.
+     *
      * Generated from protobuf field <code>repeated .pb.BlockInfo headers = 1;</code>
      */
     private $headers;
@@ -25,6 +27,7 @@ class GetHeadersResponse extends \Google\Protobuf\Internal\Message
      *     Optional. Data for populating the Message object.
      *
      *     @type \Pb\BlockInfo[]|\Google\Protobuf\Internal\RepeatedField $headers
+     *           List of block headers.
      * }
      */
     public function __construct($data = NULL) {
@@ -33,6 +36,8 @@ class GetHeadersResponse extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * List of block headers.
+     *
      * Generated from protobuf field <code>repeated .pb.BlockInfo headers = 1;</code>
      * @return \Google\Protobuf\Internal\RepeatedField
      */
@@ -42,6 +47,8 @@ class GetHeadersResponse extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * List of block headers.
+     *
      * Generated from protobuf field <code>repeated .pb.BlockInfo headers = 1;</code>
      * @param \Pb\BlockInfo[]|\Google\Protobuf\Internal\RepeatedField $var
      * @return $this

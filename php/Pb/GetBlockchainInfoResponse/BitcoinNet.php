@@ -7,23 +7,35 @@ namespace Pb\GetBlockchainInfoResponse;
 use UnexpectedValueException;
 
 /**
+ * Bitcoin network types
+ *
  * Protobuf type <code>pb.GetBlockchainInfoResponse.BitcoinNet</code>
  */
 class BitcoinNet
 {
     /**
+     * Live public network with monetary value.
+     *
      * Generated from protobuf enum <code>MAINNET = 0;</code>
      */
     const MAINNET = 0;
     /**
+     * An isolated environment for automated testing.
+     *
      * Generated from protobuf enum <code>REGTEST = 1;</code>
      */
     const REGTEST = 1;
     /**
+     * A public environment where monetary value is agreed to be zero,
+     * and some checks for transaction conformity are disabled.
+     *
      * Generated from protobuf enum <code>TESTNET3 = 2;</code>
      */
     const TESTNET3 = 2;
     /**
+     * Private testnets for large scale simulations (or stress testing),
+     * where a specified list of nodes is used, rather than node discovery.
+     *
      * Generated from protobuf enum <code>SIMNET = 3;</code>
      */
     const SIMNET = 3;

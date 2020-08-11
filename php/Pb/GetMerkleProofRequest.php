@@ -14,6 +14,8 @@ use Google\Protobuf\Internal\GPBUtil;
 class GetMerkleProofRequest extends \Google\Protobuf\Internal\Message
 {
     /**
+     * A transaction hash, little-endian.
+     *
      * Generated from protobuf field <code>bytes transaction_hash = 1;</code>
      */
     protected $transaction_hash = '';
@@ -25,6 +27,7 @@ class GetMerkleProofRequest extends \Google\Protobuf\Internal\Message
      *     Optional. Data for populating the Message object.
      *
      *     @type string $transaction_hash
+     *           A transaction hash, little-endian.
      * }
      */
     public function __construct($data = NULL) {
@@ -33,6 +36,8 @@ class GetMerkleProofRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * A transaction hash, little-endian.
+     *
      * Generated from protobuf field <code>bytes transaction_hash = 1;</code>
      * @return string
      */
@@ -42,6 +47,8 @@ class GetMerkleProofRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * A transaction hash, little-endian.
+     *
      * Generated from protobuf field <code>bytes transaction_hash = 1;</code>
      * @param string $var
      * @return $this

@@ -7,15 +7,21 @@ namespace Pb\TransactionNotification;
 use UnexpectedValueException;
 
 /**
+ * State of the transaction acceptance.
+ *
  * Protobuf type <code>pb.TransactionNotification.Type</code>
  */
 class Type
 {
     /**
+     * A transaction in mempool.
+     *
      * Generated from protobuf enum <code>UNCONFIRMED = 0;</code>
      */
     const UNCONFIRMED = 0;
     /**
+     * A transaction in a block.
+     *
      * Generated from protobuf enum <code>CONFIRMED = 1;</code>
      */
     const CONFIRMED = 1;

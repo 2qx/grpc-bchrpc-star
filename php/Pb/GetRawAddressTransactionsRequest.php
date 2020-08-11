@@ -9,23 +9,39 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
+ * Get encoded transactions related to a specific address.
+ * RECOMMENDED:
+ * Parameters have been provided to query without creating
+ *   performance issues on the node or client.
+ * - The number of transactions to skip and fetch allow for iterating
+ *       over a large set of transactions, if necessary.
+ * - A starting block parameter (either `hash` or `height`)
+ *       may then be used to filter results to those occurring
+ *       after a certain time.
+ * This approach will reduce network traffic and response processing
+ *   for the client, as well as reduce workload on the node.
+ *
  * Generated from protobuf message <code>pb.GetRawAddressTransactionsRequest</code>
  */
 class GetRawAddressTransactionsRequest extends \Google\Protobuf\Internal\Message
 {
     /**
+     * The address to query transactions, in lowercase cashaddr format.
+     * The network prefix is optional (i.e. "cashaddress:").
+     *
      * Generated from protobuf field <code>string address = 1;</code>
      */
     protected $address = '';
     /**
-     * Control the number of transactions to be fetched from the blockchain.
-     * These controls only apply to the confirmed transactions. All unconfirmed
-     * ones will be returned always.
+     * The number of confirmed transactions to skip, starting with the oldest first.
+     * Does not affect results of unconfirmed transactions.
      *
      * Generated from protobuf field <code>uint32 nb_skip = 2;</code>
      */
     protected $nb_skip = 0;
     /**
+     * Specify the number of transactions to fetch.
+     *
      * Generated from protobuf field <code>uint32 nb_fetch = 3;</code>
      */
     protected $nb_fetch = 0;
@@ -38,13 +54,19 @@ class GetRawAddressTransactionsRequest extends \Google\Protobuf\Internal\Message
      *     Optional. Data for populating the Message object.
      *
      *     @type string $address
+     *           The address to query transactions, in lowercase cashaddr format.
+     *           The network prefix is optional (i.e. "cashaddress:").
      *     @type int $nb_skip
-     *           Control the number of transactions to be fetched from the blockchain.
-     *           These controls only apply to the confirmed transactions. All unconfirmed
-     *           ones will be returned always.
+     *           The number of confirmed transactions to skip, starting with the oldest first.
+     *           Does not affect results of unconfirmed transactions.
      *     @type int $nb_fetch
+     *           Specify the number of transactions to fetch.
      *     @type string $hash
+     *           Recommended. Only return transactions after some starting block
+     *           identified by hash, little-endian.
      *     @type int $height
+     *           Recommended. Only return transactions after some starting block
+     *           identified by block number.
      * }
      */
     public function __construct($data = NULL) {
@@ -53,6 +75,9 @@ class GetRawAddressTransactionsRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * The address to query transactions, in lowercase cashaddr format.
+     * The network prefix is optional (i.e. "cashaddress:").
+     *
      * Generated from protobuf field <code>string address = 1;</code>
      * @return string
      */
@@ -62,6 +87,9 @@ class GetRawAddressTransactionsRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * The address to query transactions, in lowercase cashaddr format.
+     * The network prefix is optional (i.e. "cashaddress:").
+     *
      * Generated from protobuf field <code>string address = 1;</code>
      * @param string $var
      * @return $this
@@ -75,9 +103,8 @@ class GetRawAddressTransactionsRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Control the number of transactions to be fetched from the blockchain.
-     * These controls only apply to the confirmed transactions. All unconfirmed
-     * ones will be returned always.
+     * The number of confirmed transactions to skip, starting with the oldest first.
+     * Does not affect results of unconfirmed transactions.
      *
      * Generated from protobuf field <code>uint32 nb_skip = 2;</code>
      * @return int
@@ -88,9 +115,8 @@ class GetRawAddressTransactionsRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Control the number of transactions to be fetched from the blockchain.
-     * These controls only apply to the confirmed transactions. All unconfirmed
-     * ones will be returned always.
+     * The number of confirmed transactions to skip, starting with the oldest first.
+     * Does not affect results of unconfirmed transactions.
      *
      * Generated from protobuf field <code>uint32 nb_skip = 2;</code>
      * @param int $var
@@ -105,6 +131,8 @@ class GetRawAddressTransactionsRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * Specify the number of transactions to fetch.
+     *
      * Generated from protobuf field <code>uint32 nb_fetch = 3;</code>
      * @return int
      */
@@ -114,6 +142,8 @@ class GetRawAddressTransactionsRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * Specify the number of transactions to fetch.
+     *
      * Generated from protobuf field <code>uint32 nb_fetch = 3;</code>
      * @param int $var
      * @return $this
@@ -127,6 +157,9 @@ class GetRawAddressTransactionsRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * Recommended. Only return transactions after some starting block
+     * identified by hash, little-endian.
+     *
      * Generated from protobuf field <code>bytes hash = 4;</code>
      * @return string
      */
@@ -136,6 +169,9 @@ class GetRawAddressTransactionsRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * Recommended. Only return transactions after some starting block
+     * identified by hash, little-endian.
+     *
      * Generated from protobuf field <code>bytes hash = 4;</code>
      * @param string $var
      * @return $this
@@ -149,6 +185,9 @@ class GetRawAddressTransactionsRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * Recommended. Only return transactions after some starting block
+     * identified by block number.
+     *
      * Generated from protobuf field <code>int32 height = 5;</code>
      * @return int
      */
@@ -158,6 +197,9 @@ class GetRawAddressTransactionsRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * Recommended. Only return transactions after some starting block
+     * identified by block number.
+     *
      * Generated from protobuf field <code>int32 height = 5;</code>
      * @param int $var
      * @return $this

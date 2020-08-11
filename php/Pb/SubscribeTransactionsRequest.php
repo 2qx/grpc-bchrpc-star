@@ -9,20 +9,26 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
+ * Request to subscribe or unsubscribe from a stream of transactions.
+ *
  * Generated from protobuf message <code>pb.SubscribeTransactionsRequest</code>
  */
 class SubscribeTransactionsRequest extends \Google\Protobuf\Internal\Message
 {
     /**
+     * Subscribe to a filter. add items to a filter
+     *
      * Generated from protobuf field <code>.pb.TransactionFilter subscribe = 1;</code>
      */
     protected $subscribe = null;
     /**
+     * Unsubscribe to a filter, remove items from a filter
+     *
      * Generated from protobuf field <code>.pb.TransactionFilter unsubscribe = 2;</code>
      */
     protected $unsubscribe = null;
     /**
-     * When include_mempool is true, new transactions coming in from the mempool are
+     * When include_mempool is true, new unconfirmed transactions from mempool are
      * included apart from the ones confirmed in a block.
      *
      * Generated from protobuf field <code>bool include_mempool = 3;</code>
@@ -36,8 +42,9 @@ class SubscribeTransactionsRequest extends \Google\Protobuf\Internal\Message
      */
     protected $include_in_block = false;
     /**
-     * When serialize_tx is true, transactions are serialized using bitcoin protocol encoding. 
-     * Default is false, transaction will be Marshaled (see `Transaction`, `MempoolTransaction` and `TransactionNotification`)
+     * When serialize_tx is true, transactions are serialized using
+     * bitcoin protocol encoding. Default is false, transaction will be Marshaled
+     * (see `Transaction`, `MempoolTransaction` and `TransactionNotification`)
      *
      * Generated from protobuf field <code>bool serialize_tx = 5;</code>
      */
@@ -50,16 +57,19 @@ class SubscribeTransactionsRequest extends \Google\Protobuf\Internal\Message
      *     Optional. Data for populating the Message object.
      *
      *     @type \Pb\TransactionFilter $subscribe
+     *           Subscribe to a filter. add items to a filter
      *     @type \Pb\TransactionFilter $unsubscribe
+     *           Unsubscribe to a filter, remove items from a filter
      *     @type bool $include_mempool
-     *           When include_mempool is true, new transactions coming in from the mempool are
+     *           When include_mempool is true, new unconfirmed transactions from mempool are
      *           included apart from the ones confirmed in a block.
      *     @type bool $include_in_block
      *           When include_in_block is true, transactions are included when they are confirmed.
      *           This notification is sent in addition to any requested mempool notifications.
      *     @type bool $serialize_tx
-     *           When serialize_tx is true, transactions are serialized using bitcoin protocol encoding. 
-     *           Default is false, transaction will be Marshaled (see `Transaction`, `MempoolTransaction` and `TransactionNotification`)
+     *           When serialize_tx is true, transactions are serialized using
+     *           bitcoin protocol encoding. Default is false, transaction will be Marshaled
+     *           (see `Transaction`, `MempoolTransaction` and `TransactionNotification`)
      * }
      */
     public function __construct($data = NULL) {
@@ -68,6 +78,8 @@ class SubscribeTransactionsRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * Subscribe to a filter. add items to a filter
+     *
      * Generated from protobuf field <code>.pb.TransactionFilter subscribe = 1;</code>
      * @return \Pb\TransactionFilter
      */
@@ -77,6 +89,8 @@ class SubscribeTransactionsRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * Subscribe to a filter. add items to a filter
+     *
      * Generated from protobuf field <code>.pb.TransactionFilter subscribe = 1;</code>
      * @param \Pb\TransactionFilter $var
      * @return $this
@@ -90,6 +104,8 @@ class SubscribeTransactionsRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * Unsubscribe to a filter, remove items from a filter
+     *
      * Generated from protobuf field <code>.pb.TransactionFilter unsubscribe = 2;</code>
      * @return \Pb\TransactionFilter
      */
@@ -99,6 +115,8 @@ class SubscribeTransactionsRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * Unsubscribe to a filter, remove items from a filter
+     *
      * Generated from protobuf field <code>.pb.TransactionFilter unsubscribe = 2;</code>
      * @param \Pb\TransactionFilter $var
      * @return $this
@@ -112,7 +130,7 @@ class SubscribeTransactionsRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * When include_mempool is true, new transactions coming in from the mempool are
+     * When include_mempool is true, new unconfirmed transactions from mempool are
      * included apart from the ones confirmed in a block.
      *
      * Generated from protobuf field <code>bool include_mempool = 3;</code>
@@ -124,7 +142,7 @@ class SubscribeTransactionsRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * When include_mempool is true, new transactions coming in from the mempool are
+     * When include_mempool is true, new unconfirmed transactions from mempool are
      * included apart from the ones confirmed in a block.
      *
      * Generated from protobuf field <code>bool include_mempool = 3;</code>
@@ -168,8 +186,9 @@ class SubscribeTransactionsRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * When serialize_tx is true, transactions are serialized using bitcoin protocol encoding. 
-     * Default is false, transaction will be Marshaled (see `Transaction`, `MempoolTransaction` and `TransactionNotification`)
+     * When serialize_tx is true, transactions are serialized using
+     * bitcoin protocol encoding. Default is false, transaction will be Marshaled
+     * (see `Transaction`, `MempoolTransaction` and `TransactionNotification`)
      *
      * Generated from protobuf field <code>bool serialize_tx = 5;</code>
      * @return bool
@@ -180,8 +199,9 @@ class SubscribeTransactionsRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * When serialize_tx is true, transactions are serialized using bitcoin protocol encoding. 
-     * Default is false, transaction will be Marshaled (see `Transaction`, `MempoolTransaction` and `TransactionNotification`)
+     * When serialize_tx is true, transactions are serialized using
+     * bitcoin protocol encoding. Default is false, transaction will be Marshaled
+     * (see `Transaction`, `MempoolTransaction` and `TransactionNotification`)
      *
      * Generated from protobuf field <code>bool serialize_tx = 5;</code>
      * @param bool $var

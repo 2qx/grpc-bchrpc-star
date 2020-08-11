@@ -14,14 +14,21 @@ use Google\Protobuf\Internal\GPBUtil;
 class GetUnspentOutputRequest extends \Google\Protobuf\Internal\Message
 {
     /**
+     * The hash of the transaction, little-endian.
+     *
      * Generated from protobuf field <code>bytes hash = 1;</code>
      */
     protected $hash = '';
     /**
+     * The number of the output, starting from zero.
+     *
      * Generated from protobuf field <code>uint32 index = 2;</code>
      */
     protected $index = 0;
     /**
+     * When include_mempool is true, unconfirmed transactions from mempool
+     * are returned. Default is false.
+     *
      * Generated from protobuf field <code>bool include_mempool = 3;</code>
      */
     protected $include_mempool = false;
@@ -33,8 +40,12 @@ class GetUnspentOutputRequest extends \Google\Protobuf\Internal\Message
      *     Optional. Data for populating the Message object.
      *
      *     @type string $hash
+     *           The hash of the transaction, little-endian.
      *     @type int $index
+     *           The number of the output, starting from zero.
      *     @type bool $include_mempool
+     *           When include_mempool is true, unconfirmed transactions from mempool
+     *           are returned. Default is false.
      * }
      */
     public function __construct($data = NULL) {
@@ -43,6 +54,8 @@ class GetUnspentOutputRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * The hash of the transaction, little-endian.
+     *
      * Generated from protobuf field <code>bytes hash = 1;</code>
      * @return string
      */
@@ -52,6 +65,8 @@ class GetUnspentOutputRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * The hash of the transaction, little-endian.
+     *
      * Generated from protobuf field <code>bytes hash = 1;</code>
      * @param string $var
      * @return $this
@@ -65,6 +80,8 @@ class GetUnspentOutputRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * The number of the output, starting from zero.
+     *
      * Generated from protobuf field <code>uint32 index = 2;</code>
      * @return int
      */
@@ -74,6 +91,8 @@ class GetUnspentOutputRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * The number of the output, starting from zero.
+     *
      * Generated from protobuf field <code>uint32 index = 2;</code>
      * @param int $var
      * @return $this
@@ -87,6 +106,9 @@ class GetUnspentOutputRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * When include_mempool is true, unconfirmed transactions from mempool
+     * are returned. Default is false.
+     *
      * Generated from protobuf field <code>bool include_mempool = 3;</code>
      * @return bool
      */
@@ -96,6 +118,9 @@ class GetUnspentOutputRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * When include_mempool is true, unconfirmed transactions from mempool
+     * are returned. Default is false.
+     *
      * Generated from protobuf field <code>bool include_mempool = 3;</code>
      * @param bool $var
      * @return $this

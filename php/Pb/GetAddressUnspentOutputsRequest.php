@@ -14,10 +14,16 @@ use Google\Protobuf\Internal\GPBUtil;
 class GetAddressUnspentOutputsRequest extends \Google\Protobuf\Internal\Message
 {
     /**
+     * The address to query transactions, in lowercase cashaddr format.
+     * The network identifier is optional (i.e. "cashaddress:").
+     *
      * Generated from protobuf field <code>string address = 1;</code>
      */
     protected $address = '';
     /**
+     * When `include_mempool` is true, unconfirmed transactions from mempool
+     * are returned. Default is false.
+     *
      * Generated from protobuf field <code>bool include_mempool = 2;</code>
      */
     protected $include_mempool = false;
@@ -29,7 +35,11 @@ class GetAddressUnspentOutputsRequest extends \Google\Protobuf\Internal\Message
      *     Optional. Data for populating the Message object.
      *
      *     @type string $address
+     *           The address to query transactions, in lowercase cashaddr format.
+     *           The network identifier is optional (i.e. "cashaddress:").
      *     @type bool $include_mempool
+     *           When `include_mempool` is true, unconfirmed transactions from mempool
+     *           are returned. Default is false.
      * }
      */
     public function __construct($data = NULL) {
@@ -38,6 +48,9 @@ class GetAddressUnspentOutputsRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * The address to query transactions, in lowercase cashaddr format.
+     * The network identifier is optional (i.e. "cashaddress:").
+     *
      * Generated from protobuf field <code>string address = 1;</code>
      * @return string
      */
@@ -47,6 +60,9 @@ class GetAddressUnspentOutputsRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * The address to query transactions, in lowercase cashaddr format.
+     * The network identifier is optional (i.e. "cashaddress:").
+     *
      * Generated from protobuf field <code>string address = 1;</code>
      * @param string $var
      * @return $this
@@ -60,6 +76,9 @@ class GetAddressUnspentOutputsRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * When `include_mempool` is true, unconfirmed transactions from mempool
+     * are returned. Default is false.
+     *
      * Generated from protobuf field <code>bool include_mempool = 2;</code>
      * @return bool
      */
@@ -69,6 +88,9 @@ class GetAddressUnspentOutputsRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * When `include_mempool` is true, unconfirmed transactions from mempool
+     * are returned. Default is false.
+     *
      * Generated from protobuf field <code>bool include_mempool = 2;</code>
      * @param bool $var
      * @return $this

@@ -14,30 +14,46 @@ use Google\Protobuf\Internal\GPBUtil;
 class Input extends \Google\Protobuf\Internal\Message
 {
     /**
+     * The number of the input, starting from zero.
+     *
      * Generated from protobuf field <code>uint32 index = 1;</code>
      */
     protected $index = 0;
     /**
+     * The related outpoint.
+     *
      * Generated from protobuf field <code>.pb.Transaction.Input.Outpoint outpoint = 2;</code>
      */
     protected $outpoint = null;
     /**
+     * An unlocking script asserting a transaction is permitted to spend
+     * the Outpoint (UTXO)
+     *
      * Generated from protobuf field <code>bytes signature_script = 3;</code>
      */
     protected $signature_script = '';
     /**
+     * As of BIP-68, the sequence number is interpreted as a relative
+     * lock-time for the input.
+     *
      * Generated from protobuf field <code>uint32 sequence = 4;</code>
      */
     protected $sequence = 0;
     /**
+     * Amount in satoshi.
+     *
      * Generated from protobuf field <code>int64 value = 5;</code>
      */
     protected $value = 0;
     /**
+     * The pubkey_script of the previous output that is being spent.
+     *
      * Generated from protobuf field <code>bytes previous_script = 6;</code>
      */
     protected $previous_script = '';
     /**
+     * The bitcoin addresses associated with this input.
+     *
      * Generated from protobuf field <code>string address = 7;</code>
      */
     protected $address = '';
@@ -49,12 +65,21 @@ class Input extends \Google\Protobuf\Internal\Message
      *     Optional. Data for populating the Message object.
      *
      *     @type int $index
+     *           The number of the input, starting from zero.
      *     @type \Pb\Transaction\Input\Outpoint $outpoint
+     *           The related outpoint.
      *     @type string $signature_script
+     *           An unlocking script asserting a transaction is permitted to spend
+     *           the Outpoint (UTXO)
      *     @type int $sequence
+     *           As of BIP-68, the sequence number is interpreted as a relative
+     *           lock-time for the input.
      *     @type int|string $value
+     *           Amount in satoshi.
      *     @type string $previous_script
+     *           The pubkey_script of the previous output that is being spent.
      *     @type string $address
+     *           The bitcoin addresses associated with this input.
      * }
      */
     public function __construct($data = NULL) {
@@ -63,6 +88,8 @@ class Input extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * The number of the input, starting from zero.
+     *
      * Generated from protobuf field <code>uint32 index = 1;</code>
      * @return int
      */
@@ -72,6 +99,8 @@ class Input extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * The number of the input, starting from zero.
+     *
      * Generated from protobuf field <code>uint32 index = 1;</code>
      * @param int $var
      * @return $this
@@ -85,6 +114,8 @@ class Input extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * The related outpoint.
+     *
      * Generated from protobuf field <code>.pb.Transaction.Input.Outpoint outpoint = 2;</code>
      * @return \Pb\Transaction\Input\Outpoint
      */
@@ -94,19 +125,24 @@ class Input extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * The related outpoint.
+     *
      * Generated from protobuf field <code>.pb.Transaction.Input.Outpoint outpoint = 2;</code>
      * @param \Pb\Transaction\Input\Outpoint $var
      * @return $this
      */
     public function setOutpoint($var)
     {
-        GPBUtil::checkMessage($var, \Pb\Transaction_Input_Outpoint::class);
+        GPBUtil::checkMessage($var, \Pb\Transaction\Input\Outpoint::class);
         $this->outpoint = $var;
 
         return $this;
     }
 
     /**
+     * An unlocking script asserting a transaction is permitted to spend
+     * the Outpoint (UTXO)
+     *
      * Generated from protobuf field <code>bytes signature_script = 3;</code>
      * @return string
      */
@@ -116,6 +152,9 @@ class Input extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * An unlocking script asserting a transaction is permitted to spend
+     * the Outpoint (UTXO)
+     *
      * Generated from protobuf field <code>bytes signature_script = 3;</code>
      * @param string $var
      * @return $this
@@ -129,6 +168,9 @@ class Input extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * As of BIP-68, the sequence number is interpreted as a relative
+     * lock-time for the input.
+     *
      * Generated from protobuf field <code>uint32 sequence = 4;</code>
      * @return int
      */
@@ -138,6 +180,9 @@ class Input extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * As of BIP-68, the sequence number is interpreted as a relative
+     * lock-time for the input.
+     *
      * Generated from protobuf field <code>uint32 sequence = 4;</code>
      * @param int $var
      * @return $this
@@ -151,6 +196,8 @@ class Input extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * Amount in satoshi.
+     *
      * Generated from protobuf field <code>int64 value = 5;</code>
      * @return int|string
      */
@@ -160,6 +207,8 @@ class Input extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * Amount in satoshi.
+     *
      * Generated from protobuf field <code>int64 value = 5;</code>
      * @param int|string $var
      * @return $this
@@ -173,6 +222,8 @@ class Input extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * The pubkey_script of the previous output that is being spent.
+     *
      * Generated from protobuf field <code>bytes previous_script = 6;</code>
      * @return string
      */
@@ -182,6 +233,8 @@ class Input extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * The pubkey_script of the previous output that is being spent.
+     *
      * Generated from protobuf field <code>bytes previous_script = 6;</code>
      * @param string $var
      * @return $this
@@ -195,6 +248,8 @@ class Input extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * The bitcoin addresses associated with this input.
+     *
      * Generated from protobuf field <code>string address = 7;</code>
      * @return string
      */
@@ -204,6 +259,8 @@ class Input extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * The bitcoin addresses associated with this input.
+     *
      * Generated from protobuf field <code>string address = 7;</code>
      * @param string $var
      * @return $this

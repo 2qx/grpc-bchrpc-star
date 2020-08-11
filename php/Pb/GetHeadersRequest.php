@@ -9,15 +9,25 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
+ * Request headers using a list of known block hashes.
+ *
  * Generated from protobuf message <code>pb.GetHeadersRequest</code>
  */
 class GetHeadersRequest extends \Google\Protobuf\Internal\Message
 {
     /**
+     * A list of block hashes known to the client (most recent first) which
+     * is exponentially sparser toward the genesis block (0), little-endian.
+     * Common practice is to include all of the last 10 blocks, and then
+     * 9 blocks for each order of ten thereafter.
+     *
      * Generated from protobuf field <code>repeated bytes block_locator_hashes = 1;</code>
      */
     private $block_locator_hashes;
     /**
+     * hash of the latest desired block header, little-endian; only blocks
+     * occurring before the stop will be returned.
+     *
      * Generated from protobuf field <code>bytes stop_hash = 2;</code>
      */
     protected $stop_hash = '';
@@ -29,7 +39,13 @@ class GetHeadersRequest extends \Google\Protobuf\Internal\Message
      *     Optional. Data for populating the Message object.
      *
      *     @type string[]|\Google\Protobuf\Internal\RepeatedField $block_locator_hashes
+     *           A list of block hashes known to the client (most recent first) which
+     *           is exponentially sparser toward the genesis block (0), little-endian.
+     *           Common practice is to include all of the last 10 blocks, and then
+     *           9 blocks for each order of ten thereafter.
      *     @type string $stop_hash
+     *           hash of the latest desired block header, little-endian; only blocks
+     *           occurring before the stop will be returned.
      * }
      */
     public function __construct($data = NULL) {
@@ -38,6 +54,11 @@ class GetHeadersRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * A list of block hashes known to the client (most recent first) which
+     * is exponentially sparser toward the genesis block (0), little-endian.
+     * Common practice is to include all of the last 10 blocks, and then
+     * 9 blocks for each order of ten thereafter.
+     *
      * Generated from protobuf field <code>repeated bytes block_locator_hashes = 1;</code>
      * @return \Google\Protobuf\Internal\RepeatedField
      */
@@ -47,6 +68,11 @@ class GetHeadersRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * A list of block hashes known to the client (most recent first) which
+     * is exponentially sparser toward the genesis block (0), little-endian.
+     * Common practice is to include all of the last 10 blocks, and then
+     * 9 blocks for each order of ten thereafter.
+     *
      * Generated from protobuf field <code>repeated bytes block_locator_hashes = 1;</code>
      * @param string[]|\Google\Protobuf\Internal\RepeatedField $var
      * @return $this
@@ -60,6 +86,9 @@ class GetHeadersRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * hash of the latest desired block header, little-endian; only blocks
+     * occurring before the stop will be returned.
+     *
      * Generated from protobuf field <code>bytes stop_hash = 2;</code>
      * @return string
      */
@@ -69,6 +98,9 @@ class GetHeadersRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * hash of the latest desired block header, little-endian; only blocks
+     * occurring before the stop will be returned.
+     *
      * Generated from protobuf field <code>bytes stop_hash = 2;</code>
      * @param string $var
      * @return $this

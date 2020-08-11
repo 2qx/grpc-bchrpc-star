@@ -14,7 +14,8 @@ use Google\Protobuf\Internal\GPBUtil;
 class GetBlockRequest extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Provide full transaction info instead of only the hashes.
+     * When `full_transactions` is true, full transactions are returned
+     * instead of just hashes. Default is false.
      *
      * Generated from protobuf field <code>bool full_transactions = 3;</code>
      */
@@ -28,9 +29,12 @@ class GetBlockRequest extends \Google\Protobuf\Internal\Message
      *     Optional. Data for populating the Message object.
      *
      *     @type string $hash
+     *           The block hash as a byte array or base64 encoded string, little-endian.
      *     @type int $height
+     *           The block number.
      *     @type bool $full_transactions
-     *           Provide full transaction info instead of only the hashes.
+     *           When `full_transactions` is true, full transactions are returned
+     *           instead of just hashes. Default is false.
      * }
      */
     public function __construct($data = NULL) {
@@ -39,6 +43,8 @@ class GetBlockRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * The block hash as a byte array or base64 encoded string, little-endian.
+     *
      * Generated from protobuf field <code>bytes hash = 1;</code>
      * @return string
      */
@@ -48,6 +54,8 @@ class GetBlockRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * The block hash as a byte array or base64 encoded string, little-endian.
+     *
      * Generated from protobuf field <code>bytes hash = 1;</code>
      * @param string $var
      * @return $this
@@ -61,6 +69,8 @@ class GetBlockRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * The block number.
+     *
      * Generated from protobuf field <code>int32 height = 2;</code>
      * @return int
      */
@@ -70,6 +80,8 @@ class GetBlockRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * The block number.
+     *
      * Generated from protobuf field <code>int32 height = 2;</code>
      * @param int $var
      * @return $this
@@ -83,7 +95,8 @@ class GetBlockRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Provide full transaction info instead of only the hashes.
+     * When `full_transactions` is true, full transactions are returned
+     * instead of just hashes. Default is false.
      *
      * Generated from protobuf field <code>bool full_transactions = 3;</code>
      * @return bool
@@ -94,7 +107,8 @@ class GetBlockRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Provide full transaction info instead of only the hashes.
+     * When `full_transactions` is true, full transactions are returned
+     * instead of just hashes. Default is false.
      *
      * Generated from protobuf field <code>bool full_transactions = 3;</code>
      * @param bool $var

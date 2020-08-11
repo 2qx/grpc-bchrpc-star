@@ -14,44 +14,66 @@ use Google\Protobuf\Internal\GPBUtil;
 class Transaction extends \Google\Protobuf\Internal\Message
 {
     /**
+     * The double sha256 hash of the encoded transaction, little-endian.
+     * sha256(sha256(encoded_transaction))
+     *
      * Generated from protobuf field <code>bytes hash = 1;</code>
      */
     protected $hash = '';
     /**
+     * The version of the transaction format.
+     *
      * Generated from protobuf field <code>int32 version = 2;</code>
      */
     protected $version = 0;
     /**
+     * List of inputs.
+     *
      * Generated from protobuf field <code>repeated .pb.Transaction.Input inputs = 3;</code>
      */
     private $inputs;
     /**
+     * List of outputs.
+     *
      * Generated from protobuf field <code>repeated .pb.Transaction.Output outputs = 4;</code>
      */
     private $outputs;
     /**
+     * The block height or timestamp after which this transaction is allowed.
+     * If value is greater than 500 million, it is assumed to be an epoch timestamp,
+     * otherwise it is treated as a block-height. Default is zero, or lock.
+     *
      * Generated from protobuf field <code>uint32 lock_time = 5;</code>
      */
     protected $lock_time = 0;
     /**
-     * Metadata
+     * The size of the transaction in bytes.
      *
      * Generated from protobuf field <code>int32 size = 8;</code>
      */
     protected $size = 0;
     /**
+     * When the transaction was included in a block, in epoch time.
+     *
      * Generated from protobuf field <code>int64 timestamp = 9;</code>
      */
     protected $timestamp = 0;
     /**
+     * Number of blocks including proof of the transaction, including
+     * the block it appeared.
+     *
      * Generated from protobuf field <code>int32 confirmations = 10;</code>
      */
     protected $confirmations = 0;
     /**
+     * Number of the block containing the transaction.
+     *
      * Generated from protobuf field <code>int32 block_height = 11;</code>
      */
     protected $block_height = 0;
     /**
+     * Hash of the block the transaction was recorded in, little-endian.
+     *
      * Generated from protobuf field <code>bytes block_hash = 12;</code>
      */
     protected $block_hash = '';
@@ -63,16 +85,29 @@ class Transaction extends \Google\Protobuf\Internal\Message
      *     Optional. Data for populating the Message object.
      *
      *     @type string $hash
+     *           The double sha256 hash of the encoded transaction, little-endian.
+     *           sha256(sha256(encoded_transaction))
      *     @type int $version
+     *           The version of the transaction format.
      *     @type \Pb\Transaction\Input[]|\Google\Protobuf\Internal\RepeatedField $inputs
+     *           List of inputs.
      *     @type \Pb\Transaction\Output[]|\Google\Protobuf\Internal\RepeatedField $outputs
+     *           List of outputs.
      *     @type int $lock_time
+     *           The block height or timestamp after which this transaction is allowed.
+     *           If value is greater than 500 million, it is assumed to be an epoch timestamp,
+     *           otherwise it is treated as a block-height. Default is zero, or lock.
      *     @type int $size
-     *           Metadata
+     *           The size of the transaction in bytes.
      *     @type int|string $timestamp
+     *           When the transaction was included in a block, in epoch time.
      *     @type int $confirmations
+     *           Number of blocks including proof of the transaction, including
+     *           the block it appeared.
      *     @type int $block_height
+     *           Number of the block containing the transaction.
      *     @type string $block_hash
+     *           Hash of the block the transaction was recorded in, little-endian.
      * }
      */
     public function __construct($data = NULL) {
@@ -81,6 +116,9 @@ class Transaction extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * The double sha256 hash of the encoded transaction, little-endian.
+     * sha256(sha256(encoded_transaction))
+     *
      * Generated from protobuf field <code>bytes hash = 1;</code>
      * @return string
      */
@@ -90,6 +128,9 @@ class Transaction extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * The double sha256 hash of the encoded transaction, little-endian.
+     * sha256(sha256(encoded_transaction))
+     *
      * Generated from protobuf field <code>bytes hash = 1;</code>
      * @param string $var
      * @return $this
@@ -103,6 +144,8 @@ class Transaction extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * The version of the transaction format.
+     *
      * Generated from protobuf field <code>int32 version = 2;</code>
      * @return int
      */
@@ -112,6 +155,8 @@ class Transaction extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * The version of the transaction format.
+     *
      * Generated from protobuf field <code>int32 version = 2;</code>
      * @param int $var
      * @return $this
@@ -125,6 +170,8 @@ class Transaction extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * List of inputs.
+     *
      * Generated from protobuf field <code>repeated .pb.Transaction.Input inputs = 3;</code>
      * @return \Google\Protobuf\Internal\RepeatedField
      */
@@ -134,6 +181,8 @@ class Transaction extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * List of inputs.
+     *
      * Generated from protobuf field <code>repeated .pb.Transaction.Input inputs = 3;</code>
      * @param \Pb\Transaction\Input[]|\Google\Protobuf\Internal\RepeatedField $var
      * @return $this
@@ -147,6 +196,8 @@ class Transaction extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * List of outputs.
+     *
      * Generated from protobuf field <code>repeated .pb.Transaction.Output outputs = 4;</code>
      * @return \Google\Protobuf\Internal\RepeatedField
      */
@@ -156,6 +207,8 @@ class Transaction extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * List of outputs.
+     *
      * Generated from protobuf field <code>repeated .pb.Transaction.Output outputs = 4;</code>
      * @param \Pb\Transaction\Output[]|\Google\Protobuf\Internal\RepeatedField $var
      * @return $this
@@ -169,6 +222,10 @@ class Transaction extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * The block height or timestamp after which this transaction is allowed.
+     * If value is greater than 500 million, it is assumed to be an epoch timestamp,
+     * otherwise it is treated as a block-height. Default is zero, or lock.
+     *
      * Generated from protobuf field <code>uint32 lock_time = 5;</code>
      * @return int
      */
@@ -178,6 +235,10 @@ class Transaction extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * The block height or timestamp after which this transaction is allowed.
+     * If value is greater than 500 million, it is assumed to be an epoch timestamp,
+     * otherwise it is treated as a block-height. Default is zero, or lock.
+     *
      * Generated from protobuf field <code>uint32 lock_time = 5;</code>
      * @param int $var
      * @return $this
@@ -191,7 +252,7 @@ class Transaction extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Metadata
+     * The size of the transaction in bytes.
      *
      * Generated from protobuf field <code>int32 size = 8;</code>
      * @return int
@@ -202,7 +263,7 @@ class Transaction extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Metadata
+     * The size of the transaction in bytes.
      *
      * Generated from protobuf field <code>int32 size = 8;</code>
      * @param int $var
@@ -217,6 +278,8 @@ class Transaction extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * When the transaction was included in a block, in epoch time.
+     *
      * Generated from protobuf field <code>int64 timestamp = 9;</code>
      * @return int|string
      */
@@ -226,6 +289,8 @@ class Transaction extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * When the transaction was included in a block, in epoch time.
+     *
      * Generated from protobuf field <code>int64 timestamp = 9;</code>
      * @param int|string $var
      * @return $this
@@ -239,6 +304,9 @@ class Transaction extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * Number of blocks including proof of the transaction, including
+     * the block it appeared.
+     *
      * Generated from protobuf field <code>int32 confirmations = 10;</code>
      * @return int
      */
@@ -248,6 +316,9 @@ class Transaction extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * Number of blocks including proof of the transaction, including
+     * the block it appeared.
+     *
      * Generated from protobuf field <code>int32 confirmations = 10;</code>
      * @param int $var
      * @return $this
@@ -261,6 +332,8 @@ class Transaction extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * Number of the block containing the transaction.
+     *
      * Generated from protobuf field <code>int32 block_height = 11;</code>
      * @return int
      */
@@ -270,6 +343,8 @@ class Transaction extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * Number of the block containing the transaction.
+     *
      * Generated from protobuf field <code>int32 block_height = 11;</code>
      * @param int $var
      * @return $this
@@ -283,6 +358,8 @@ class Transaction extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * Hash of the block the transaction was recorded in, little-endian.
+     *
      * Generated from protobuf field <code>bytes block_hash = 12;</code>
      * @return string
      */
@@ -292,6 +369,8 @@ class Transaction extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * Hash of the block the transaction was recorded in, little-endian.
+     *
      * Generated from protobuf field <code>bytes block_hash = 12;</code>
      * @param string $var
      * @return $this

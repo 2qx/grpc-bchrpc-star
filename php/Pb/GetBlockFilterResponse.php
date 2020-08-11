@@ -14,6 +14,9 @@ use Google\Protobuf\Internal\GPBUtil;
 class GetBlockFilterResponse extends \Google\Protobuf\Internal\Message
 {
     /**
+     * A compact filter matching input outpoints and public key scripts contained
+     * in a block (encoded according to BIP158).
+     *
      * Generated from protobuf field <code>bytes filter = 1;</code>
      */
     protected $filter = '';
@@ -25,6 +28,8 @@ class GetBlockFilterResponse extends \Google\Protobuf\Internal\Message
      *     Optional. Data for populating the Message object.
      *
      *     @type string $filter
+     *           A compact filter matching input outpoints and public key scripts contained
+     *           in a block (encoded according to BIP158).
      * }
      */
     public function __construct($data = NULL) {
@@ -33,6 +38,9 @@ class GetBlockFilterResponse extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * A compact filter matching input outpoints and public key scripts contained
+     * in a block (encoded according to BIP158).
+     *
      * Generated from protobuf field <code>bytes filter = 1;</code>
      * @return string
      */
@@ -42,6 +50,9 @@ class GetBlockFilterResponse extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * A compact filter matching input outpoints and public key scripts contained
+     * in a block (encoded according to BIP158).
+     *
      * Generated from protobuf field <code>bytes filter = 1;</code>
      * @param string $var
      * @return $this

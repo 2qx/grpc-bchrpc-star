@@ -14,6 +14,8 @@ use Google\Protobuf\Internal\GPBUtil;
 class SubmitTransactionRequest extends \Google\Protobuf\Internal\Message
 {
     /**
+     * The encoded transaction.
+     *
      * Generated from protobuf field <code>bytes transaction = 1;</code>
      */
     protected $transaction = '';
@@ -25,6 +27,7 @@ class SubmitTransactionRequest extends \Google\Protobuf\Internal\Message
      *     Optional. Data for populating the Message object.
      *
      *     @type string $transaction
+     *           The encoded transaction.
      * }
      */
     public function __construct($data = NULL) {
@@ -33,6 +36,8 @@ class SubmitTransactionRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * The encoded transaction.
+     *
      * Generated from protobuf field <code>bytes transaction = 1;</code>
      * @return string
      */
@@ -42,6 +47,8 @@ class SubmitTransactionRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * The encoded transaction.
+     *
      * Generated from protobuf field <code>bytes transaction = 1;</code>
      * @param string $var
      * @return $this

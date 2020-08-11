@@ -9,11 +9,15 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
+ * Get an encoded transaction from a transaction hash.
+ *
  * Generated from protobuf message <code>pb.GetRawTransactionRequest</code>
  */
 class GetRawTransactionRequest extends \Google\Protobuf\Internal\Message
 {
     /**
+     * A transaction hash, little-endian.
+     *
      * Generated from protobuf field <code>bytes hash = 1;</code>
      */
     protected $hash = '';
@@ -25,6 +29,7 @@ class GetRawTransactionRequest extends \Google\Protobuf\Internal\Message
      *     Optional. Data for populating the Message object.
      *
      *     @type string $hash
+     *           A transaction hash, little-endian.
      * }
      */
     public function __construct($data = NULL) {
@@ -33,6 +38,8 @@ class GetRawTransactionRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * A transaction hash, little-endian.
+     *
      * Generated from protobuf field <code>bytes hash = 1;</code>
      * @return string
      */
@@ -42,6 +49,8 @@ class GetRawTransactionRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * A transaction hash, little-endian.
+     *
      * Generated from protobuf field <code>bytes hash = 1;</code>
      * @param string $var
      * @return $this

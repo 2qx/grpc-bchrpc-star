@@ -14,30 +14,45 @@ use Google\Protobuf\Internal\GPBUtil;
 class GetBlockchainInfoResponse extends \Google\Protobuf\Internal\Message
 {
     /**
+     * Which network the node is operating on.
+     *
      * Generated from protobuf field <code>.pb.GetBlockchainInfoResponse.BitcoinNet bitcoin_net = 1;</code>
      */
     protected $bitcoin_net = 0;
     /**
+     * The current number of blocks on the longest chain.
+     *
      * Generated from protobuf field <code>int32 best_height = 2;</code>
      */
     protected $best_height = 0;
     /**
+     * The hash of the best (tip) block in the most-work fully-validated chain, little-endian.
+     *
      * Generated from protobuf field <code>bytes best_block_hash = 3;</code>
      */
     protected $best_block_hash = '';
     /**
+     * Threshold for adding new blocks.
+     *
      * Generated from protobuf field <code>double difficulty = 4;</code>
      */
     protected $difficulty = 0.0;
     /**
+     * Median time of the last 11 blocks.
+     *
      * Generated from protobuf field <code>int64 median_time = 5;</code>
      */
     protected $median_time = 0;
     /**
+     * When `tx_index` is true, the node has full transaction index enabled.
+     *
      * Generated from protobuf field <code>bool tx_index = 6;</code>
      */
     protected $tx_index = false;
     /**
+     * When `addr_index` is true, the node has address index enabled and may
+     * be used with call related by address.
+     *
      * Generated from protobuf field <code>bool addr_index = 7;</code>
      */
     protected $addr_index = false;
@@ -49,12 +64,20 @@ class GetBlockchainInfoResponse extends \Google\Protobuf\Internal\Message
      *     Optional. Data for populating the Message object.
      *
      *     @type int $bitcoin_net
+     *           Which network the node is operating on.
      *     @type int $best_height
+     *           The current number of blocks on the longest chain.
      *     @type string $best_block_hash
+     *           The hash of the best (tip) block in the most-work fully-validated chain, little-endian.
      *     @type float $difficulty
+     *           Threshold for adding new blocks.
      *     @type int|string $median_time
+     *           Median time of the last 11 blocks.
      *     @type bool $tx_index
+     *           When `tx_index` is true, the node has full transaction index enabled.
      *     @type bool $addr_index
+     *           When `addr_index` is true, the node has address index enabled and may
+     *           be used with call related by address.
      * }
      */
     public function __construct($data = NULL) {
@@ -63,6 +86,8 @@ class GetBlockchainInfoResponse extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * Which network the node is operating on.
+     *
      * Generated from protobuf field <code>.pb.GetBlockchainInfoResponse.BitcoinNet bitcoin_net = 1;</code>
      * @return int
      */
@@ -72,19 +97,23 @@ class GetBlockchainInfoResponse extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * Which network the node is operating on.
+     *
      * Generated from protobuf field <code>.pb.GetBlockchainInfoResponse.BitcoinNet bitcoin_net = 1;</code>
      * @param int $var
      * @return $this
      */
     public function setBitcoinNet($var)
     {
-        GPBUtil::checkEnum($var, \Pb\GetBlockchainInfoResponse_BitcoinNet::class);
+        GPBUtil::checkEnum($var, \Pb\GetBlockchainInfoResponse\BitcoinNet::class);
         $this->bitcoin_net = $var;
 
         return $this;
     }
 
     /**
+     * The current number of blocks on the longest chain.
+     *
      * Generated from protobuf field <code>int32 best_height = 2;</code>
      * @return int
      */
@@ -94,6 +123,8 @@ class GetBlockchainInfoResponse extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * The current number of blocks on the longest chain.
+     *
      * Generated from protobuf field <code>int32 best_height = 2;</code>
      * @param int $var
      * @return $this
@@ -107,6 +138,8 @@ class GetBlockchainInfoResponse extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * The hash of the best (tip) block in the most-work fully-validated chain, little-endian.
+     *
      * Generated from protobuf field <code>bytes best_block_hash = 3;</code>
      * @return string
      */
@@ -116,6 +149,8 @@ class GetBlockchainInfoResponse extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * The hash of the best (tip) block in the most-work fully-validated chain, little-endian.
+     *
      * Generated from protobuf field <code>bytes best_block_hash = 3;</code>
      * @param string $var
      * @return $this
@@ -129,6 +164,8 @@ class GetBlockchainInfoResponse extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * Threshold for adding new blocks.
+     *
      * Generated from protobuf field <code>double difficulty = 4;</code>
      * @return float
      */
@@ -138,6 +175,8 @@ class GetBlockchainInfoResponse extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * Threshold for adding new blocks.
+     *
      * Generated from protobuf field <code>double difficulty = 4;</code>
      * @param float $var
      * @return $this
@@ -151,6 +190,8 @@ class GetBlockchainInfoResponse extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * Median time of the last 11 blocks.
+     *
      * Generated from protobuf field <code>int64 median_time = 5;</code>
      * @return int|string
      */
@@ -160,6 +201,8 @@ class GetBlockchainInfoResponse extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * Median time of the last 11 blocks.
+     *
      * Generated from protobuf field <code>int64 median_time = 5;</code>
      * @param int|string $var
      * @return $this
@@ -173,6 +216,8 @@ class GetBlockchainInfoResponse extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * When `tx_index` is true, the node has full transaction index enabled.
+     *
      * Generated from protobuf field <code>bool tx_index = 6;</code>
      * @return bool
      */
@@ -182,6 +227,8 @@ class GetBlockchainInfoResponse extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * When `tx_index` is true, the node has full transaction index enabled.
+     *
      * Generated from protobuf field <code>bool tx_index = 6;</code>
      * @param bool $var
      * @return $this
@@ -195,6 +242,9 @@ class GetBlockchainInfoResponse extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * When `addr_index` is true, the node has address index enabled and may
+     * be used with call related by address.
+     *
      * Generated from protobuf field <code>bool addr_index = 7;</code>
      * @return bool
      */
@@ -204,6 +254,9 @@ class GetBlockchainInfoResponse extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * When `addr_index` is true, the node has address index enabled and may
+     * be used with call related by address.
+     *
      * Generated from protobuf field <code>bool addr_index = 7;</code>
      * @param bool $var
      * @return $this

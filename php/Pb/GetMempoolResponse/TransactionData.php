@@ -22,7 +22,9 @@ class TransactionData extends \Google\Protobuf\Internal\Message
      *     Optional. Data for populating the Message object.
      *
      *     @type string $transaction_hash
+     *           The transaction hash, little-endian.
      *     @type \Pb\Transaction $transaction
+     *           The transaction data.
      * }
      */
     public function __construct($data = NULL) {
@@ -31,6 +33,8 @@ class TransactionData extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * The transaction hash, little-endian.
+     *
      * Generated from protobuf field <code>bytes transaction_hash = 1;</code>
      * @return string
      */
@@ -40,6 +44,8 @@ class TransactionData extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * The transaction hash, little-endian.
+     *
      * Generated from protobuf field <code>bytes transaction_hash = 1;</code>
      * @param string $var
      * @return $this
@@ -53,6 +59,8 @@ class TransactionData extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * The transaction data.
+     *
      * Generated from protobuf field <code>.pb.Transaction transaction = 2;</code>
      * @return \Pb\Transaction
      */
@@ -62,6 +70,8 @@ class TransactionData extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * The transaction data.
+     *
      * Generated from protobuf field <code>.pb.Transaction transaction = 2;</code>
      * @param \Pb\Transaction $var
      * @return $this

@@ -14,6 +14,8 @@ use Google\Protobuf\Internal\GPBUtil;
 class GetRawTransactionResponse extends \Google\Protobuf\Internal\Message
 {
     /**
+     * Raw transaction in bytes.
+     *
      * Generated from protobuf field <code>bytes transaction = 1;</code>
      */
     protected $transaction = '';
@@ -25,6 +27,7 @@ class GetRawTransactionResponse extends \Google\Protobuf\Internal\Message
      *     Optional. Data for populating the Message object.
      *
      *     @type string $transaction
+     *           Raw transaction in bytes.
      * }
      */
     public function __construct($data = NULL) {
@@ -33,6 +36,8 @@ class GetRawTransactionResponse extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * Raw transaction in bytes.
+     *
      * Generated from protobuf field <code>bytes transaction = 1;</code>
      * @return string
      */
@@ -42,6 +47,8 @@ class GetRawTransactionResponse extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * Raw transaction in bytes.
+     *
      * Generated from protobuf field <code>bytes transaction = 1;</code>
      * @param string $var
      * @return $this

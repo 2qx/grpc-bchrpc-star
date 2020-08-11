@@ -7,6 +7,8 @@
  * @public
  */
 // GENERATED CODE -- DO NOT EDIT!
+/* eslint-disable */
+// @ts-nocheck
 
 goog.provide('proto.pb.GetAddressTransactionsRequest');
 goog.provide('proto.pb.GetAddressTransactionsRequest.StartBlockCase');

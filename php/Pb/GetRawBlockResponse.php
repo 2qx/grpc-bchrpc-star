@@ -14,6 +14,8 @@ use Google\Protobuf\Internal\GPBUtil;
 class GetRawBlockResponse extends \Google\Protobuf\Internal\Message
 {
     /**
+     * Raw block data (with header) serialized according the the bitcoin block protocol.
+     *
      * Generated from protobuf field <code>bytes block = 1;</code>
      */
     protected $block = '';
@@ -25,6 +27,7 @@ class GetRawBlockResponse extends \Google\Protobuf\Internal\Message
      *     Optional. Data for populating the Message object.
      *
      *     @type string $block
+     *           Raw block data (with header) serialized according the the bitcoin block protocol.
      * }
      */
     public function __construct($data = NULL) {
@@ -33,6 +36,8 @@ class GetRawBlockResponse extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * Raw block data (with header) serialized according the the bitcoin block protocol.
+     *
      * Generated from protobuf field <code>bytes block = 1;</code>
      * @return string
      */
@@ -42,6 +47,8 @@ class GetRawBlockResponse extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * Raw block data (with header) serialized according the the bitcoin block protocol.
+     *
      * Generated from protobuf field <code>bytes block = 1;</code>
      * @param string $var
      * @return $this

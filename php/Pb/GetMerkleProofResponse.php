@@ -14,14 +14,24 @@ use Google\Protobuf\Internal\GPBUtil;
 class GetMerkleProofResponse extends \Google\Protobuf\Internal\Message
 {
     /**
+     * Block header information for the corresponding transaction
+     *
      * Generated from protobuf field <code>.pb.BlockInfo block = 1;</code>
      */
     protected $block = null;
     /**
+     * A list containing the transaction hash, the adjacent leaf transaction hash
+     * and the hashes of the highest nodes in the merkle tree not built with the transaction.
+     * Proof hashes are ordered following transaction order, or left to right on the merkle tree
+     *
      * Generated from protobuf field <code>repeated bytes hashes = 2;</code>
      */
     private $hashes;
     /**
+     * Binary representing the location of the matching transaction in the full merkle tree,
+     * starting with the root (`1`) at position/level 0, where `1` corresponds
+     * to a left branch and `01` is a right branch.
+     *
      * Generated from protobuf field <code>bytes flags = 3;</code>
      */
     protected $flags = '';
@@ -33,8 +43,15 @@ class GetMerkleProofResponse extends \Google\Protobuf\Internal\Message
      *     Optional. Data for populating the Message object.
      *
      *     @type \Pb\BlockInfo $block
+     *           Block header information for the corresponding transaction
      *     @type string[]|\Google\Protobuf\Internal\RepeatedField $hashes
+     *           A list containing the transaction hash, the adjacent leaf transaction hash
+     *           and the hashes of the highest nodes in the merkle tree not built with the transaction.
+     *           Proof hashes are ordered following transaction order, or left to right on the merkle tree
      *     @type string $flags
+     *           Binary representing the location of the matching transaction in the full merkle tree,
+     *           starting with the root (`1`) at position/level 0, where `1` corresponds
+     *           to a left branch and `01` is a right branch.
      * }
      */
     public function __construct($data = NULL) {
@@ -43,6 +60,8 @@ class GetMerkleProofResponse extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * Block header information for the corresponding transaction
+     *
      * Generated from protobuf field <code>.pb.BlockInfo block = 1;</code>
      * @return \Pb\BlockInfo
      */
@@ -52,6 +71,8 @@ class GetMerkleProofResponse extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * Block header information for the corresponding transaction
+     *
      * Generated from protobuf field <code>.pb.BlockInfo block = 1;</code>
      * @param \Pb\BlockInfo $var
      * @return $this
@@ -65,6 +86,10 @@ class GetMerkleProofResponse extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * A list containing the transaction hash, the adjacent leaf transaction hash
+     * and the hashes of the highest nodes in the merkle tree not built with the transaction.
+     * Proof hashes are ordered following transaction order, or left to right on the merkle tree
+     *
      * Generated from protobuf field <code>repeated bytes hashes = 2;</code>
      * @return \Google\Protobuf\Internal\RepeatedField
      */
@@ -74,6 +99,10 @@ class GetMerkleProofResponse extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * A list containing the transaction hash, the adjacent leaf transaction hash
+     * and the hashes of the highest nodes in the merkle tree not built with the transaction.
+     * Proof hashes are ordered following transaction order, or left to right on the merkle tree
+     *
      * Generated from protobuf field <code>repeated bytes hashes = 2;</code>
      * @param string[]|\Google\Protobuf\Internal\RepeatedField $var
      * @return $this
@@ -87,6 +116,10 @@ class GetMerkleProofResponse extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * Binary representing the location of the matching transaction in the full merkle tree,
+     * starting with the root (`1`) at position/level 0, where `1` corresponds
+     * to a left branch and `01` is a right branch.
+     *
      * Generated from protobuf field <code>bytes flags = 3;</code>
      * @return string
      */
@@ -96,6 +129,10 @@ class GetMerkleProofResponse extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * Binary representing the location of the matching transaction in the full merkle tree,
+     * starting with the root (`1`) at position/level 0, where `1` corresponds
+     * to a left branch and `01` is a right branch.
+     *
      * Generated from protobuf field <code>bytes flags = 3;</code>
      * @param string $var
      * @return $this

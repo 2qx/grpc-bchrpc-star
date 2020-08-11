@@ -14,6 +14,8 @@ use Google\Protobuf\Internal\GPBUtil;
 class GetBlockResponse extends \Google\Protobuf\Internal\Message
 {
     /**
+     * A marshaled block.
+     *
      * Generated from protobuf field <code>.pb.Block block = 1;</code>
      */
     protected $block = null;
@@ -25,6 +27,7 @@ class GetBlockResponse extends \Google\Protobuf\Internal\Message
      *     Optional. Data for populating the Message object.
      *
      *     @type \Pb\Block $block
+     *           A marshaled block.
      * }
      */
     public function __construct($data = NULL) {
@@ -33,6 +36,8 @@ class GetBlockResponse extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * A marshaled block.
+     *
      * Generated from protobuf field <code>.pb.Block block = 1;</code>
      * @return \Pb\Block
      */
@@ -42,6 +47,8 @@ class GetBlockResponse extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * A marshaled block.
+     *
      * Generated from protobuf field <code>.pb.Block block = 1;</code>
      * @param \Pb\Block $var
      * @return $this

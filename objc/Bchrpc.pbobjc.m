@@ -8,7 +8,7 @@
 #endif
 
 #if GPB_USE_PROTOBUF_FRAMEWORK_IMPORTS
- #import <protobuf/GPBProtocolBuffers_RuntimeSupport.h>
+ #import <Protobuf/GPBProtocolBuffers_RuntimeSupport.h>
 #else
  #import "GPBProtocolBuffers_RuntimeSupport.h"
 #endif
@@ -21,6 +21,24 @@
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
 #pragma clang diagnostic ignored "-Wdirect-ivar-access"
+#pragma clang diagnostic ignored "-Wdollar-in-identifier-extension"
+
+#pragma mark - Objective C Class declarations
+// Forward declarations of Objective C classes that we can use as
+// static values in struct initializers.
+// We don't use [Foo class] because it is not a static value.
+GPBObjCClassDeclaration(Block);
+GPBObjCClassDeclaration(BlockInfo);
+GPBObjCClassDeclaration(Block_TransactionData);
+GPBObjCClassDeclaration(GetMempoolResponse);
+GPBObjCClassDeclaration(GetMempoolResponse_TransactionData);
+GPBObjCClassDeclaration(MempoolTransaction);
+GPBObjCClassDeclaration(Transaction);
+GPBObjCClassDeclaration(TransactionFilter);
+GPBObjCClassDeclaration(Transaction_Input);
+GPBObjCClassDeclaration(Transaction_Input_Outpoint);
+GPBObjCClassDeclaration(Transaction_Output);
+GPBObjCClassDeclaration(UnspentOutput);
 
 #pragma mark - BchrpcRoot
 
@@ -66,7 +84,7 @@ typedef struct GetMempoolInfoRequest__storage_ {
                                         fields:NULL
                                     fieldCount:0
                                    storageSize:sizeof(GetMempoolInfoRequest__storage_)
-                                         flags:GPBDescriptorInitializationFlag_None];
+                                         flags:(GPBDescriptorInitializationFlags)(GPBDescriptorInitializationFlag_UsesClassRefs | GPBDescriptorInitializationFlag_Proto3OptionalKnown)];
     #if defined(DEBUG) && DEBUG
       NSAssert(descriptor == nil, @"Startup recursed!");
     #endif  // DEBUG
@@ -98,20 +116,20 @@ typedef struct GetMempoolInfoResponse__storage_ {
     static GPBMessageFieldDescription fields[] = {
       {
         .name = "size",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = GetMempoolInfoResponse_FieldNumber_Size,
         .hasIndex = 0,
         .offset = (uint32_t)offsetof(GetMempoolInfoResponse__storage_, size),
-        .flags = GPBFieldOptional,
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeUInt32,
       },
       {
         .name = "bytes",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = GetMempoolInfoResponse_FieldNumber_Bytes,
         .hasIndex = 1,
         .offset = (uint32_t)offsetof(GetMempoolInfoResponse__storage_, bytes),
-        .flags = GPBFieldOptional,
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeUInt32,
       },
     };
@@ -122,7 +140,7 @@ typedef struct GetMempoolInfoResponse__storage_ {
                                         fields:fields
                                     fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
                                    storageSize:sizeof(GetMempoolInfoResponse__storage_)
-                                         flags:GPBDescriptorInitializationFlag_None];
+                                         flags:(GPBDescriptorInitializationFlags)(GPBDescriptorInitializationFlag_UsesClassRefs | GPBDescriptorInitializationFlag_Proto3OptionalKnown)];
     #if defined(DEBUG) && DEBUG
       NSAssert(descriptor == nil, @"Startup recursed!");
     #endif  // DEBUG
@@ -151,11 +169,11 @@ typedef struct GetMempoolRequest__storage_ {
     static GPBMessageFieldDescription fields[] = {
       {
         .name = "fullTransactions",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = GetMempoolRequest_FieldNumber_FullTransactions,
         .hasIndex = 0,
         .offset = 1,  // Stored in _has_storage_ to save space.
-        .flags = GPBFieldOptional,
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeBool,
       },
     };
@@ -166,7 +184,7 @@ typedef struct GetMempoolRequest__storage_ {
                                         fields:fields
                                     fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
                                    storageSize:sizeof(GetMempoolRequest__storage_)
-                                         flags:GPBDescriptorInitializationFlag_None];
+                                         flags:(GPBDescriptorInitializationFlags)(GPBDescriptorInitializationFlag_UsesClassRefs | GPBDescriptorInitializationFlag_Proto3OptionalKnown)];
     #if defined(DEBUG) && DEBUG
       NSAssert(descriptor == nil, @"Startup recursed!");
     #endif  // DEBUG
@@ -196,7 +214,7 @@ typedef struct GetMempoolResponse__storage_ {
     static GPBMessageFieldDescription fields[] = {
       {
         .name = "transactionDataArray",
-        .dataTypeSpecific.className = GPBStringifySymbol(GetMempoolResponse_TransactionData),
+        .dataTypeSpecific.clazz = GPBObjCClass(GetMempoolResponse_TransactionData),
         .number = GetMempoolResponse_FieldNumber_TransactionDataArray,
         .hasIndex = GPBNoHasBit,
         .offset = (uint32_t)offsetof(GetMempoolResponse__storage_, transactionDataArray),
@@ -211,7 +229,7 @@ typedef struct GetMempoolResponse__storage_ {
                                         fields:fields
                                     fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
                                    storageSize:sizeof(GetMempoolResponse__storage_)
-                                         flags:GPBDescriptorInitializationFlag_None];
+                                         flags:(GPBDescriptorInitializationFlags)(GPBDescriptorInitializationFlag_UsesClassRefs | GPBDescriptorInitializationFlag_Proto3OptionalKnown)];
     #if defined(DEBUG) && DEBUG
       NSAssert(descriptor == nil, @"Startup recursed!");
     #endif  // DEBUG
@@ -244,7 +262,7 @@ typedef struct GetMempoolResponse_TransactionData__storage_ {
     static GPBMessageFieldDescription fields[] = {
       {
         .name = "transactionHash",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = GetMempoolResponse_TransactionData_FieldNumber_TransactionHash,
         .hasIndex = -1,
         .offset = (uint32_t)offsetof(GetMempoolResponse_TransactionData__storage_, transactionHash),
@@ -253,7 +271,7 @@ typedef struct GetMempoolResponse_TransactionData__storage_ {
       },
       {
         .name = "transaction",
-        .dataTypeSpecific.className = GPBStringifySymbol(Transaction),
+        .dataTypeSpecific.clazz = GPBObjCClass(Transaction),
         .number = GetMempoolResponse_TransactionData_FieldNumber_Transaction,
         .hasIndex = -1,
         .offset = (uint32_t)offsetof(GetMempoolResponse_TransactionData__storage_, transaction),
@@ -268,14 +286,14 @@ typedef struct GetMempoolResponse_TransactionData__storage_ {
                                         fields:fields
                                     fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
                                    storageSize:sizeof(GetMempoolResponse_TransactionData__storage_)
-                                         flags:GPBDescriptorInitializationFlag_None];
+                                         flags:(GPBDescriptorInitializationFlags)(GPBDescriptorInitializationFlag_UsesClassRefs | GPBDescriptorInitializationFlag_Proto3OptionalKnown)];
     static const char *oneofs[] = {
       "txidsOrTxs",
     };
     [localDescriptor setupOneofs:oneofs
                            count:(uint32_t)(sizeof(oneofs) / sizeof(char*))
                    firstHasIndex:-1];
-    [localDescriptor setupContainingMessageClassName:GPBStringifySymbol(GetMempoolResponse)];
+    [localDescriptor setupContainingMessageClass:GPBObjCClass(GetMempoolResponse)];
     #if defined(DEBUG) && DEBUG
       NSAssert(descriptor == nil, @"Startup recursed!");
     #endif  // DEBUG
@@ -287,9 +305,9 @@ typedef struct GetMempoolResponse_TransactionData__storage_ {
 @end
 
 void GetMempoolResponse_TransactionData_ClearTxidsOrTxsOneOfCase(GetMempoolResponse_TransactionData *message) {
-  GPBDescriptor *descriptor = [message descriptor];
+  GPBDescriptor *descriptor = [GetMempoolResponse_TransactionData descriptor];
   GPBOneofDescriptor *oneof = [descriptor.oneofs objectAtIndex:0];
-  GPBMaybeClearOneof(message, oneof, -1, 0);
+  GPBClearOneof(message, oneof);
 }
 #pragma mark - GetBlockchainInfoRequest
 
@@ -312,7 +330,7 @@ typedef struct GetBlockchainInfoRequest__storage_ {
                                         fields:NULL
                                     fieldCount:0
                                    storageSize:sizeof(GetBlockchainInfoRequest__storage_)
-                                         flags:GPBDescriptorInitializationFlag_None];
+                                         flags:(GPBDescriptorInitializationFlags)(GPBDescriptorInitializationFlag_UsesClassRefs | GPBDescriptorInitializationFlag_Proto3OptionalKnown)];
     #if defined(DEBUG) && DEBUG
       NSAssert(descriptor == nil, @"Startup recursed!");
     #endif  // DEBUG
@@ -356,61 +374,61 @@ typedef struct GetBlockchainInfoResponse__storage_ {
         .number = GetBlockchainInfoResponse_FieldNumber_BitcoinNet,
         .hasIndex = 0,
         .offset = (uint32_t)offsetof(GetBlockchainInfoResponse__storage_, bitcoinNet),
-        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldHasEnumDescriptor),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldHasEnumDescriptor | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeEnum,
       },
       {
         .name = "bestHeight",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = GetBlockchainInfoResponse_FieldNumber_BestHeight,
         .hasIndex = 1,
         .offset = (uint32_t)offsetof(GetBlockchainInfoResponse__storage_, bestHeight),
-        .flags = GPBFieldOptional,
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeInt32,
       },
       {
         .name = "bestBlockHash",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = GetBlockchainInfoResponse_FieldNumber_BestBlockHash,
         .hasIndex = 2,
         .offset = (uint32_t)offsetof(GetBlockchainInfoResponse__storage_, bestBlockHash),
-        .flags = GPBFieldOptional,
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeBytes,
       },
       {
         .name = "difficulty",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = GetBlockchainInfoResponse_FieldNumber_Difficulty,
         .hasIndex = 3,
         .offset = (uint32_t)offsetof(GetBlockchainInfoResponse__storage_, difficulty),
-        .flags = GPBFieldOptional,
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeDouble,
       },
       {
         .name = "medianTime",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = GetBlockchainInfoResponse_FieldNumber_MedianTime,
         .hasIndex = 4,
         .offset = (uint32_t)offsetof(GetBlockchainInfoResponse__storage_, medianTime),
-        .flags = GPBFieldOptional,
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeInt64,
       },
       {
         .name = "txIndex",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = GetBlockchainInfoResponse_FieldNumber_TxIndex,
         .hasIndex = 5,
         .offset = 6,  // Stored in _has_storage_ to save space.
-        .flags = GPBFieldOptional,
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeBool,
       },
       {
         .name = "addrIndex",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = GetBlockchainInfoResponse_FieldNumber_AddrIndex,
         .hasIndex = 7,
         .offset = 8,  // Stored in _has_storage_ to save space.
-        .flags = GPBFieldOptional,
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeBool,
       },
     };
@@ -421,7 +439,7 @@ typedef struct GetBlockchainInfoResponse__storage_ {
                                         fields:fields
                                     fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
                                    storageSize:sizeof(GetBlockchainInfoResponse__storage_)
-                                         flags:GPBDescriptorInitializationFlag_None];
+                                         flags:(GPBDescriptorInitializationFlags)(GPBDescriptorInitializationFlag_UsesClassRefs | GPBDescriptorInitializationFlag_Proto3OptionalKnown)];
     #if defined(DEBUG) && DEBUG
       NSAssert(descriptor == nil, @"Startup recursed!");
     #endif  // DEBUG
@@ -435,13 +453,13 @@ typedef struct GetBlockchainInfoResponse__storage_ {
 int32_t GetBlockchainInfoResponse_BitcoinNet_RawValue(GetBlockchainInfoResponse *message) {
   GPBDescriptor *descriptor = [GetBlockchainInfoResponse descriptor];
   GPBFieldDescriptor *field = [descriptor fieldWithNumber:GetBlockchainInfoResponse_FieldNumber_BitcoinNet];
-  return GPBGetMessageInt32Field(message, field);
+  return GPBGetMessageRawEnumField(message, field);
 }
 
 void SetGetBlockchainInfoResponse_BitcoinNet_RawValue(GetBlockchainInfoResponse *message, int32_t value) {
   GPBDescriptor *descriptor = [GetBlockchainInfoResponse descriptor];
   GPBFieldDescriptor *field = [descriptor fieldWithNumber:GetBlockchainInfoResponse_FieldNumber_BitcoinNet];
-  GPBSetInt32IvarWithFieldInternal(message, field, value, descriptor.file.syntax);
+  GPBSetMessageRawEnumField(message, field, value);
 }
 
 #pragma mark - Enum GetBlockchainInfoResponse_BitcoinNet
@@ -505,7 +523,7 @@ typedef struct GetBlockInfoRequest__storage_ {
     static GPBMessageFieldDescription fields[] = {
       {
         .name = "hash_p",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = GetBlockInfoRequest_FieldNumber_Hash_p,
         .hasIndex = -1,
         .offset = (uint32_t)offsetof(GetBlockInfoRequest__storage_, hash_p),
@@ -514,7 +532,7 @@ typedef struct GetBlockInfoRequest__storage_ {
       },
       {
         .name = "height",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = GetBlockInfoRequest_FieldNumber_Height,
         .hasIndex = -1,
         .offset = (uint32_t)offsetof(GetBlockInfoRequest__storage_, height),
@@ -529,7 +547,7 @@ typedef struct GetBlockInfoRequest__storage_ {
                                         fields:fields
                                     fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
                                    storageSize:sizeof(GetBlockInfoRequest__storage_)
-                                         flags:GPBDescriptorInitializationFlag_None];
+                                         flags:(GPBDescriptorInitializationFlags)(GPBDescriptorInitializationFlag_UsesClassRefs | GPBDescriptorInitializationFlag_Proto3OptionalKnown)];
     static const char *oneofs[] = {
       "hashOrHeight",
     };
@@ -547,9 +565,9 @@ typedef struct GetBlockInfoRequest__storage_ {
 @end
 
 void GetBlockInfoRequest_ClearHashOrHeightOneOfCase(GetBlockInfoRequest *message) {
-  GPBDescriptor *descriptor = [message descriptor];
+  GPBDescriptor *descriptor = [GetBlockInfoRequest descriptor];
   GPBOneofDescriptor *oneof = [descriptor.oneofs objectAtIndex:0];
-  GPBMaybeClearOneof(message, oneof, -1, 0);
+  GPBClearOneof(message, oneof);
 }
 #pragma mark - GetBlockInfoResponse
 
@@ -570,7 +588,7 @@ typedef struct GetBlockInfoResponse__storage_ {
     static GPBMessageFieldDescription fields[] = {
       {
         .name = "info",
-        .dataTypeSpecific.className = GPBStringifySymbol(BlockInfo),
+        .dataTypeSpecific.clazz = GPBObjCClass(BlockInfo),
         .number = GetBlockInfoResponse_FieldNumber_Info,
         .hasIndex = 0,
         .offset = (uint32_t)offsetof(GetBlockInfoResponse__storage_, info),
@@ -585,7 +603,7 @@ typedef struct GetBlockInfoResponse__storage_ {
                                         fields:fields
                                     fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
                                    storageSize:sizeof(GetBlockInfoResponse__storage_)
-                                         flags:GPBDescriptorInitializationFlag_None];
+                                         flags:(GPBDescriptorInitializationFlags)(GPBDescriptorInitializationFlag_UsesClassRefs | GPBDescriptorInitializationFlag_Proto3OptionalKnown)];
     #if defined(DEBUG) && DEBUG
       NSAssert(descriptor == nil, @"Startup recursed!");
     #endif  // DEBUG
@@ -619,7 +637,7 @@ typedef struct GetBlockRequest__storage_ {
     static GPBMessageFieldDescription fields[] = {
       {
         .name = "hash_p",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = GetBlockRequest_FieldNumber_Hash_p,
         .hasIndex = -1,
         .offset = (uint32_t)offsetof(GetBlockRequest__storage_, hash_p),
@@ -628,7 +646,7 @@ typedef struct GetBlockRequest__storage_ {
       },
       {
         .name = "height",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = GetBlockRequest_FieldNumber_Height,
         .hasIndex = -1,
         .offset = (uint32_t)offsetof(GetBlockRequest__storage_, height),
@@ -637,11 +655,11 @@ typedef struct GetBlockRequest__storage_ {
       },
       {
         .name = "fullTransactions",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = GetBlockRequest_FieldNumber_FullTransactions,
         .hasIndex = 0,
         .offset = 1,  // Stored in _has_storage_ to save space.
-        .flags = GPBFieldOptional,
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeBool,
       },
     };
@@ -652,7 +670,7 @@ typedef struct GetBlockRequest__storage_ {
                                         fields:fields
                                     fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
                                    storageSize:sizeof(GetBlockRequest__storage_)
-                                         flags:GPBDescriptorInitializationFlag_None];
+                                         flags:(GPBDescriptorInitializationFlags)(GPBDescriptorInitializationFlag_UsesClassRefs | GPBDescriptorInitializationFlag_Proto3OptionalKnown)];
     static const char *oneofs[] = {
       "hashOrHeight",
     };
@@ -670,9 +688,9 @@ typedef struct GetBlockRequest__storage_ {
 @end
 
 void GetBlockRequest_ClearHashOrHeightOneOfCase(GetBlockRequest *message) {
-  GPBDescriptor *descriptor = [message descriptor];
+  GPBDescriptor *descriptor = [GetBlockRequest descriptor];
   GPBOneofDescriptor *oneof = [descriptor.oneofs objectAtIndex:0];
-  GPBMaybeClearOneof(message, oneof, -1, 0);
+  GPBClearOneof(message, oneof);
 }
 #pragma mark - GetBlockResponse
 
@@ -693,7 +711,7 @@ typedef struct GetBlockResponse__storage_ {
     static GPBMessageFieldDescription fields[] = {
       {
         .name = "block",
-        .dataTypeSpecific.className = GPBStringifySymbol(Block),
+        .dataTypeSpecific.clazz = GPBObjCClass(Block),
         .number = GetBlockResponse_FieldNumber_Block,
         .hasIndex = 0,
         .offset = (uint32_t)offsetof(GetBlockResponse__storage_, block),
@@ -708,7 +726,7 @@ typedef struct GetBlockResponse__storage_ {
                                         fields:fields
                                     fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
                                    storageSize:sizeof(GetBlockResponse__storage_)
-                                         flags:GPBDescriptorInitializationFlag_None];
+                                         flags:(GPBDescriptorInitializationFlags)(GPBDescriptorInitializationFlag_UsesClassRefs | GPBDescriptorInitializationFlag_Proto3OptionalKnown)];
     #if defined(DEBUG) && DEBUG
       NSAssert(descriptor == nil, @"Startup recursed!");
     #endif  // DEBUG
@@ -741,7 +759,7 @@ typedef struct GetRawBlockRequest__storage_ {
     static GPBMessageFieldDescription fields[] = {
       {
         .name = "hash_p",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = GetRawBlockRequest_FieldNumber_Hash_p,
         .hasIndex = -1,
         .offset = (uint32_t)offsetof(GetRawBlockRequest__storage_, hash_p),
@@ -750,7 +768,7 @@ typedef struct GetRawBlockRequest__storage_ {
       },
       {
         .name = "height",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = GetRawBlockRequest_FieldNumber_Height,
         .hasIndex = -1,
         .offset = (uint32_t)offsetof(GetRawBlockRequest__storage_, height),
@@ -765,7 +783,7 @@ typedef struct GetRawBlockRequest__storage_ {
                                         fields:fields
                                     fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
                                    storageSize:sizeof(GetRawBlockRequest__storage_)
-                                         flags:GPBDescriptorInitializationFlag_None];
+                                         flags:(GPBDescriptorInitializationFlags)(GPBDescriptorInitializationFlag_UsesClassRefs | GPBDescriptorInitializationFlag_Proto3OptionalKnown)];
     static const char *oneofs[] = {
       "hashOrHeight",
     };
@@ -783,9 +801,9 @@ typedef struct GetRawBlockRequest__storage_ {
 @end
 
 void GetRawBlockRequest_ClearHashOrHeightOneOfCase(GetRawBlockRequest *message) {
-  GPBDescriptor *descriptor = [message descriptor];
+  GPBDescriptor *descriptor = [GetRawBlockRequest descriptor];
   GPBOneofDescriptor *oneof = [descriptor.oneofs objectAtIndex:0];
-  GPBMaybeClearOneof(message, oneof, -1, 0);
+  GPBClearOneof(message, oneof);
 }
 #pragma mark - GetRawBlockResponse
 
@@ -806,11 +824,11 @@ typedef struct GetRawBlockResponse__storage_ {
     static GPBMessageFieldDescription fields[] = {
       {
         .name = "block",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = GetRawBlockResponse_FieldNumber_Block,
         .hasIndex = 0,
         .offset = (uint32_t)offsetof(GetRawBlockResponse__storage_, block),
-        .flags = GPBFieldOptional,
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeBytes,
       },
     };
@@ -821,7 +839,7 @@ typedef struct GetRawBlockResponse__storage_ {
                                         fields:fields
                                     fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
                                    storageSize:sizeof(GetRawBlockResponse__storage_)
-                                         flags:GPBDescriptorInitializationFlag_None];
+                                         flags:(GPBDescriptorInitializationFlags)(GPBDescriptorInitializationFlag_UsesClassRefs | GPBDescriptorInitializationFlag_Proto3OptionalKnown)];
     #if defined(DEBUG) && DEBUG
       NSAssert(descriptor == nil, @"Startup recursed!");
     #endif  // DEBUG
@@ -854,7 +872,7 @@ typedef struct GetBlockFilterRequest__storage_ {
     static GPBMessageFieldDescription fields[] = {
       {
         .name = "hash_p",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = GetBlockFilterRequest_FieldNumber_Hash_p,
         .hasIndex = -1,
         .offset = (uint32_t)offsetof(GetBlockFilterRequest__storage_, hash_p),
@@ -863,7 +881,7 @@ typedef struct GetBlockFilterRequest__storage_ {
       },
       {
         .name = "height",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = GetBlockFilterRequest_FieldNumber_Height,
         .hasIndex = -1,
         .offset = (uint32_t)offsetof(GetBlockFilterRequest__storage_, height),
@@ -878,7 +896,7 @@ typedef struct GetBlockFilterRequest__storage_ {
                                         fields:fields
                                     fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
                                    storageSize:sizeof(GetBlockFilterRequest__storage_)
-                                         flags:GPBDescriptorInitializationFlag_None];
+                                         flags:(GPBDescriptorInitializationFlags)(GPBDescriptorInitializationFlag_UsesClassRefs | GPBDescriptorInitializationFlag_Proto3OptionalKnown)];
     static const char *oneofs[] = {
       "hashOrHeight",
     };
@@ -896,9 +914,9 @@ typedef struct GetBlockFilterRequest__storage_ {
 @end
 
 void GetBlockFilterRequest_ClearHashOrHeightOneOfCase(GetBlockFilterRequest *message) {
-  GPBDescriptor *descriptor = [message descriptor];
+  GPBDescriptor *descriptor = [GetBlockFilterRequest descriptor];
   GPBOneofDescriptor *oneof = [descriptor.oneofs objectAtIndex:0];
-  GPBMaybeClearOneof(message, oneof, -1, 0);
+  GPBClearOneof(message, oneof);
 }
 #pragma mark - GetBlockFilterResponse
 
@@ -919,11 +937,11 @@ typedef struct GetBlockFilterResponse__storage_ {
     static GPBMessageFieldDescription fields[] = {
       {
         .name = "filter",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = GetBlockFilterResponse_FieldNumber_Filter,
         .hasIndex = 0,
         .offset = (uint32_t)offsetof(GetBlockFilterResponse__storage_, filter),
-        .flags = GPBFieldOptional,
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeBytes,
       },
     };
@@ -934,7 +952,7 @@ typedef struct GetBlockFilterResponse__storage_ {
                                         fields:fields
                                     fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
                                    storageSize:sizeof(GetBlockFilterResponse__storage_)
-                                         flags:GPBDescriptorInitializationFlag_None];
+                                         flags:(GPBDescriptorInitializationFlags)(GPBDescriptorInitializationFlag_UsesClassRefs | GPBDescriptorInitializationFlag_Proto3OptionalKnown)];
     #if defined(DEBUG) && DEBUG
       NSAssert(descriptor == nil, @"Startup recursed!");
     #endif  // DEBUG
@@ -966,7 +984,7 @@ typedef struct GetHeadersRequest__storage_ {
     static GPBMessageFieldDescription fields[] = {
       {
         .name = "blockLocatorHashesArray",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = GetHeadersRequest_FieldNumber_BlockLocatorHashesArray,
         .hasIndex = GPBNoHasBit,
         .offset = (uint32_t)offsetof(GetHeadersRequest__storage_, blockLocatorHashesArray),
@@ -975,11 +993,11 @@ typedef struct GetHeadersRequest__storage_ {
       },
       {
         .name = "stopHash",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = GetHeadersRequest_FieldNumber_StopHash,
         .hasIndex = 0,
         .offset = (uint32_t)offsetof(GetHeadersRequest__storage_, stopHash),
-        .flags = GPBFieldOptional,
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeBytes,
       },
     };
@@ -990,7 +1008,7 @@ typedef struct GetHeadersRequest__storage_ {
                                         fields:fields
                                     fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
                                    storageSize:sizeof(GetHeadersRequest__storage_)
-                                         flags:GPBDescriptorInitializationFlag_None];
+                                         flags:(GPBDescriptorInitializationFlags)(GPBDescriptorInitializationFlag_UsesClassRefs | GPBDescriptorInitializationFlag_Proto3OptionalKnown)];
     #if defined(DEBUG) && DEBUG
       NSAssert(descriptor == nil, @"Startup recursed!");
     #endif  // DEBUG
@@ -1020,7 +1038,7 @@ typedef struct GetHeadersResponse__storage_ {
     static GPBMessageFieldDescription fields[] = {
       {
         .name = "headersArray",
-        .dataTypeSpecific.className = GPBStringifySymbol(BlockInfo),
+        .dataTypeSpecific.clazz = GPBObjCClass(BlockInfo),
         .number = GetHeadersResponse_FieldNumber_HeadersArray,
         .hasIndex = GPBNoHasBit,
         .offset = (uint32_t)offsetof(GetHeadersResponse__storage_, headersArray),
@@ -1035,7 +1053,7 @@ typedef struct GetHeadersResponse__storage_ {
                                         fields:fields
                                     fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
                                    storageSize:sizeof(GetHeadersResponse__storage_)
-                                         flags:GPBDescriptorInitializationFlag_None];
+                                         flags:(GPBDescriptorInitializationFlags)(GPBDescriptorInitializationFlag_UsesClassRefs | GPBDescriptorInitializationFlag_Proto3OptionalKnown)];
     #if defined(DEBUG) && DEBUG
       NSAssert(descriptor == nil, @"Startup recursed!");
     #endif  // DEBUG
@@ -1065,11 +1083,11 @@ typedef struct GetTransactionRequest__storage_ {
     static GPBMessageFieldDescription fields[] = {
       {
         .name = "hash_p",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = GetTransactionRequest_FieldNumber_Hash_p,
         .hasIndex = 0,
         .offset = (uint32_t)offsetof(GetTransactionRequest__storage_, hash_p),
-        .flags = GPBFieldOptional,
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeBytes,
       },
     };
@@ -1080,7 +1098,7 @@ typedef struct GetTransactionRequest__storage_ {
                                         fields:fields
                                     fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
                                    storageSize:sizeof(GetTransactionRequest__storage_)
-                                         flags:GPBDescriptorInitializationFlag_None];
+                                         flags:(GPBDescriptorInitializationFlags)(GPBDescriptorInitializationFlag_UsesClassRefs | GPBDescriptorInitializationFlag_Proto3OptionalKnown)];
     #if defined(DEBUG) && DEBUG
       NSAssert(descriptor == nil, @"Startup recursed!");
     #endif  // DEBUG
@@ -1110,7 +1128,7 @@ typedef struct GetTransactionResponse__storage_ {
     static GPBMessageFieldDescription fields[] = {
       {
         .name = "transaction",
-        .dataTypeSpecific.className = GPBStringifySymbol(Transaction),
+        .dataTypeSpecific.clazz = GPBObjCClass(Transaction),
         .number = GetTransactionResponse_FieldNumber_Transaction,
         .hasIndex = 0,
         .offset = (uint32_t)offsetof(GetTransactionResponse__storage_, transaction),
@@ -1125,7 +1143,7 @@ typedef struct GetTransactionResponse__storage_ {
                                         fields:fields
                                     fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
                                    storageSize:sizeof(GetTransactionResponse__storage_)
-                                         flags:GPBDescriptorInitializationFlag_None];
+                                         flags:(GPBDescriptorInitializationFlags)(GPBDescriptorInitializationFlag_UsesClassRefs | GPBDescriptorInitializationFlag_Proto3OptionalKnown)];
     #if defined(DEBUG) && DEBUG
       NSAssert(descriptor == nil, @"Startup recursed!");
     #endif  // DEBUG
@@ -1155,11 +1173,11 @@ typedef struct GetRawTransactionRequest__storage_ {
     static GPBMessageFieldDescription fields[] = {
       {
         .name = "hash_p",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = GetRawTransactionRequest_FieldNumber_Hash_p,
         .hasIndex = 0,
         .offset = (uint32_t)offsetof(GetRawTransactionRequest__storage_, hash_p),
-        .flags = GPBFieldOptional,
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeBytes,
       },
     };
@@ -1170,7 +1188,7 @@ typedef struct GetRawTransactionRequest__storage_ {
                                         fields:fields
                                     fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
                                    storageSize:sizeof(GetRawTransactionRequest__storage_)
-                                         flags:GPBDescriptorInitializationFlag_None];
+                                         flags:(GPBDescriptorInitializationFlags)(GPBDescriptorInitializationFlag_UsesClassRefs | GPBDescriptorInitializationFlag_Proto3OptionalKnown)];
     #if defined(DEBUG) && DEBUG
       NSAssert(descriptor == nil, @"Startup recursed!");
     #endif  // DEBUG
@@ -1200,11 +1218,11 @@ typedef struct GetRawTransactionResponse__storage_ {
     static GPBMessageFieldDescription fields[] = {
       {
         .name = "transaction",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = GetRawTransactionResponse_FieldNumber_Transaction,
         .hasIndex = 0,
         .offset = (uint32_t)offsetof(GetRawTransactionResponse__storage_, transaction),
-        .flags = GPBFieldOptional,
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeBytes,
       },
     };
@@ -1215,7 +1233,7 @@ typedef struct GetRawTransactionResponse__storage_ {
                                         fields:fields
                                     fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
                                    storageSize:sizeof(GetRawTransactionResponse__storage_)
-                                         flags:GPBDescriptorInitializationFlag_None];
+                                         flags:(GPBDescriptorInitializationFlags)(GPBDescriptorInitializationFlag_UsesClassRefs | GPBDescriptorInitializationFlag_Proto3OptionalKnown)];
     #if defined(DEBUG) && DEBUG
       NSAssert(descriptor == nil, @"Startup recursed!");
     #endif  // DEBUG
@@ -1254,34 +1272,34 @@ typedef struct GetAddressTransactionsRequest__storage_ {
     static GPBMessageFieldDescription fields[] = {
       {
         .name = "address",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = GetAddressTransactionsRequest_FieldNumber_Address,
         .hasIndex = 0,
         .offset = (uint32_t)offsetof(GetAddressTransactionsRequest__storage_, address),
-        .flags = GPBFieldOptional,
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeString,
       },
       {
         .name = "nbSkip",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = GetAddressTransactionsRequest_FieldNumber_NbSkip,
         .hasIndex = 1,
         .offset = (uint32_t)offsetof(GetAddressTransactionsRequest__storage_, nbSkip),
-        .flags = GPBFieldOptional,
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeUInt32,
       },
       {
         .name = "nbFetch",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = GetAddressTransactionsRequest_FieldNumber_NbFetch,
         .hasIndex = 2,
         .offset = (uint32_t)offsetof(GetAddressTransactionsRequest__storage_, nbFetch),
-        .flags = GPBFieldOptional,
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeUInt32,
       },
       {
         .name = "hash_p",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = GetAddressTransactionsRequest_FieldNumber_Hash_p,
         .hasIndex = -1,
         .offset = (uint32_t)offsetof(GetAddressTransactionsRequest__storage_, hash_p),
@@ -1290,7 +1308,7 @@ typedef struct GetAddressTransactionsRequest__storage_ {
       },
       {
         .name = "height",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = GetAddressTransactionsRequest_FieldNumber_Height,
         .hasIndex = -1,
         .offset = (uint32_t)offsetof(GetAddressTransactionsRequest__storage_, height),
@@ -1305,7 +1323,7 @@ typedef struct GetAddressTransactionsRequest__storage_ {
                                         fields:fields
                                     fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
                                    storageSize:sizeof(GetAddressTransactionsRequest__storage_)
-                                         flags:GPBDescriptorInitializationFlag_None];
+                                         flags:(GPBDescriptorInitializationFlags)(GPBDescriptorInitializationFlag_UsesClassRefs | GPBDescriptorInitializationFlag_Proto3OptionalKnown)];
     static const char *oneofs[] = {
       "startBlock",
     };
@@ -1323,9 +1341,9 @@ typedef struct GetAddressTransactionsRequest__storage_ {
 @end
 
 void GetAddressTransactionsRequest_ClearStartBlockOneOfCase(GetAddressTransactionsRequest *message) {
-  GPBDescriptor *descriptor = [message descriptor];
+  GPBDescriptor *descriptor = [GetAddressTransactionsRequest descriptor];
   GPBOneofDescriptor *oneof = [descriptor.oneofs objectAtIndex:0];
-  GPBMaybeClearOneof(message, oneof, -1, 0);
+  GPBClearOneof(message, oneof);
 }
 #pragma mark - GetAddressTransactionsResponse
 
@@ -1348,7 +1366,7 @@ typedef struct GetAddressTransactionsResponse__storage_ {
     static GPBMessageFieldDescription fields[] = {
       {
         .name = "confirmedTransactionsArray",
-        .dataTypeSpecific.className = GPBStringifySymbol(Transaction),
+        .dataTypeSpecific.clazz = GPBObjCClass(Transaction),
         .number = GetAddressTransactionsResponse_FieldNumber_ConfirmedTransactionsArray,
         .hasIndex = GPBNoHasBit,
         .offset = (uint32_t)offsetof(GetAddressTransactionsResponse__storage_, confirmedTransactionsArray),
@@ -1357,7 +1375,7 @@ typedef struct GetAddressTransactionsResponse__storage_ {
       },
       {
         .name = "unconfirmedTransactionsArray",
-        .dataTypeSpecific.className = GPBStringifySymbol(MempoolTransaction),
+        .dataTypeSpecific.clazz = GPBObjCClass(MempoolTransaction),
         .number = GetAddressTransactionsResponse_FieldNumber_UnconfirmedTransactionsArray,
         .hasIndex = GPBNoHasBit,
         .offset = (uint32_t)offsetof(GetAddressTransactionsResponse__storage_, unconfirmedTransactionsArray),
@@ -1372,7 +1390,7 @@ typedef struct GetAddressTransactionsResponse__storage_ {
                                         fields:fields
                                     fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
                                    storageSize:sizeof(GetAddressTransactionsResponse__storage_)
-                                         flags:GPBDescriptorInitializationFlag_None];
+                                         flags:(GPBDescriptorInitializationFlags)(GPBDescriptorInitializationFlag_UsesClassRefs | GPBDescriptorInitializationFlag_Proto3OptionalKnown)];
     #if defined(DEBUG) && DEBUG
       NSAssert(descriptor == nil, @"Startup recursed!");
     #endif  // DEBUG
@@ -1411,34 +1429,34 @@ typedef struct GetRawAddressTransactionsRequest__storage_ {
     static GPBMessageFieldDescription fields[] = {
       {
         .name = "address",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = GetRawAddressTransactionsRequest_FieldNumber_Address,
         .hasIndex = 0,
         .offset = (uint32_t)offsetof(GetRawAddressTransactionsRequest__storage_, address),
-        .flags = GPBFieldOptional,
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeString,
       },
       {
         .name = "nbSkip",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = GetRawAddressTransactionsRequest_FieldNumber_NbSkip,
         .hasIndex = 1,
         .offset = (uint32_t)offsetof(GetRawAddressTransactionsRequest__storage_, nbSkip),
-        .flags = GPBFieldOptional,
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeUInt32,
       },
       {
         .name = "nbFetch",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = GetRawAddressTransactionsRequest_FieldNumber_NbFetch,
         .hasIndex = 2,
         .offset = (uint32_t)offsetof(GetRawAddressTransactionsRequest__storage_, nbFetch),
-        .flags = GPBFieldOptional,
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeUInt32,
       },
       {
         .name = "hash_p",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = GetRawAddressTransactionsRequest_FieldNumber_Hash_p,
         .hasIndex = -1,
         .offset = (uint32_t)offsetof(GetRawAddressTransactionsRequest__storage_, hash_p),
@@ -1447,7 +1465,7 @@ typedef struct GetRawAddressTransactionsRequest__storage_ {
       },
       {
         .name = "height",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = GetRawAddressTransactionsRequest_FieldNumber_Height,
         .hasIndex = -1,
         .offset = (uint32_t)offsetof(GetRawAddressTransactionsRequest__storage_, height),
@@ -1462,7 +1480,7 @@ typedef struct GetRawAddressTransactionsRequest__storage_ {
                                         fields:fields
                                     fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
                                    storageSize:sizeof(GetRawAddressTransactionsRequest__storage_)
-                                         flags:GPBDescriptorInitializationFlag_None];
+                                         flags:(GPBDescriptorInitializationFlags)(GPBDescriptorInitializationFlag_UsesClassRefs | GPBDescriptorInitializationFlag_Proto3OptionalKnown)];
     static const char *oneofs[] = {
       "startBlock",
     };
@@ -1480,9 +1498,9 @@ typedef struct GetRawAddressTransactionsRequest__storage_ {
 @end
 
 void GetRawAddressTransactionsRequest_ClearStartBlockOneOfCase(GetRawAddressTransactionsRequest *message) {
-  GPBDescriptor *descriptor = [message descriptor];
+  GPBDescriptor *descriptor = [GetRawAddressTransactionsRequest descriptor];
   GPBOneofDescriptor *oneof = [descriptor.oneofs objectAtIndex:0];
-  GPBMaybeClearOneof(message, oneof, -1, 0);
+  GPBClearOneof(message, oneof);
 }
 #pragma mark - GetRawAddressTransactionsResponse
 
@@ -1505,7 +1523,7 @@ typedef struct GetRawAddressTransactionsResponse__storage_ {
     static GPBMessageFieldDescription fields[] = {
       {
         .name = "confirmedTransactionsArray",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = GetRawAddressTransactionsResponse_FieldNumber_ConfirmedTransactionsArray,
         .hasIndex = GPBNoHasBit,
         .offset = (uint32_t)offsetof(GetRawAddressTransactionsResponse__storage_, confirmedTransactionsArray),
@@ -1514,7 +1532,7 @@ typedef struct GetRawAddressTransactionsResponse__storage_ {
       },
       {
         .name = "unconfirmedTransactionsArray",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = GetRawAddressTransactionsResponse_FieldNumber_UnconfirmedTransactionsArray,
         .hasIndex = GPBNoHasBit,
         .offset = (uint32_t)offsetof(GetRawAddressTransactionsResponse__storage_, unconfirmedTransactionsArray),
@@ -1529,7 +1547,7 @@ typedef struct GetRawAddressTransactionsResponse__storage_ {
                                         fields:fields
                                     fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
                                    storageSize:sizeof(GetRawAddressTransactionsResponse__storage_)
-                                         flags:GPBDescriptorInitializationFlag_None];
+                                         flags:(GPBDescriptorInitializationFlags)(GPBDescriptorInitializationFlag_UsesClassRefs | GPBDescriptorInitializationFlag_Proto3OptionalKnown)];
     #if defined(DEBUG) && DEBUG
       NSAssert(descriptor == nil, @"Startup recursed!");
     #endif  // DEBUG
@@ -1560,20 +1578,20 @@ typedef struct GetAddressUnspentOutputsRequest__storage_ {
     static GPBMessageFieldDescription fields[] = {
       {
         .name = "address",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = GetAddressUnspentOutputsRequest_FieldNumber_Address,
         .hasIndex = 0,
         .offset = (uint32_t)offsetof(GetAddressUnspentOutputsRequest__storage_, address),
-        .flags = GPBFieldOptional,
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeString,
       },
       {
         .name = "includeMempool",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = GetAddressUnspentOutputsRequest_FieldNumber_IncludeMempool,
         .hasIndex = 1,
         .offset = 2,  // Stored in _has_storage_ to save space.
-        .flags = GPBFieldOptional,
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeBool,
       },
     };
@@ -1584,7 +1602,7 @@ typedef struct GetAddressUnspentOutputsRequest__storage_ {
                                         fields:fields
                                     fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
                                    storageSize:sizeof(GetAddressUnspentOutputsRequest__storage_)
-                                         flags:GPBDescriptorInitializationFlag_None];
+                                         flags:(GPBDescriptorInitializationFlags)(GPBDescriptorInitializationFlag_UsesClassRefs | GPBDescriptorInitializationFlag_Proto3OptionalKnown)];
     #if defined(DEBUG) && DEBUG
       NSAssert(descriptor == nil, @"Startup recursed!");
     #endif  // DEBUG
@@ -1614,7 +1632,7 @@ typedef struct GetAddressUnspentOutputsResponse__storage_ {
     static GPBMessageFieldDescription fields[] = {
       {
         .name = "outputsArray",
-        .dataTypeSpecific.className = GPBStringifySymbol(UnspentOutput),
+        .dataTypeSpecific.clazz = GPBObjCClass(UnspentOutput),
         .number = GetAddressUnspentOutputsResponse_FieldNumber_OutputsArray,
         .hasIndex = GPBNoHasBit,
         .offset = (uint32_t)offsetof(GetAddressUnspentOutputsResponse__storage_, outputsArray),
@@ -1629,7 +1647,7 @@ typedef struct GetAddressUnspentOutputsResponse__storage_ {
                                         fields:fields
                                     fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
                                    storageSize:sizeof(GetAddressUnspentOutputsResponse__storage_)
-                                         flags:GPBDescriptorInitializationFlag_None];
+                                         flags:(GPBDescriptorInitializationFlags)(GPBDescriptorInitializationFlag_UsesClassRefs | GPBDescriptorInitializationFlag_Proto3OptionalKnown)];
     #if defined(DEBUG) && DEBUG
       NSAssert(descriptor == nil, @"Startup recursed!");
     #endif  // DEBUG
@@ -1662,29 +1680,29 @@ typedef struct GetUnspentOutputRequest__storage_ {
     static GPBMessageFieldDescription fields[] = {
       {
         .name = "hash_p",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = GetUnspentOutputRequest_FieldNumber_Hash_p,
         .hasIndex = 0,
         .offset = (uint32_t)offsetof(GetUnspentOutputRequest__storage_, hash_p),
-        .flags = GPBFieldOptional,
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeBytes,
       },
       {
         .name = "index",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = GetUnspentOutputRequest_FieldNumber_Index,
         .hasIndex = 1,
         .offset = (uint32_t)offsetof(GetUnspentOutputRequest__storage_, index),
-        .flags = GPBFieldOptional,
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeUInt32,
       },
       {
         .name = "includeMempool",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = GetUnspentOutputRequest_FieldNumber_IncludeMempool,
         .hasIndex = 2,
         .offset = 3,  // Stored in _has_storage_ to save space.
-        .flags = GPBFieldOptional,
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeBool,
       },
     };
@@ -1695,7 +1713,7 @@ typedef struct GetUnspentOutputRequest__storage_ {
                                         fields:fields
                                     fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
                                    storageSize:sizeof(GetUnspentOutputRequest__storage_)
-                                         flags:GPBDescriptorInitializationFlag_None];
+                                         flags:(GPBDescriptorInitializationFlags)(GPBDescriptorInitializationFlag_UsesClassRefs | GPBDescriptorInitializationFlag_Proto3OptionalKnown)];
     #if defined(DEBUG) && DEBUG
       NSAssert(descriptor == nil, @"Startup recursed!");
     #endif  // DEBUG
@@ -1732,7 +1750,7 @@ typedef struct GetUnspentOutputResponse__storage_ {
     static GPBMessageFieldDescription fields[] = {
       {
         .name = "outpoint",
-        .dataTypeSpecific.className = GPBStringifySymbol(Transaction_Input_Outpoint),
+        .dataTypeSpecific.clazz = GPBObjCClass(Transaction_Input_Outpoint),
         .number = GetUnspentOutputResponse_FieldNumber_Outpoint,
         .hasIndex = 0,
         .offset = (uint32_t)offsetof(GetUnspentOutputResponse__storage_, outpoint),
@@ -1741,38 +1759,38 @@ typedef struct GetUnspentOutputResponse__storage_ {
       },
       {
         .name = "pubkeyScript",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = GetUnspentOutputResponse_FieldNumber_PubkeyScript,
         .hasIndex = 1,
         .offset = (uint32_t)offsetof(GetUnspentOutputResponse__storage_, pubkeyScript),
-        .flags = GPBFieldOptional,
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeBytes,
       },
       {
         .name = "value",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = GetUnspentOutputResponse_FieldNumber_Value,
         .hasIndex = 2,
         .offset = (uint32_t)offsetof(GetUnspentOutputResponse__storage_, value),
-        .flags = GPBFieldOptional,
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeInt64,
       },
       {
         .name = "isCoinbase",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = GetUnspentOutputResponse_FieldNumber_IsCoinbase,
         .hasIndex = 3,
         .offset = 4,  // Stored in _has_storage_ to save space.
-        .flags = GPBFieldOptional,
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeBool,
       },
       {
         .name = "blockHeight",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = GetUnspentOutputResponse_FieldNumber_BlockHeight,
         .hasIndex = 5,
         .offset = (uint32_t)offsetof(GetUnspentOutputResponse__storage_, blockHeight),
-        .flags = GPBFieldOptional,
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeInt32,
       },
     };
@@ -1783,7 +1801,7 @@ typedef struct GetUnspentOutputResponse__storage_ {
                                         fields:fields
                                     fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
                                    storageSize:sizeof(GetUnspentOutputResponse__storage_)
-                                         flags:GPBDescriptorInitializationFlag_None];
+                                         flags:(GPBDescriptorInitializationFlags)(GPBDescriptorInitializationFlag_UsesClassRefs | GPBDescriptorInitializationFlag_Proto3OptionalKnown)];
     #if defined(DEBUG) && DEBUG
       NSAssert(descriptor == nil, @"Startup recursed!");
     #endif  // DEBUG
@@ -1813,11 +1831,11 @@ typedef struct GetMerkleProofRequest__storage_ {
     static GPBMessageFieldDescription fields[] = {
       {
         .name = "transactionHash",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = GetMerkleProofRequest_FieldNumber_TransactionHash,
         .hasIndex = 0,
         .offset = (uint32_t)offsetof(GetMerkleProofRequest__storage_, transactionHash),
-        .flags = GPBFieldOptional,
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeBytes,
       },
     };
@@ -1828,7 +1846,7 @@ typedef struct GetMerkleProofRequest__storage_ {
                                         fields:fields
                                     fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
                                    storageSize:sizeof(GetMerkleProofRequest__storage_)
-                                         flags:GPBDescriptorInitializationFlag_None];
+                                         flags:(GPBDescriptorInitializationFlags)(GPBDescriptorInitializationFlag_UsesClassRefs | GPBDescriptorInitializationFlag_Proto3OptionalKnown)];
     #if defined(DEBUG) && DEBUG
       NSAssert(descriptor == nil, @"Startup recursed!");
     #endif  // DEBUG
@@ -1862,7 +1880,7 @@ typedef struct GetMerkleProofResponse__storage_ {
     static GPBMessageFieldDescription fields[] = {
       {
         .name = "block",
-        .dataTypeSpecific.className = GPBStringifySymbol(BlockInfo),
+        .dataTypeSpecific.clazz = GPBObjCClass(BlockInfo),
         .number = GetMerkleProofResponse_FieldNumber_Block,
         .hasIndex = 0,
         .offset = (uint32_t)offsetof(GetMerkleProofResponse__storage_, block),
@@ -1871,7 +1889,7 @@ typedef struct GetMerkleProofResponse__storage_ {
       },
       {
         .name = "hashesArray",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = GetMerkleProofResponse_FieldNumber_HashesArray,
         .hasIndex = GPBNoHasBit,
         .offset = (uint32_t)offsetof(GetMerkleProofResponse__storage_, hashesArray),
@@ -1880,11 +1898,11 @@ typedef struct GetMerkleProofResponse__storage_ {
       },
       {
         .name = "flags",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = GetMerkleProofResponse_FieldNumber_Flags,
         .hasIndex = 1,
         .offset = (uint32_t)offsetof(GetMerkleProofResponse__storage_, flags),
-        .flags = GPBFieldOptional,
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeBytes,
       },
     };
@@ -1895,7 +1913,7 @@ typedef struct GetMerkleProofResponse__storage_ {
                                         fields:fields
                                     fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
                                    storageSize:sizeof(GetMerkleProofResponse__storage_)
-                                         flags:GPBDescriptorInitializationFlag_None];
+                                         flags:(GPBDescriptorInitializationFlags)(GPBDescriptorInitializationFlag_UsesClassRefs | GPBDescriptorInitializationFlag_Proto3OptionalKnown)];
     #if defined(DEBUG) && DEBUG
       NSAssert(descriptor == nil, @"Startup recursed!");
     #endif  // DEBUG
@@ -1925,11 +1943,11 @@ typedef struct SubmitTransactionRequest__storage_ {
     static GPBMessageFieldDescription fields[] = {
       {
         .name = "transaction",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = SubmitTransactionRequest_FieldNumber_Transaction,
         .hasIndex = 0,
         .offset = (uint32_t)offsetof(SubmitTransactionRequest__storage_, transaction),
-        .flags = GPBFieldOptional,
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeBytes,
       },
     };
@@ -1940,7 +1958,7 @@ typedef struct SubmitTransactionRequest__storage_ {
                                         fields:fields
                                     fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
                                    storageSize:sizeof(SubmitTransactionRequest__storage_)
-                                         flags:GPBDescriptorInitializationFlag_None];
+                                         flags:(GPBDescriptorInitializationFlags)(GPBDescriptorInitializationFlag_UsesClassRefs | GPBDescriptorInitializationFlag_Proto3OptionalKnown)];
     #if defined(DEBUG) && DEBUG
       NSAssert(descriptor == nil, @"Startup recursed!");
     #endif  // DEBUG
@@ -1970,11 +1988,11 @@ typedef struct SubmitTransactionResponse__storage_ {
     static GPBMessageFieldDescription fields[] = {
       {
         .name = "hash_p",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = SubmitTransactionResponse_FieldNumber_Hash_p,
         .hasIndex = 0,
         .offset = (uint32_t)offsetof(SubmitTransactionResponse__storage_, hash_p),
-        .flags = GPBFieldOptional,
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeBytes,
       },
     };
@@ -1985,7 +2003,7 @@ typedef struct SubmitTransactionResponse__storage_ {
                                         fields:fields
                                     fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
                                    storageSize:sizeof(SubmitTransactionResponse__storage_)
-                                         flags:GPBDescriptorInitializationFlag_None];
+                                         flags:(GPBDescriptorInitializationFlags)(GPBDescriptorInitializationFlag_UsesClassRefs | GPBDescriptorInitializationFlag_Proto3OptionalKnown)];
     #if defined(DEBUG) && DEBUG
       NSAssert(descriptor == nil, @"Startup recursed!");
     #endif  // DEBUG
@@ -2020,7 +2038,7 @@ typedef struct SubscribeTransactionsRequest__storage_ {
     static GPBMessageFieldDescription fields[] = {
       {
         .name = "subscribe",
-        .dataTypeSpecific.className = GPBStringifySymbol(TransactionFilter),
+        .dataTypeSpecific.clazz = GPBObjCClass(TransactionFilter),
         .number = SubscribeTransactionsRequest_FieldNumber_Subscribe,
         .hasIndex = 0,
         .offset = (uint32_t)offsetof(SubscribeTransactionsRequest__storage_, subscribe),
@@ -2029,7 +2047,7 @@ typedef struct SubscribeTransactionsRequest__storage_ {
       },
       {
         .name = "unsubscribe",
-        .dataTypeSpecific.className = GPBStringifySymbol(TransactionFilter),
+        .dataTypeSpecific.clazz = GPBObjCClass(TransactionFilter),
         .number = SubscribeTransactionsRequest_FieldNumber_Unsubscribe,
         .hasIndex = 1,
         .offset = (uint32_t)offsetof(SubscribeTransactionsRequest__storage_, unsubscribe),
@@ -2038,29 +2056,29 @@ typedef struct SubscribeTransactionsRequest__storage_ {
       },
       {
         .name = "includeMempool",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = SubscribeTransactionsRequest_FieldNumber_IncludeMempool,
         .hasIndex = 2,
         .offset = 3,  // Stored in _has_storage_ to save space.
-        .flags = GPBFieldOptional,
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeBool,
       },
       {
         .name = "includeInBlock",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = SubscribeTransactionsRequest_FieldNumber_IncludeInBlock,
         .hasIndex = 4,
         .offset = 5,  // Stored in _has_storage_ to save space.
-        .flags = GPBFieldOptional,
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeBool,
       },
       {
         .name = "serializeTx",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = SubscribeTransactionsRequest_FieldNumber_SerializeTx,
         .hasIndex = 6,
         .offset = 7,  // Stored in _has_storage_ to save space.
-        .flags = GPBFieldOptional,
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeBool,
       },
     };
@@ -2071,7 +2089,7 @@ typedef struct SubscribeTransactionsRequest__storage_ {
                                         fields:fields
                                     fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
                                    storageSize:sizeof(SubscribeTransactionsRequest__storage_)
-                                         flags:GPBDescriptorInitializationFlag_None];
+                                         flags:(GPBDescriptorInitializationFlags)(GPBDescriptorInitializationFlag_UsesClassRefs | GPBDescriptorInitializationFlag_Proto3OptionalKnown)];
     #if defined(DEBUG) && DEBUG
       NSAssert(descriptor == nil, @"Startup recursed!");
     #endif  // DEBUG
@@ -2102,29 +2120,29 @@ typedef struct SubscribeBlocksRequest__storage_ {
     static GPBMessageFieldDescription fields[] = {
       {
         .name = "fullBlock",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = SubscribeBlocksRequest_FieldNumber_FullBlock,
         .hasIndex = 0,
         .offset = 1,  // Stored in _has_storage_ to save space.
-        .flags = GPBFieldOptional,
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeBool,
       },
       {
         .name = "fullTransactions",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = SubscribeBlocksRequest_FieldNumber_FullTransactions,
         .hasIndex = 2,
         .offset = 3,  // Stored in _has_storage_ to save space.
-        .flags = GPBFieldOptional,
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeBool,
       },
       {
         .name = "serializeBlock",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = SubscribeBlocksRequest_FieldNumber_SerializeBlock,
         .hasIndex = 4,
         .offset = 5,  // Stored in _has_storage_ to save space.
-        .flags = GPBFieldOptional,
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeBool,
       },
     };
@@ -2135,7 +2153,7 @@ typedef struct SubscribeBlocksRequest__storage_ {
                                         fields:fields
                                     fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
                                    storageSize:sizeof(SubscribeBlocksRequest__storage_)
-                                         flags:GPBDescriptorInitializationFlag_None];
+                                         flags:(GPBDescriptorInitializationFlags)(GPBDescriptorInitializationFlag_UsesClassRefs | GPBDescriptorInitializationFlag_Proto3OptionalKnown)];
     #if defined(DEBUG) && DEBUG
       NSAssert(descriptor == nil, @"Startup recursed!");
     #endif  // DEBUG
@@ -2176,12 +2194,12 @@ typedef struct BlockNotification__storage_ {
         .number = BlockNotification_FieldNumber_Type,
         .hasIndex = 0,
         .offset = (uint32_t)offsetof(BlockNotification__storage_, type),
-        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldHasEnumDescriptor),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldHasEnumDescriptor | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeEnum,
       },
       {
         .name = "blockInfo",
-        .dataTypeSpecific.className = GPBStringifySymbol(BlockInfo),
+        .dataTypeSpecific.clazz = GPBObjCClass(BlockInfo),
         .number = BlockNotification_FieldNumber_BlockInfo,
         .hasIndex = -1,
         .offset = (uint32_t)offsetof(BlockNotification__storage_, blockInfo),
@@ -2190,7 +2208,7 @@ typedef struct BlockNotification__storage_ {
       },
       {
         .name = "marshaledBlock",
-        .dataTypeSpecific.className = GPBStringifySymbol(Block),
+        .dataTypeSpecific.clazz = GPBObjCClass(Block),
         .number = BlockNotification_FieldNumber_MarshaledBlock,
         .hasIndex = -1,
         .offset = (uint32_t)offsetof(BlockNotification__storage_, marshaledBlock),
@@ -2199,7 +2217,7 @@ typedef struct BlockNotification__storage_ {
       },
       {
         .name = "serializedBlock",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = BlockNotification_FieldNumber_SerializedBlock,
         .hasIndex = -1,
         .offset = (uint32_t)offsetof(BlockNotification__storage_, serializedBlock),
@@ -2214,7 +2232,7 @@ typedef struct BlockNotification__storage_ {
                                         fields:fields
                                     fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
                                    storageSize:sizeof(BlockNotification__storage_)
-                                         flags:GPBDescriptorInitializationFlag_None];
+                                         flags:(GPBDescriptorInitializationFlags)(GPBDescriptorInitializationFlag_UsesClassRefs | GPBDescriptorInitializationFlag_Proto3OptionalKnown)];
     static const char *oneofs[] = {
       "block",
     };
@@ -2234,19 +2252,19 @@ typedef struct BlockNotification__storage_ {
 int32_t BlockNotification_Type_RawValue(BlockNotification *message) {
   GPBDescriptor *descriptor = [BlockNotification descriptor];
   GPBFieldDescriptor *field = [descriptor fieldWithNumber:BlockNotification_FieldNumber_Type];
-  return GPBGetMessageInt32Field(message, field);
+  return GPBGetMessageRawEnumField(message, field);
 }
 
 void SetBlockNotification_Type_RawValue(BlockNotification *message, int32_t value) {
   GPBDescriptor *descriptor = [BlockNotification descriptor];
   GPBFieldDescriptor *field = [descriptor fieldWithNumber:BlockNotification_FieldNumber_Type];
-  GPBSetInt32IvarWithFieldInternal(message, field, value, descriptor.file.syntax);
+  GPBSetMessageRawEnumField(message, field, value);
 }
 
 void BlockNotification_ClearBlockOneOfCase(BlockNotification *message) {
-  GPBDescriptor *descriptor = [message descriptor];
+  GPBDescriptor *descriptor = [BlockNotification descriptor];
   GPBOneofDescriptor *oneof = [descriptor.oneofs objectAtIndex:0];
-  GPBMaybeClearOneof(message, oneof, -1, 0);
+  GPBClearOneof(message, oneof);
 }
 #pragma mark - Enum BlockNotification_Type
 
@@ -2313,12 +2331,12 @@ typedef struct TransactionNotification__storage_ {
         .number = TransactionNotification_FieldNumber_Type,
         .hasIndex = 0,
         .offset = (uint32_t)offsetof(TransactionNotification__storage_, type),
-        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldHasEnumDescriptor),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldHasEnumDescriptor | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeEnum,
       },
       {
         .name = "confirmedTransaction",
-        .dataTypeSpecific.className = GPBStringifySymbol(Transaction),
+        .dataTypeSpecific.clazz = GPBObjCClass(Transaction),
         .number = TransactionNotification_FieldNumber_ConfirmedTransaction,
         .hasIndex = -1,
         .offset = (uint32_t)offsetof(TransactionNotification__storage_, confirmedTransaction),
@@ -2327,7 +2345,7 @@ typedef struct TransactionNotification__storage_ {
       },
       {
         .name = "unconfirmedTransaction",
-        .dataTypeSpecific.className = GPBStringifySymbol(MempoolTransaction),
+        .dataTypeSpecific.clazz = GPBObjCClass(MempoolTransaction),
         .number = TransactionNotification_FieldNumber_UnconfirmedTransaction,
         .hasIndex = -1,
         .offset = (uint32_t)offsetof(TransactionNotification__storage_, unconfirmedTransaction),
@@ -2336,7 +2354,7 @@ typedef struct TransactionNotification__storage_ {
       },
       {
         .name = "serializedTransaction",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = TransactionNotification_FieldNumber_SerializedTransaction,
         .hasIndex = -1,
         .offset = (uint32_t)offsetof(TransactionNotification__storage_, serializedTransaction),
@@ -2351,7 +2369,7 @@ typedef struct TransactionNotification__storage_ {
                                         fields:fields
                                     fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
                                    storageSize:sizeof(TransactionNotification__storage_)
-                                         flags:GPBDescriptorInitializationFlag_None];
+                                         flags:(GPBDescriptorInitializationFlags)(GPBDescriptorInitializationFlag_UsesClassRefs | GPBDescriptorInitializationFlag_Proto3OptionalKnown)];
     static const char *oneofs[] = {
       "transaction",
     };
@@ -2371,19 +2389,19 @@ typedef struct TransactionNotification__storage_ {
 int32_t TransactionNotification_Type_RawValue(TransactionNotification *message) {
   GPBDescriptor *descriptor = [TransactionNotification descriptor];
   GPBFieldDescriptor *field = [descriptor fieldWithNumber:TransactionNotification_FieldNumber_Type];
-  return GPBGetMessageInt32Field(message, field);
+  return GPBGetMessageRawEnumField(message, field);
 }
 
 void SetTransactionNotification_Type_RawValue(TransactionNotification *message, int32_t value) {
   GPBDescriptor *descriptor = [TransactionNotification descriptor];
   GPBFieldDescriptor *field = [descriptor fieldWithNumber:TransactionNotification_FieldNumber_Type];
-  GPBSetInt32IvarWithFieldInternal(message, field, value, descriptor.file.syntax);
+  GPBSetMessageRawEnumField(message, field, value);
 }
 
 void TransactionNotification_ClearTransactionOneOfCase(TransactionNotification *message) {
-  GPBDescriptor *descriptor = [message descriptor];
+  GPBDescriptor *descriptor = [TransactionNotification descriptor];
   GPBOneofDescriptor *oneof = [descriptor.oneofs objectAtIndex:0];
-  GPBMaybeClearOneof(message, oneof, -1, 0);
+  GPBClearOneof(message, oneof);
 }
 #pragma mark - Enum TransactionNotification_Type
 
@@ -2463,119 +2481,119 @@ typedef struct BlockInfo__storage_ {
     static GPBMessageFieldDescription fields[] = {
       {
         .name = "hash_p",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = BlockInfo_FieldNumber_Hash_p,
         .hasIndex = 0,
         .offset = (uint32_t)offsetof(BlockInfo__storage_, hash_p),
-        .flags = GPBFieldOptional,
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeBytes,
       },
       {
         .name = "height",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = BlockInfo_FieldNumber_Height,
         .hasIndex = 1,
         .offset = (uint32_t)offsetof(BlockInfo__storage_, height),
-        .flags = GPBFieldOptional,
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeInt32,
       },
       {
         .name = "version",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = BlockInfo_FieldNumber_Version,
         .hasIndex = 2,
         .offset = (uint32_t)offsetof(BlockInfo__storage_, version),
-        .flags = GPBFieldOptional,
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeInt32,
       },
       {
         .name = "previousBlock",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = BlockInfo_FieldNumber_PreviousBlock,
         .hasIndex = 3,
         .offset = (uint32_t)offsetof(BlockInfo__storage_, previousBlock),
-        .flags = GPBFieldOptional,
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeBytes,
       },
       {
         .name = "merkleRoot",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = BlockInfo_FieldNumber_MerkleRoot,
         .hasIndex = 4,
         .offset = (uint32_t)offsetof(BlockInfo__storage_, merkleRoot),
-        .flags = GPBFieldOptional,
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeBytes,
       },
       {
         .name = "timestamp",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = BlockInfo_FieldNumber_Timestamp,
         .hasIndex = 5,
         .offset = (uint32_t)offsetof(BlockInfo__storage_, timestamp),
-        .flags = GPBFieldOptional,
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeInt64,
       },
       {
         .name = "bits",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = BlockInfo_FieldNumber_Bits,
         .hasIndex = 6,
         .offset = (uint32_t)offsetof(BlockInfo__storage_, bits),
-        .flags = GPBFieldOptional,
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeUInt32,
       },
       {
         .name = "nonce",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = BlockInfo_FieldNumber_Nonce,
         .hasIndex = 7,
         .offset = (uint32_t)offsetof(BlockInfo__storage_, nonce),
-        .flags = GPBFieldOptional,
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeUInt32,
       },
       {
         .name = "confirmations",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = BlockInfo_FieldNumber_Confirmations,
         .hasIndex = 8,
         .offset = (uint32_t)offsetof(BlockInfo__storage_, confirmations),
-        .flags = GPBFieldOptional,
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeInt32,
       },
       {
         .name = "difficulty",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = BlockInfo_FieldNumber_Difficulty,
         .hasIndex = 9,
         .offset = (uint32_t)offsetof(BlockInfo__storage_, difficulty),
-        .flags = GPBFieldOptional,
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeDouble,
       },
       {
         .name = "nextBlockHash",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = BlockInfo_FieldNumber_NextBlockHash,
         .hasIndex = 10,
         .offset = (uint32_t)offsetof(BlockInfo__storage_, nextBlockHash),
-        .flags = GPBFieldOptional,
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeBytes,
       },
       {
         .name = "size",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = BlockInfo_FieldNumber_Size,
         .hasIndex = 11,
         .offset = (uint32_t)offsetof(BlockInfo__storage_, size),
-        .flags = GPBFieldOptional,
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeInt32,
       },
       {
         .name = "medianTime",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = BlockInfo_FieldNumber_MedianTime,
         .hasIndex = 12,
         .offset = (uint32_t)offsetof(BlockInfo__storage_, medianTime),
-        .flags = GPBFieldOptional,
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeInt64,
       },
     };
@@ -2586,7 +2604,7 @@ typedef struct BlockInfo__storage_ {
                                         fields:fields
                                     fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
                                    storageSize:sizeof(BlockInfo__storage_)
-                                         flags:GPBDescriptorInitializationFlag_None];
+                                         flags:(GPBDescriptorInitializationFlags)(GPBDescriptorInitializationFlag_UsesClassRefs | GPBDescriptorInitializationFlag_Proto3OptionalKnown)];
     #if defined(DEBUG) && DEBUG
       NSAssert(descriptor == nil, @"Startup recursed!");
     #endif  // DEBUG
@@ -2618,7 +2636,7 @@ typedef struct Block__storage_ {
     static GPBMessageFieldDescription fields[] = {
       {
         .name = "info",
-        .dataTypeSpecific.className = GPBStringifySymbol(BlockInfo),
+        .dataTypeSpecific.clazz = GPBObjCClass(BlockInfo),
         .number = Block_FieldNumber_Info,
         .hasIndex = 0,
         .offset = (uint32_t)offsetof(Block__storage_, info),
@@ -2627,7 +2645,7 @@ typedef struct Block__storage_ {
       },
       {
         .name = "transactionDataArray",
-        .dataTypeSpecific.className = GPBStringifySymbol(Block_TransactionData),
+        .dataTypeSpecific.clazz = GPBObjCClass(Block_TransactionData),
         .number = Block_FieldNumber_TransactionDataArray,
         .hasIndex = GPBNoHasBit,
         .offset = (uint32_t)offsetof(Block__storage_, transactionDataArray),
@@ -2642,7 +2660,7 @@ typedef struct Block__storage_ {
                                         fields:fields
                                     fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
                                    storageSize:sizeof(Block__storage_)
-                                         flags:GPBDescriptorInitializationFlag_None];
+                                         flags:(GPBDescriptorInitializationFlags)(GPBDescriptorInitializationFlag_UsesClassRefs | GPBDescriptorInitializationFlag_Proto3OptionalKnown)];
     #if defined(DEBUG) && DEBUG
       NSAssert(descriptor == nil, @"Startup recursed!");
     #endif  // DEBUG
@@ -2675,7 +2693,7 @@ typedef struct Block_TransactionData__storage_ {
     static GPBMessageFieldDescription fields[] = {
       {
         .name = "transactionHash",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = Block_TransactionData_FieldNumber_TransactionHash,
         .hasIndex = -1,
         .offset = (uint32_t)offsetof(Block_TransactionData__storage_, transactionHash),
@@ -2684,7 +2702,7 @@ typedef struct Block_TransactionData__storage_ {
       },
       {
         .name = "transaction",
-        .dataTypeSpecific.className = GPBStringifySymbol(Transaction),
+        .dataTypeSpecific.clazz = GPBObjCClass(Transaction),
         .number = Block_TransactionData_FieldNumber_Transaction,
         .hasIndex = -1,
         .offset = (uint32_t)offsetof(Block_TransactionData__storage_, transaction),
@@ -2699,14 +2717,14 @@ typedef struct Block_TransactionData__storage_ {
                                         fields:fields
                                     fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
                                    storageSize:sizeof(Block_TransactionData__storage_)
-                                         flags:GPBDescriptorInitializationFlag_None];
+                                         flags:(GPBDescriptorInitializationFlags)(GPBDescriptorInitializationFlag_UsesClassRefs | GPBDescriptorInitializationFlag_Proto3OptionalKnown)];
     static const char *oneofs[] = {
       "txidsOrTxs",
     };
     [localDescriptor setupOneofs:oneofs
                            count:(uint32_t)(sizeof(oneofs) / sizeof(char*))
                    firstHasIndex:-1];
-    [localDescriptor setupContainingMessageClassName:GPBStringifySymbol(Block)];
+    [localDescriptor setupContainingMessageClass:GPBObjCClass(Block)];
     #if defined(DEBUG) && DEBUG
       NSAssert(descriptor == nil, @"Startup recursed!");
     #endif  // DEBUG
@@ -2718,9 +2736,9 @@ typedef struct Block_TransactionData__storage_ {
 @end
 
 void Block_TransactionData_ClearTxidsOrTxsOneOfCase(Block_TransactionData *message) {
-  GPBDescriptor *descriptor = [message descriptor];
+  GPBDescriptor *descriptor = [Block_TransactionData descriptor];
   GPBOneofDescriptor *oneof = [descriptor.oneofs objectAtIndex:0];
-  GPBMaybeClearOneof(message, oneof, -1, 0);
+  GPBClearOneof(message, oneof);
 }
 #pragma mark - Transaction
 
@@ -2759,25 +2777,25 @@ typedef struct Transaction__storage_ {
     static GPBMessageFieldDescription fields[] = {
       {
         .name = "hash_p",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = Transaction_FieldNumber_Hash_p,
         .hasIndex = 0,
         .offset = (uint32_t)offsetof(Transaction__storage_, hash_p),
-        .flags = GPBFieldOptional,
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeBytes,
       },
       {
         .name = "version",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = Transaction_FieldNumber_Version,
         .hasIndex = 1,
         .offset = (uint32_t)offsetof(Transaction__storage_, version),
-        .flags = GPBFieldOptional,
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeInt32,
       },
       {
         .name = "inputsArray",
-        .dataTypeSpecific.className = GPBStringifySymbol(Transaction_Input),
+        .dataTypeSpecific.clazz = GPBObjCClass(Transaction_Input),
         .number = Transaction_FieldNumber_InputsArray,
         .hasIndex = GPBNoHasBit,
         .offset = (uint32_t)offsetof(Transaction__storage_, inputsArray),
@@ -2786,7 +2804,7 @@ typedef struct Transaction__storage_ {
       },
       {
         .name = "outputsArray",
-        .dataTypeSpecific.className = GPBStringifySymbol(Transaction_Output),
+        .dataTypeSpecific.clazz = GPBObjCClass(Transaction_Output),
         .number = Transaction_FieldNumber_OutputsArray,
         .hasIndex = GPBNoHasBit,
         .offset = (uint32_t)offsetof(Transaction__storage_, outputsArray),
@@ -2795,56 +2813,56 @@ typedef struct Transaction__storage_ {
       },
       {
         .name = "lockTime",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = Transaction_FieldNumber_LockTime,
         .hasIndex = 2,
         .offset = (uint32_t)offsetof(Transaction__storage_, lockTime),
-        .flags = GPBFieldOptional,
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeUInt32,
       },
       {
         .name = "size",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = Transaction_FieldNumber_Size,
         .hasIndex = 3,
         .offset = (uint32_t)offsetof(Transaction__storage_, size),
-        .flags = GPBFieldOptional,
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeInt32,
       },
       {
         .name = "timestamp",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = Transaction_FieldNumber_Timestamp,
         .hasIndex = 4,
         .offset = (uint32_t)offsetof(Transaction__storage_, timestamp),
-        .flags = GPBFieldOptional,
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeInt64,
       },
       {
         .name = "confirmations",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = Transaction_FieldNumber_Confirmations,
         .hasIndex = 5,
         .offset = (uint32_t)offsetof(Transaction__storage_, confirmations),
-        .flags = GPBFieldOptional,
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeInt32,
       },
       {
         .name = "blockHeight",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = Transaction_FieldNumber_BlockHeight,
         .hasIndex = 6,
         .offset = (uint32_t)offsetof(Transaction__storage_, blockHeight),
-        .flags = GPBFieldOptional,
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeInt32,
       },
       {
         .name = "blockHash",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = Transaction_FieldNumber_BlockHash,
         .hasIndex = 7,
         .offset = (uint32_t)offsetof(Transaction__storage_, blockHash),
-        .flags = GPBFieldOptional,
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeBytes,
       },
     };
@@ -2855,7 +2873,7 @@ typedef struct Transaction__storage_ {
                                         fields:fields
                                     fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
                                    storageSize:sizeof(Transaction__storage_)
-                                         flags:GPBDescriptorInitializationFlag_None];
+                                         flags:(GPBDescriptorInitializationFlags)(GPBDescriptorInitializationFlag_UsesClassRefs | GPBDescriptorInitializationFlag_Proto3OptionalKnown)];
     #if defined(DEBUG) && DEBUG
       NSAssert(descriptor == nil, @"Startup recursed!");
     #endif  // DEBUG
@@ -2897,16 +2915,16 @@ typedef struct Transaction_Input__storage_ {
     static GPBMessageFieldDescription fields[] = {
       {
         .name = "index",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = Transaction_Input_FieldNumber_Index,
         .hasIndex = 0,
         .offset = (uint32_t)offsetof(Transaction_Input__storage_, index),
-        .flags = GPBFieldOptional,
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeUInt32,
       },
       {
         .name = "outpoint",
-        .dataTypeSpecific.className = GPBStringifySymbol(Transaction_Input_Outpoint),
+        .dataTypeSpecific.clazz = GPBObjCClass(Transaction_Input_Outpoint),
         .number = Transaction_Input_FieldNumber_Outpoint,
         .hasIndex = 1,
         .offset = (uint32_t)offsetof(Transaction_Input__storage_, outpoint),
@@ -2915,47 +2933,47 @@ typedef struct Transaction_Input__storage_ {
       },
       {
         .name = "signatureScript",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = Transaction_Input_FieldNumber_SignatureScript,
         .hasIndex = 2,
         .offset = (uint32_t)offsetof(Transaction_Input__storage_, signatureScript),
-        .flags = GPBFieldOptional,
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeBytes,
       },
       {
         .name = "sequence",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = Transaction_Input_FieldNumber_Sequence,
         .hasIndex = 3,
         .offset = (uint32_t)offsetof(Transaction_Input__storage_, sequence),
-        .flags = GPBFieldOptional,
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeUInt32,
       },
       {
         .name = "value",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = Transaction_Input_FieldNumber_Value,
         .hasIndex = 4,
         .offset = (uint32_t)offsetof(Transaction_Input__storage_, value),
-        .flags = GPBFieldOptional,
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeInt64,
       },
       {
         .name = "previousScript",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = Transaction_Input_FieldNumber_PreviousScript,
         .hasIndex = 5,
         .offset = (uint32_t)offsetof(Transaction_Input__storage_, previousScript),
-        .flags = GPBFieldOptional,
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeBytes,
       },
       {
         .name = "address",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = Transaction_Input_FieldNumber_Address,
         .hasIndex = 6,
         .offset = (uint32_t)offsetof(Transaction_Input__storage_, address),
-        .flags = GPBFieldOptional,
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeString,
       },
     };
@@ -2966,8 +2984,8 @@ typedef struct Transaction_Input__storage_ {
                                         fields:fields
                                     fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
                                    storageSize:sizeof(Transaction_Input__storage_)
-                                         flags:GPBDescriptorInitializationFlag_None];
-    [localDescriptor setupContainingMessageClassName:GPBStringifySymbol(Transaction)];
+                                         flags:(GPBDescriptorInitializationFlags)(GPBDescriptorInitializationFlag_UsesClassRefs | GPBDescriptorInitializationFlag_Proto3OptionalKnown)];
+    [localDescriptor setupContainingMessageClass:GPBObjCClass(Transaction)];
     #if defined(DEBUG) && DEBUG
       NSAssert(descriptor == nil, @"Startup recursed!");
     #endif  // DEBUG
@@ -2999,20 +3017,20 @@ typedef struct Transaction_Input_Outpoint__storage_ {
     static GPBMessageFieldDescription fields[] = {
       {
         .name = "hash_p",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = Transaction_Input_Outpoint_FieldNumber_Hash_p,
         .hasIndex = 0,
         .offset = (uint32_t)offsetof(Transaction_Input_Outpoint__storage_, hash_p),
-        .flags = GPBFieldOptional,
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeBytes,
       },
       {
         .name = "index",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = Transaction_Input_Outpoint_FieldNumber_Index,
         .hasIndex = 1,
         .offset = (uint32_t)offsetof(Transaction_Input_Outpoint__storage_, index),
-        .flags = GPBFieldOptional,
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeUInt32,
       },
     };
@@ -3023,8 +3041,8 @@ typedef struct Transaction_Input_Outpoint__storage_ {
                                         fields:fields
                                     fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
                                    storageSize:sizeof(Transaction_Input_Outpoint__storage_)
-                                         flags:GPBDescriptorInitializationFlag_None];
-    [localDescriptor setupContainingMessageClassName:GPBStringifySymbol(Transaction_Input)];
+                                         flags:(GPBDescriptorInitializationFlags)(GPBDescriptorInitializationFlag_UsesClassRefs | GPBDescriptorInitializationFlag_Proto3OptionalKnown)];
+    [localDescriptor setupContainingMessageClass:GPBObjCClass(Transaction_Input)];
     #if defined(DEBUG) && DEBUG
       NSAssert(descriptor == nil, @"Startup recursed!");
     #endif  // DEBUG
@@ -3064,56 +3082,56 @@ typedef struct Transaction_Output__storage_ {
     static GPBMessageFieldDescription fields[] = {
       {
         .name = "index",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = Transaction_Output_FieldNumber_Index,
         .hasIndex = 0,
         .offset = (uint32_t)offsetof(Transaction_Output__storage_, index),
-        .flags = GPBFieldOptional,
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeUInt32,
       },
       {
         .name = "value",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = Transaction_Output_FieldNumber_Value,
         .hasIndex = 1,
         .offset = (uint32_t)offsetof(Transaction_Output__storage_, value),
-        .flags = GPBFieldOptional,
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeInt64,
       },
       {
         .name = "pubkeyScript",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = Transaction_Output_FieldNumber_PubkeyScript,
         .hasIndex = 2,
         .offset = (uint32_t)offsetof(Transaction_Output__storage_, pubkeyScript),
-        .flags = GPBFieldOptional,
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeBytes,
       },
       {
         .name = "address",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = Transaction_Output_FieldNumber_Address,
         .hasIndex = 3,
         .offset = (uint32_t)offsetof(Transaction_Output__storage_, address),
-        .flags = GPBFieldOptional,
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeString,
       },
       {
         .name = "scriptClass",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = Transaction_Output_FieldNumber_ScriptClass,
         .hasIndex = 4,
         .offset = (uint32_t)offsetof(Transaction_Output__storage_, scriptClass),
-        .flags = GPBFieldOptional,
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeString,
       },
       {
         .name = "disassembledScript",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = Transaction_Output_FieldNumber_DisassembledScript,
         .hasIndex = 5,
         .offset = (uint32_t)offsetof(Transaction_Output__storage_, disassembledScript),
-        .flags = GPBFieldOptional,
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeString,
       },
     };
@@ -3124,8 +3142,8 @@ typedef struct Transaction_Output__storage_ {
                                         fields:fields
                                     fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
                                    storageSize:sizeof(Transaction_Output__storage_)
-                                         flags:GPBDescriptorInitializationFlag_None];
-    [localDescriptor setupContainingMessageClassName:GPBStringifySymbol(Transaction)];
+                                         flags:(GPBDescriptorInitializationFlags)(GPBDescriptorInitializationFlag_UsesClassRefs | GPBDescriptorInitializationFlag_Proto3OptionalKnown)];
+    [localDescriptor setupContainingMessageClass:GPBObjCClass(Transaction)];
     #if defined(DEBUG) && DEBUG
       NSAssert(descriptor == nil, @"Startup recursed!");
     #endif  // DEBUG
@@ -3165,7 +3183,7 @@ typedef struct MempoolTransaction__storage_ {
     static GPBMessageFieldDescription fields[] = {
       {
         .name = "transaction",
-        .dataTypeSpecific.className = GPBStringifySymbol(Transaction),
+        .dataTypeSpecific.clazz = GPBObjCClass(Transaction),
         .number = MempoolTransaction_FieldNumber_Transaction,
         .hasIndex = 0,
         .offset = (uint32_t)offsetof(MempoolTransaction__storage_, transaction),
@@ -3174,47 +3192,47 @@ typedef struct MempoolTransaction__storage_ {
       },
       {
         .name = "addedTime",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = MempoolTransaction_FieldNumber_AddedTime,
         .hasIndex = 1,
         .offset = (uint32_t)offsetof(MempoolTransaction__storage_, addedTime),
-        .flags = GPBFieldOptional,
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeInt64,
       },
       {
         .name = "addedHeight",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = MempoolTransaction_FieldNumber_AddedHeight,
         .hasIndex = 2,
         .offset = (uint32_t)offsetof(MempoolTransaction__storage_, addedHeight),
-        .flags = GPBFieldOptional,
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeInt32,
       },
       {
         .name = "fee",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = MempoolTransaction_FieldNumber_Fee,
         .hasIndex = 3,
         .offset = (uint32_t)offsetof(MempoolTransaction__storage_, fee),
-        .flags = GPBFieldOptional,
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeInt64,
       },
       {
         .name = "feePerKb",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = MempoolTransaction_FieldNumber_FeePerKb,
         .hasIndex = 4,
         .offset = (uint32_t)offsetof(MempoolTransaction__storage_, feePerKb),
-        .flags = GPBFieldOptional,
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeInt64,
       },
       {
         .name = "startingPriority",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = MempoolTransaction_FieldNumber_StartingPriority,
         .hasIndex = 5,
         .offset = (uint32_t)offsetof(MempoolTransaction__storage_, startingPriority),
-        .flags = GPBFieldOptional,
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeDouble,
       },
     };
@@ -3225,7 +3243,7 @@ typedef struct MempoolTransaction__storage_ {
                                         fields:fields
                                     fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
                                    storageSize:sizeof(MempoolTransaction__storage_)
-                                         flags:GPBDescriptorInitializationFlag_None];
+                                         flags:(GPBDescriptorInitializationFlags)(GPBDescriptorInitializationFlag_UsesClassRefs | GPBDescriptorInitializationFlag_Proto3OptionalKnown)];
     #if defined(DEBUG) && DEBUG
       NSAssert(descriptor == nil, @"Startup recursed!");
     #endif  // DEBUG
@@ -3262,7 +3280,7 @@ typedef struct UnspentOutput__storage_ {
     static GPBMessageFieldDescription fields[] = {
       {
         .name = "outpoint",
-        .dataTypeSpecific.className = GPBStringifySymbol(Transaction_Input_Outpoint),
+        .dataTypeSpecific.clazz = GPBObjCClass(Transaction_Input_Outpoint),
         .number = UnspentOutput_FieldNumber_Outpoint,
         .hasIndex = 0,
         .offset = (uint32_t)offsetof(UnspentOutput__storage_, outpoint),
@@ -3271,38 +3289,38 @@ typedef struct UnspentOutput__storage_ {
       },
       {
         .name = "pubkeyScript",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = UnspentOutput_FieldNumber_PubkeyScript,
         .hasIndex = 1,
         .offset = (uint32_t)offsetof(UnspentOutput__storage_, pubkeyScript),
-        .flags = GPBFieldOptional,
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeBytes,
       },
       {
         .name = "value",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = UnspentOutput_FieldNumber_Value,
         .hasIndex = 2,
         .offset = (uint32_t)offsetof(UnspentOutput__storage_, value),
-        .flags = GPBFieldOptional,
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeInt64,
       },
       {
         .name = "isCoinbase",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = UnspentOutput_FieldNumber_IsCoinbase,
         .hasIndex = 3,
         .offset = 4,  // Stored in _has_storage_ to save space.
-        .flags = GPBFieldOptional,
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeBool,
       },
       {
         .name = "blockHeight",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = UnspentOutput_FieldNumber_BlockHeight,
         .hasIndex = 5,
         .offset = (uint32_t)offsetof(UnspentOutput__storage_, blockHeight),
-        .flags = GPBFieldOptional,
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeInt32,
       },
     };
@@ -3313,7 +3331,7 @@ typedef struct UnspentOutput__storage_ {
                                         fields:fields
                                     fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
                                    storageSize:sizeof(UnspentOutput__storage_)
-                                         flags:GPBDescriptorInitializationFlag_None];
+                                         flags:(GPBDescriptorInitializationFlags)(GPBDescriptorInitializationFlag_UsesClassRefs | GPBDescriptorInitializationFlag_Proto3OptionalKnown)];
     #if defined(DEBUG) && DEBUG
       NSAssert(descriptor == nil, @"Startup recursed!");
     #endif  // DEBUG
@@ -3348,7 +3366,7 @@ typedef struct TransactionFilter__storage_ {
     static GPBMessageFieldDescription fields[] = {
       {
         .name = "addressesArray",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = TransactionFilter_FieldNumber_AddressesArray,
         .hasIndex = GPBNoHasBit,
         .offset = (uint32_t)offsetof(TransactionFilter__storage_, addressesArray),
@@ -3357,7 +3375,7 @@ typedef struct TransactionFilter__storage_ {
       },
       {
         .name = "outpointsArray",
-        .dataTypeSpecific.className = GPBStringifySymbol(Transaction_Input_Outpoint),
+        .dataTypeSpecific.clazz = GPBObjCClass(Transaction_Input_Outpoint),
         .number = TransactionFilter_FieldNumber_OutpointsArray,
         .hasIndex = GPBNoHasBit,
         .offset = (uint32_t)offsetof(TransactionFilter__storage_, outpointsArray),
@@ -3366,7 +3384,7 @@ typedef struct TransactionFilter__storage_ {
       },
       {
         .name = "dataElementsArray",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = TransactionFilter_FieldNumber_DataElementsArray,
         .hasIndex = GPBNoHasBit,
         .offset = (uint32_t)offsetof(TransactionFilter__storage_, dataElementsArray),
@@ -3375,11 +3393,11 @@ typedef struct TransactionFilter__storage_ {
       },
       {
         .name = "allTransactions",
-        .dataTypeSpecific.className = NULL,
+        .dataTypeSpecific.clazz = Nil,
         .number = TransactionFilter_FieldNumber_AllTransactions,
         .hasIndex = 0,
         .offset = 1,  // Stored in _has_storage_ to save space.
-        .flags = GPBFieldOptional,
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeBool,
       },
     };
@@ -3390,7 +3408,7 @@ typedef struct TransactionFilter__storage_ {
                                         fields:fields
                                     fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
                                    storageSize:sizeof(TransactionFilter__storage_)
-                                         flags:GPBDescriptorInitializationFlag_None];
+                                         flags:(GPBDescriptorInitializationFlags)(GPBDescriptorInitializationFlag_UsesClassRefs | GPBDescriptorInitializationFlag_Proto3OptionalKnown)];
     #if defined(DEBUG) && DEBUG
       NSAssert(descriptor == nil, @"Startup recursed!");
     #endif  // DEBUG

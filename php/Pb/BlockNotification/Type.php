@@ -7,6 +7,8 @@ namespace Pb\BlockNotification;
 use UnexpectedValueException;
 
 /**
+ * State of the block in relation to the chain.
+ *
  * Protobuf type <code>pb.BlockNotification.Type</code>
  */
 class Type

@@ -14,6 +14,8 @@ use Google\Protobuf\Internal\GPBUtil;
 class TransactionNotification extends \Google\Protobuf\Internal\Message
 {
     /**
+     * Whether or not the transaction has been included in a block.
+     *
      * Generated from protobuf field <code>.pb.TransactionNotification.Type type = 1;</code>
      */
     protected $type = 0;
@@ -26,9 +28,13 @@ class TransactionNotification extends \Google\Protobuf\Internal\Message
      *     Optional. Data for populating the Message object.
      *
      *     @type int $type
+     *           Whether or not the transaction has been included in a block.
      *     @type \Pb\Transaction $confirmed_transaction
+     *           A transaction included in a block.
      *     @type \Pb\MempoolTransaction $unconfirmed_transaction
+     *           A transaction in mempool.
      *     @type string $serialized_transaction
+     *           Binary transaction, serialized using bitcoin protocol encoding.
      * }
      */
     public function __construct($data = NULL) {
@@ -37,6 +43,8 @@ class TransactionNotification extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * Whether or not the transaction has been included in a block.
+     *
      * Generated from protobuf field <code>.pb.TransactionNotification.Type type = 1;</code>
      * @return int
      */
@@ -46,19 +54,23 @@ class TransactionNotification extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * Whether or not the transaction has been included in a block.
+     *
      * Generated from protobuf field <code>.pb.TransactionNotification.Type type = 1;</code>
      * @param int $var
      * @return $this
      */
     public function setType($var)
     {
-        GPBUtil::checkEnum($var, \Pb\TransactionNotification_Type::class);
+        GPBUtil::checkEnum($var, \Pb\TransactionNotification\Type::class);
         $this->type = $var;
 
         return $this;
     }
 
     /**
+     * A transaction included in a block.
+     *
      * Generated from protobuf field <code>.pb.Transaction confirmed_transaction = 2;</code>
      * @return \Pb\Transaction
      */
@@ -68,6 +80,8 @@ class TransactionNotification extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * A transaction included in a block.
+     *
      * Generated from protobuf field <code>.pb.Transaction confirmed_transaction = 2;</code>
      * @param \Pb\Transaction $var
      * @return $this
@@ -81,6 +95,8 @@ class TransactionNotification extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * A transaction in mempool.
+     *
      * Generated from protobuf field <code>.pb.MempoolTransaction unconfirmed_transaction = 3;</code>
      * @return \Pb\MempoolTransaction
      */
@@ -90,6 +106,8 @@ class TransactionNotification extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * A transaction in mempool.
+     *
      * Generated from protobuf field <code>.pb.MempoolTransaction unconfirmed_transaction = 3;</code>
      * @param \Pb\MempoolTransaction $var
      * @return $this
@@ -103,6 +121,8 @@ class TransactionNotification extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * Binary transaction, serialized using bitcoin protocol encoding.
+     *
      * Generated from protobuf field <code>bytes serialized_transaction = 4;</code>
      * @return string
      */
@@ -112,6 +132,8 @@ class TransactionNotification extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * Binary transaction, serialized using bitcoin protocol encoding.
+     *
      * Generated from protobuf field <code>bytes serialized_transaction = 4;</code>
      * @param string $var
      * @return $this

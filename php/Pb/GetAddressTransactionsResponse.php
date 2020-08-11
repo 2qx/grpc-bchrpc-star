@@ -14,10 +14,14 @@ use Google\Protobuf\Internal\GPBUtil;
 class GetAddressTransactionsResponse extends \Google\Protobuf\Internal\Message
 {
     /**
+     * Transactions that have been included in a block.
+     *
      * Generated from protobuf field <code>repeated .pb.Transaction confirmed_transactions = 1;</code>
      */
     private $confirmed_transactions;
     /**
+     * Transactions in mempool which have not been included in a block.
+     *
      * Generated from protobuf field <code>repeated .pb.MempoolTransaction unconfirmed_transactions = 2;</code>
      */
     private $unconfirmed_transactions;
@@ -29,7 +33,9 @@ class GetAddressTransactionsResponse extends \Google\Protobuf\Internal\Message
      *     Optional. Data for populating the Message object.
      *
      *     @type \Pb\Transaction[]|\Google\Protobuf\Internal\RepeatedField $confirmed_transactions
+     *           Transactions that have been included in a block.
      *     @type \Pb\MempoolTransaction[]|\Google\Protobuf\Internal\RepeatedField $unconfirmed_transactions
+     *           Transactions in mempool which have not been included in a block.
      * }
      */
     public function __construct($data = NULL) {
@@ -38,6 +44,8 @@ class GetAddressTransactionsResponse extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * Transactions that have been included in a block.
+     *
      * Generated from protobuf field <code>repeated .pb.Transaction confirmed_transactions = 1;</code>
      * @return \Google\Protobuf\Internal\RepeatedField
      */
@@ -47,6 +55,8 @@ class GetAddressTransactionsResponse extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * Transactions that have been included in a block.
+     *
      * Generated from protobuf field <code>repeated .pb.Transaction confirmed_transactions = 1;</code>
      * @param \Pb\Transaction[]|\Google\Protobuf\Internal\RepeatedField $var
      * @return $this
@@ -60,6 +70,8 @@ class GetAddressTransactionsResponse extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * Transactions in mempool which have not been included in a block.
+     *
      * Generated from protobuf field <code>repeated .pb.MempoolTransaction unconfirmed_transactions = 2;</code>
      * @return \Google\Protobuf\Internal\RepeatedField
      */
@@ -69,6 +81,8 @@ class GetAddressTransactionsResponse extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * Transactions in mempool which have not been included in a block.
+     *
      * Generated from protobuf field <code>repeated .pb.MempoolTransaction unconfirmed_transactions = 2;</code>
      * @param \Pb\MempoolTransaction[]|\Google\Protobuf\Internal\RepeatedField $var
      * @return $this

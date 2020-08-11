@@ -14,10 +14,14 @@ use Google\Protobuf\Internal\GPBUtil;
 class Block extends \Google\Protobuf\Internal\Message
 {
     /**
+     * Block header data, as well as metadata stored by the node.
+     *
      * Generated from protobuf field <code>.pb.BlockInfo info = 1;</code>
      */
     protected $info = null;
     /**
+     * List of transactions or transaction hashes.
+     *
      * Generated from protobuf field <code>repeated .pb.Block.TransactionData transaction_data = 2;</code>
      */
     private $transaction_data;
@@ -29,7 +33,9 @@ class Block extends \Google\Protobuf\Internal\Message
      *     Optional. Data for populating the Message object.
      *
      *     @type \Pb\BlockInfo $info
+     *           Block header data, as well as metadata stored by the node.
      *     @type \Pb\Block\TransactionData[]|\Google\Protobuf\Internal\RepeatedField $transaction_data
+     *           List of transactions or transaction hashes.
      * }
      */
     public function __construct($data = NULL) {
@@ -38,6 +44,8 @@ class Block extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * Block header data, as well as metadata stored by the node.
+     *
      * Generated from protobuf field <code>.pb.BlockInfo info = 1;</code>
      * @return \Pb\BlockInfo
      */
@@ -47,6 +55,8 @@ class Block extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * Block header data, as well as metadata stored by the node.
+     *
      * Generated from protobuf field <code>.pb.BlockInfo info = 1;</code>
      * @param \Pb\BlockInfo $var
      * @return $this
@@ -60,6 +70,8 @@ class Block extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * List of transactions or transaction hashes.
+     *
      * Generated from protobuf field <code>repeated .pb.Block.TransactionData transaction_data = 2;</code>
      * @return \Google\Protobuf\Internal\RepeatedField
      */
@@ -69,6 +81,8 @@ class Block extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * List of transactions or transaction hashes.
+     *
      * Generated from protobuf field <code>repeated .pb.Block.TransactionData transaction_data = 2;</code>
      * @param \Pb\Block\TransactionData[]|\Google\Protobuf\Internal\RepeatedField $var
      * @return $this

@@ -14,6 +14,8 @@ use Google\Protobuf\Internal\GPBUtil;
 class GetMempoolResponse extends \Google\Protobuf\Internal\Message
 {
     /**
+     * List of unconfirmed transactions.
+     *
      * Generated from protobuf field <code>repeated .pb.GetMempoolResponse.TransactionData transaction_data = 1;</code>
      */
     private $transaction_data;
@@ -25,6 +27,7 @@ class GetMempoolResponse extends \Google\Protobuf\Internal\Message
      *     Optional. Data for populating the Message object.
      *
      *     @type \Pb\GetMempoolResponse\TransactionData[]|\Google\Protobuf\Internal\RepeatedField $transaction_data
+     *           List of unconfirmed transactions.
      * }
      */
     public function __construct($data = NULL) {
@@ -33,6 +36,8 @@ class GetMempoolResponse extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * List of unconfirmed transactions.
+     *
      * Generated from protobuf field <code>repeated .pb.GetMempoolResponse.TransactionData transaction_data = 1;</code>
      * @return \Google\Protobuf\Internal\RepeatedField
      */
@@ -42,6 +47,8 @@ class GetMempoolResponse extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * List of unconfirmed transactions.
+     *
      * Generated from protobuf field <code>repeated .pb.GetMempoolResponse.TransactionData transaction_data = 1;</code>
      * @param \Pb\GetMempoolResponse\TransactionData[]|\Google\Protobuf\Internal\RepeatedField $var
      * @return $this

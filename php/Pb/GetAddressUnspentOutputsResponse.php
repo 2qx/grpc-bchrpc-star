@@ -14,6 +14,8 @@ use Google\Protobuf\Internal\GPBUtil;
 class GetAddressUnspentOutputsResponse extends \Google\Protobuf\Internal\Message
 {
     /**
+     * List of unspent outputs.
+     *
      * Generated from protobuf field <code>repeated .pb.UnspentOutput outputs = 1;</code>
      */
     private $outputs;
@@ -25,6 +27,7 @@ class GetAddressUnspentOutputsResponse extends \Google\Protobuf\Internal\Message
      *     Optional. Data for populating the Message object.
      *
      *     @type \Pb\UnspentOutput[]|\Google\Protobuf\Internal\RepeatedField $outputs
+     *           List of unspent outputs.
      * }
      */
     public function __construct($data = NULL) {
@@ -33,6 +36,8 @@ class GetAddressUnspentOutputsResponse extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * List of unspent outputs.
+     *
      * Generated from protobuf field <code>repeated .pb.UnspentOutput outputs = 1;</code>
      * @return \Google\Protobuf\Internal\RepeatedField
      */
@@ -42,6 +47,8 @@ class GetAddressUnspentOutputsResponse extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * List of unspent outputs.
+     *
      * Generated from protobuf field <code>repeated .pb.UnspentOutput outputs = 1;</code>
      * @param \Pb\UnspentOutput[]|\Google\Protobuf\Internal\RepeatedField $var
      * @return $this

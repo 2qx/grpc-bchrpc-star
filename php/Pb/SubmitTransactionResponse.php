@@ -14,6 +14,8 @@ use Google\Protobuf\Internal\GPBUtil;
 class SubmitTransactionResponse extends \Google\Protobuf\Internal\Message
 {
     /**
+     * Transaction hash, little-endian.
+     *
      * Generated from protobuf field <code>bytes hash = 1;</code>
      */
     protected $hash = '';
@@ -25,6 +27,7 @@ class SubmitTransactionResponse extends \Google\Protobuf\Internal\Message
      *     Optional. Data for populating the Message object.
      *
      *     @type string $hash
+     *           Transaction hash, little-endian.
      * }
      */
     public function __construct($data = NULL) {
@@ -33,6 +36,8 @@ class SubmitTransactionResponse extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * Transaction hash, little-endian.
+     *
      * Generated from protobuf field <code>bytes hash = 1;</code>
      * @return string
      */
@@ -42,6 +47,8 @@ class SubmitTransactionResponse extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * Transaction hash, little-endian.
+     *
      * Generated from protobuf field <code>bytes hash = 1;</code>
      * @param string $var
      * @return $this

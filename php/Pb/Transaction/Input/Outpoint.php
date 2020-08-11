@@ -14,10 +14,14 @@ use Google\Protobuf\Internal\GPBUtil;
 class Outpoint extends \Google\Protobuf\Internal\Message
 {
     /**
+     * The hash of the transaction containing the output to be spent, little-endian
+     *
      * Generated from protobuf field <code>bytes hash = 1;</code>
      */
     protected $hash = '';
     /**
+     * The index of specific output on the transaction.
+     *
      * Generated from protobuf field <code>uint32 index = 2;</code>
      */
     protected $index = 0;
@@ -29,7 +33,9 @@ class Outpoint extends \Google\Protobuf\Internal\Message
      *     Optional. Data for populating the Message object.
      *
      *     @type string $hash
+     *           The hash of the transaction containing the output to be spent, little-endian
      *     @type int $index
+     *           The index of specific output on the transaction.
      * }
      */
     public function __construct($data = NULL) {
@@ -38,6 +44,8 @@ class Outpoint extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * The hash of the transaction containing the output to be spent, little-endian
+     *
      * Generated from protobuf field <code>bytes hash = 1;</code>
      * @return string
      */
@@ -47,6 +55,8 @@ class Outpoint extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * The hash of the transaction containing the output to be spent, little-endian
+     *
      * Generated from protobuf field <code>bytes hash = 1;</code>
      * @param string $var
      * @return $this
@@ -60,6 +70,8 @@ class Outpoint extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * The index of specific output on the transaction.
+     *
      * Generated from protobuf field <code>uint32 index = 2;</code>
      * @return int
      */
@@ -69,6 +81,8 @@ class Outpoint extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * The index of specific output on the transaction.
+     *
      * Generated from protobuf field <code>uint32 index = 2;</code>
      * @param int $var
      * @return $this

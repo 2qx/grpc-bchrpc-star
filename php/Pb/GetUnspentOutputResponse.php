@@ -14,22 +14,33 @@ use Google\Protobuf\Internal\GPBUtil;
 class GetUnspentOutputResponse extends \Google\Protobuf\Internal\Message
 {
     /**
+     * A reference to the related input.
+     *
      * Generated from protobuf field <code>.pb.Transaction.Input.Outpoint outpoint = 1;</code>
      */
     protected $outpoint = null;
     /**
+     * Locking script dictating how funds can be spent in the future
+     *
      * Generated from protobuf field <code>bytes pubkey_script = 2;</code>
      */
     protected $pubkey_script = '';
     /**
+     * Amount in satoshi.
+     *
      * Generated from protobuf field <code>int64 value = 3;</code>
      */
     protected $value = 0;
     /**
+     * When is_coinbase is true, the transaction was the first in a block,
+     * created by a miner, and used to pay the block reward
+     *
      * Generated from protobuf field <code>bool is_coinbase = 4;</code>
      */
     protected $is_coinbase = false;
     /**
+     * The index number of the block containing the transaction creating the output.
+     *
      * Generated from protobuf field <code>int32 block_height = 5;</code>
      */
     protected $block_height = 0;
@@ -41,10 +52,16 @@ class GetUnspentOutputResponse extends \Google\Protobuf\Internal\Message
      *     Optional. Data for populating the Message object.
      *
      *     @type \Pb\Transaction\Input\Outpoint $outpoint
+     *           A reference to the related input.
      *     @type string $pubkey_script
+     *           Locking script dictating how funds can be spent in the future
      *     @type int|string $value
+     *           Amount in satoshi.
      *     @type bool $is_coinbase
+     *           When is_coinbase is true, the transaction was the first in a block,
+     *           created by a miner, and used to pay the block reward
      *     @type int $block_height
+     *           The index number of the block containing the transaction creating the output.
      * }
      */
     public function __construct($data = NULL) {
@@ -53,6 +70,8 @@ class GetUnspentOutputResponse extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * A reference to the related input.
+     *
      * Generated from protobuf field <code>.pb.Transaction.Input.Outpoint outpoint = 1;</code>
      * @return \Pb\Transaction\Input\Outpoint
      */
@@ -62,19 +81,23 @@ class GetUnspentOutputResponse extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * A reference to the related input.
+     *
      * Generated from protobuf field <code>.pb.Transaction.Input.Outpoint outpoint = 1;</code>
      * @param \Pb\Transaction\Input\Outpoint $var
      * @return $this
      */
     public function setOutpoint($var)
     {
-        GPBUtil::checkMessage($var, \Pb\Transaction_Input_Outpoint::class);
+        GPBUtil::checkMessage($var, \Pb\Transaction\Input\Outpoint::class);
         $this->outpoint = $var;
 
         return $this;
     }
 
     /**
+     * Locking script dictating how funds can be spent in the future
+     *
      * Generated from protobuf field <code>bytes pubkey_script = 2;</code>
      * @return string
      */
@@ -84,6 +107,8 @@ class GetUnspentOutputResponse extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * Locking script dictating how funds can be spent in the future
+     *
      * Generated from protobuf field <code>bytes pubkey_script = 2;</code>
      * @param string $var
      * @return $this
@@ -97,6 +122,8 @@ class GetUnspentOutputResponse extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * Amount in satoshi.
+     *
      * Generated from protobuf field <code>int64 value = 3;</code>
      * @return int|string
      */
@@ -106,6 +133,8 @@ class GetUnspentOutputResponse extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * Amount in satoshi.
+     *
      * Generated from protobuf field <code>int64 value = 3;</code>
      * @param int|string $var
      * @return $this
@@ -119,6 +148,9 @@ class GetUnspentOutputResponse extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * When is_coinbase is true, the transaction was the first in a block,
+     * created by a miner, and used to pay the block reward
+     *
      * Generated from protobuf field <code>bool is_coinbase = 4;</code>
      * @return bool
      */
@@ -128,6 +160,9 @@ class GetUnspentOutputResponse extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * When is_coinbase is true, the transaction was the first in a block,
+     * created by a miner, and used to pay the block reward
+     *
      * Generated from protobuf field <code>bool is_coinbase = 4;</code>
      * @param bool $var
      * @return $this
@@ -141,6 +176,8 @@ class GetUnspentOutputResponse extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * The index number of the block containing the transaction creating the output.
+     *
      * Generated from protobuf field <code>int32 block_height = 5;</code>
      * @return int
      */
@@ -150,6 +187,8 @@ class GetUnspentOutputResponse extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * The index number of the block containing the transaction creating the output.
+     *
      * Generated from protobuf field <code>int32 block_height = 5;</code>
      * @param int $var
      * @return $this

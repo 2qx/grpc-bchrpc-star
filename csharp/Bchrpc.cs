@@ -166,8 +166,9 @@ namespace Pb {
             "EmEKGlN1YnNjcmliZVRyYW5zYWN0aW9uU3RyZWFtEiAucGIuU3Vic2NyaWJl",
             "VHJhbnNhY3Rpb25zUmVxdWVzdBobLnBiLlRyYW5zYWN0aW9uTm90aWZpY2F0",
             "aW9uIgAoATABEkgKD1N1YnNjcmliZUJsb2NrcxIaLnBiLlN1YnNjcmliZUJs",
-            "b2Nrc1JlcXVlc3QaFS5wYi5CbG9ja05vdGlmaWNhdGlvbiIAMAFiBnByb3Rv",
-            "Mw=="));
+            "b2Nrc1JlcXVlc3QaFS5wYi5CbG9ja05vdGlmaWNhdGlvbiIAMAFCMAoNY2Fz",
+            "aC5iY2hkLnJwY1ofZ2l0aHViLmNvbS9nY2FzaC9iY2hkL2JjaHJwYy9wYmIG",
+            "cHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
@@ -220,7 +221,11 @@ namespace Pb {
 
   }
   #region Messages
-  public sealed partial class GetMempoolInfoRequest : pb::IMessage<GetMempoolInfoRequest> {
+  public sealed partial class GetMempoolInfoRequest : pb::IMessage<GetMempoolInfoRequest>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
     private static readonly pb::MessageParser<GetMempoolInfoRequest> _parser = new pb::MessageParser<GetMempoolInfoRequest>(() => new GetMempoolInfoRequest());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -285,10 +290,23 @@ namespace Pb {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
@@ -309,6 +327,9 @@ namespace Pb {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
         switch(tag) {
@@ -317,11 +338,30 @@ namespace Pb {
             break;
         }
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+        }
+      }
+    }
+    #endif
 
   }
 
-  public sealed partial class GetMempoolInfoResponse : pb::IMessage<GetMempoolInfoResponse> {
+  public sealed partial class GetMempoolInfoResponse : pb::IMessage<GetMempoolInfoResponse>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
     private static readonly pb::MessageParser<GetMempoolInfoResponse> _parser = new pb::MessageParser<GetMempoolInfoResponse>(() => new GetMempoolInfoResponse());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -359,6 +399,9 @@ namespace Pb {
     /// <summary>Field number for the "size" field.</summary>
     public const int SizeFieldNumber = 1;
     private uint size_;
+    /// <summary>
+    /// The count of transactions in the mempool
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public uint Size {
       get { return size_; }
@@ -370,6 +413,9 @@ namespace Pb {
     /// <summary>Field number for the "bytes" field.</summary>
     public const int BytesFieldNumber = 2;
     private uint bytes_;
+    /// <summary>
+    /// The size in bytes of all transactions in the mempool
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public uint Bytes {
       get { return bytes_; }
@@ -414,6 +460,9 @@ namespace Pb {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
       if (Size != 0) {
         output.WriteRawTag(8);
         output.WriteUInt32(Size);
@@ -425,7 +474,25 @@ namespace Pb {
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (Size != 0) {
+        output.WriteRawTag(8);
+        output.WriteUInt32(Size);
+      }
+      if (Bytes != 0) {
+        output.WriteRawTag(16);
+        output.WriteUInt32(Bytes);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
@@ -458,6 +525,9 @@ namespace Pb {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
         switch(tag) {
@@ -474,11 +544,38 @@ namespace Pb {
           }
         }
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 8: {
+            Size = input.ReadUInt32();
+            break;
+          }
+          case 16: {
+            Bytes = input.ReadUInt32();
+            break;
+          }
+        }
+      }
+    }
+    #endif
 
   }
 
-  public sealed partial class GetMempoolRequest : pb::IMessage<GetMempoolRequest> {
+  public sealed partial class GetMempoolRequest : pb::IMessage<GetMempoolRequest>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
     private static readonly pb::MessageParser<GetMempoolRequest> _parser = new pb::MessageParser<GetMempoolRequest>(() => new GetMempoolRequest());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -516,7 +613,8 @@ namespace Pb {
     public const int FullTransactionsFieldNumber = 1;
     private bool fullTransactions_;
     /// <summary>
-    /// Provide full transaction info instead of only the hashes.
+    /// When `full_transactions` is true, full transaction data is provided
+    /// instead of just transaction hashes. Default is false.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public bool FullTransactions {
@@ -560,6 +658,9 @@ namespace Pb {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
       if (FullTransactions != false) {
         output.WriteRawTag(8);
         output.WriteBool(FullTransactions);
@@ -567,7 +668,21 @@ namespace Pb {
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (FullTransactions != false) {
+        output.WriteRawTag(8);
+        output.WriteBool(FullTransactions);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
@@ -594,6 +709,9 @@ namespace Pb {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
         switch(tag) {
@@ -606,11 +724,34 @@ namespace Pb {
           }
         }
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 8: {
+            FullTransactions = input.ReadBool();
+            break;
+          }
+        }
+      }
+    }
+    #endif
 
   }
 
-  public sealed partial class GetMempoolResponse : pb::IMessage<GetMempoolResponse> {
+  public sealed partial class GetMempoolResponse : pb::IMessage<GetMempoolResponse>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
     private static readonly pb::MessageParser<GetMempoolResponse> _parser = new pb::MessageParser<GetMempoolResponse>(() => new GetMempoolResponse());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -649,6 +790,9 @@ namespace Pb {
     private static readonly pb::FieldCodec<global::Pb.GetMempoolResponse.Types.TransactionData> _repeated_transactionData_codec
         = pb::FieldCodec.ForMessage(10, global::Pb.GetMempoolResponse.Types.TransactionData.Parser);
     private readonly pbc::RepeatedField<global::Pb.GetMempoolResponse.Types.TransactionData> transactionData_ = new pbc::RepeatedField<global::Pb.GetMempoolResponse.Types.TransactionData>();
+    /// <summary>
+    /// List of unconfirmed transactions.
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pbc::RepeatedField<global::Pb.GetMempoolResponse.Types.TransactionData> TransactionData {
       get { return transactionData_; }
@@ -688,11 +832,25 @@ namespace Pb {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
       transactionData_.WriteTo(output, _repeated_transactionData_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      transactionData_.WriteTo(ref output, _repeated_transactionData_codec);
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
@@ -715,6 +873,9 @@ namespace Pb {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
         switch(tag) {
@@ -727,13 +888,36 @@ namespace Pb {
           }
         }
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            transactionData_.AddEntriesFrom(ref input, _repeated_transactionData_codec);
+            break;
+          }
+        }
+      }
+    }
+    #endif
 
     #region Nested types
     /// <summary>Container for nested types declared in the GetMempoolResponse message type.</summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static partial class Types {
-      public sealed partial class TransactionData : pb::IMessage<TransactionData> {
+      public sealed partial class TransactionData : pb::IMessage<TransactionData>
+      #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+          , pb::IBufferMessage
+      #endif
+      {
         private static readonly pb::MessageParser<TransactionData> _parser = new pb::MessageParser<TransactionData>(() => new TransactionData());
         private pb::UnknownFieldSet _unknownFields;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -777,6 +961,9 @@ namespace Pb {
 
         /// <summary>Field number for the "transaction_hash" field.</summary>
         public const int TransactionHashFieldNumber = 1;
+        /// <summary>
+        /// The transaction hash, little-endian.
+        /// </summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         public pb::ByteString TransactionHash {
           get { return txidsOrTxsCase_ == TxidsOrTxsOneofCase.TransactionHash ? (pb::ByteString) txidsOrTxs_ : pb::ByteString.Empty; }
@@ -788,6 +975,9 @@ namespace Pb {
 
         /// <summary>Field number for the "transaction" field.</summary>
         public const int TransactionFieldNumber = 2;
+        /// <summary>
+        /// The transaction data.
+        /// </summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         public global::Pb.Transaction Transaction {
           get { return txidsOrTxsCase_ == TxidsOrTxsOneofCase.Transaction ? (global::Pb.Transaction) txidsOrTxs_ : null; }
@@ -854,6 +1044,9 @@ namespace Pb {
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         public void WriteTo(pb::CodedOutputStream output) {
+        #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+          output.WriteRawMessage(this);
+        #else
           if (txidsOrTxsCase_ == TxidsOrTxsOneofCase.TransactionHash) {
             output.WriteRawTag(10);
             output.WriteBytes(TransactionHash);
@@ -865,7 +1058,25 @@ namespace Pb {
           if (_unknownFields != null) {
             _unknownFields.WriteTo(output);
           }
+        #endif
         }
+
+        #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+          if (txidsOrTxsCase_ == TxidsOrTxsOneofCase.TransactionHash) {
+            output.WriteRawTag(10);
+            output.WriteBytes(TransactionHash);
+          }
+          if (txidsOrTxsCase_ == TxidsOrTxsOneofCase.Transaction) {
+            output.WriteRawTag(18);
+            output.WriteMessage(Transaction);
+          }
+          if (_unknownFields != null) {
+            _unknownFields.WriteTo(ref output);
+          }
+        }
+        #endif
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         public int CalculateSize() {
@@ -904,6 +1115,9 @@ namespace Pb {
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         public void MergeFrom(pb::CodedInputStream input) {
+        #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+          input.ReadRawMessage(this);
+        #else
           uint tag;
           while ((tag = input.ReadTag()) != 0) {
             switch(tag) {
@@ -925,7 +1139,35 @@ namespace Pb {
               }
             }
           }
+        #endif
         }
+
+        #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+          uint tag;
+          while ((tag = input.ReadTag()) != 0) {
+            switch(tag) {
+              default:
+                _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+                break;
+              case 10: {
+                TransactionHash = input.ReadBytes();
+                break;
+              }
+              case 18: {
+                global::Pb.Transaction subBuilder = new global::Pb.Transaction();
+                if (txidsOrTxsCase_ == TxidsOrTxsOneofCase.Transaction) {
+                  subBuilder.MergeFrom(Transaction);
+                }
+                input.ReadMessage(subBuilder);
+                Transaction = subBuilder;
+                break;
+              }
+            }
+          }
+        }
+        #endif
 
       }
 
@@ -934,7 +1176,11 @@ namespace Pb {
 
   }
 
-  public sealed partial class GetBlockchainInfoRequest : pb::IMessage<GetBlockchainInfoRequest> {
+  public sealed partial class GetBlockchainInfoRequest : pb::IMessage<GetBlockchainInfoRequest>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
     private static readonly pb::MessageParser<GetBlockchainInfoRequest> _parser = new pb::MessageParser<GetBlockchainInfoRequest>(() => new GetBlockchainInfoRequest());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -999,10 +1245,23 @@ namespace Pb {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
@@ -1023,6 +1282,9 @@ namespace Pb {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
         switch(tag) {
@@ -1031,11 +1293,30 @@ namespace Pb {
             break;
         }
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+        }
+      }
+    }
+    #endif
 
   }
 
-  public sealed partial class GetBlockchainInfoResponse : pb::IMessage<GetBlockchainInfoResponse> {
+  public sealed partial class GetBlockchainInfoResponse : pb::IMessage<GetBlockchainInfoResponse>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
     private static readonly pb::MessageParser<GetBlockchainInfoResponse> _parser = new pb::MessageParser<GetBlockchainInfoResponse>(() => new GetBlockchainInfoResponse());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1078,6 +1359,9 @@ namespace Pb {
     /// <summary>Field number for the "bitcoin_net" field.</summary>
     public const int BitcoinNetFieldNumber = 1;
     private global::Pb.GetBlockchainInfoResponse.Types.BitcoinNet bitcoinNet_ = global::Pb.GetBlockchainInfoResponse.Types.BitcoinNet.Mainnet;
+    /// <summary>
+    /// Which network the node is operating on.
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public global::Pb.GetBlockchainInfoResponse.Types.BitcoinNet BitcoinNet {
       get { return bitcoinNet_; }
@@ -1089,6 +1373,9 @@ namespace Pb {
     /// <summary>Field number for the "best_height" field.</summary>
     public const int BestHeightFieldNumber = 2;
     private int bestHeight_;
+    /// <summary>
+    /// The current number of blocks on the longest chain.
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int BestHeight {
       get { return bestHeight_; }
@@ -1100,6 +1387,9 @@ namespace Pb {
     /// <summary>Field number for the "best_block_hash" field.</summary>
     public const int BestBlockHashFieldNumber = 3;
     private pb::ByteString bestBlockHash_ = pb::ByteString.Empty;
+    /// <summary>
+    /// The hash of the best (tip) block in the most-work fully-validated chain, little-endian.
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pb::ByteString BestBlockHash {
       get { return bestBlockHash_; }
@@ -1111,6 +1401,9 @@ namespace Pb {
     /// <summary>Field number for the "difficulty" field.</summary>
     public const int DifficultyFieldNumber = 4;
     private double difficulty_;
+    /// <summary>
+    /// Threshold for adding new blocks.
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public double Difficulty {
       get { return difficulty_; }
@@ -1122,6 +1415,9 @@ namespace Pb {
     /// <summary>Field number for the "median_time" field.</summary>
     public const int MedianTimeFieldNumber = 5;
     private long medianTime_;
+    /// <summary>
+    /// Median time of the last 11 blocks.
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public long MedianTime {
       get { return medianTime_; }
@@ -1133,6 +1429,9 @@ namespace Pb {
     /// <summary>Field number for the "tx_index" field.</summary>
     public const int TxIndexFieldNumber = 6;
     private bool txIndex_;
+    /// <summary>
+    /// When `tx_index` is true, the node has full transaction index enabled.
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public bool TxIndex {
       get { return txIndex_; }
@@ -1144,6 +1443,10 @@ namespace Pb {
     /// <summary>Field number for the "addr_index" field.</summary>
     public const int AddrIndexFieldNumber = 7;
     private bool addrIndex_;
+    /// <summary>
+    /// When `addr_index` is true, the node has address index enabled and may
+    /// be used with call related by address.
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public bool AddrIndex {
       get { return addrIndex_; }
@@ -1198,6 +1501,9 @@ namespace Pb {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
       if (BitcoinNet != global::Pb.GetBlockchainInfoResponse.Types.BitcoinNet.Mainnet) {
         output.WriteRawTag(8);
         output.WriteEnum((int) BitcoinNet);
@@ -1229,7 +1535,45 @@ namespace Pb {
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (BitcoinNet != global::Pb.GetBlockchainInfoResponse.Types.BitcoinNet.Mainnet) {
+        output.WriteRawTag(8);
+        output.WriteEnum((int) BitcoinNet);
+      }
+      if (BestHeight != 0) {
+        output.WriteRawTag(16);
+        output.WriteInt32(BestHeight);
+      }
+      if (BestBlockHash.Length != 0) {
+        output.WriteRawTag(26);
+        output.WriteBytes(BestBlockHash);
+      }
+      if (Difficulty != 0D) {
+        output.WriteRawTag(33);
+        output.WriteDouble(Difficulty);
+      }
+      if (MedianTime != 0L) {
+        output.WriteRawTag(40);
+        output.WriteInt64(MedianTime);
+      }
+      if (TxIndex != false) {
+        output.WriteRawTag(48);
+        output.WriteBool(TxIndex);
+      }
+      if (AddrIndex != false) {
+        output.WriteRawTag(56);
+        output.WriteBool(AddrIndex);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
@@ -1292,6 +1636,9 @@ namespace Pb {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
         switch(tag) {
@@ -1328,16 +1675,76 @@ namespace Pb {
           }
         }
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 8: {
+            BitcoinNet = (global::Pb.GetBlockchainInfoResponse.Types.BitcoinNet) input.ReadEnum();
+            break;
+          }
+          case 16: {
+            BestHeight = input.ReadInt32();
+            break;
+          }
+          case 26: {
+            BestBlockHash = input.ReadBytes();
+            break;
+          }
+          case 33: {
+            Difficulty = input.ReadDouble();
+            break;
+          }
+          case 40: {
+            MedianTime = input.ReadInt64();
+            break;
+          }
+          case 48: {
+            TxIndex = input.ReadBool();
+            break;
+          }
+          case 56: {
+            AddrIndex = input.ReadBool();
+            break;
+          }
+        }
+      }
+    }
+    #endif
 
     #region Nested types
     /// <summary>Container for nested types declared in the GetBlockchainInfoResponse message type.</summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static partial class Types {
+      /// <summary>
+      /// Bitcoin network types
+      /// </summary>
       public enum BitcoinNet {
+        /// <summary>
+        /// Live public network with monetary value.
+        /// </summary>
         [pbr::OriginalName("MAINNET")] Mainnet = 0,
+        /// <summary>
+        /// An isolated environment for automated testing.
+        /// </summary>
         [pbr::OriginalName("REGTEST")] Regtest = 1,
+        /// <summary>
+        /// A public environment where monetary value is agreed to be zero,
+        /// and some checks for transaction conformity are disabled.
+        /// </summary>
         [pbr::OriginalName("TESTNET3")] Testnet3 = 2,
+        /// <summary>
+        /// Private testnets for large scale simulations (or stress testing),
+        /// where a specified list of nodes is used, rather than node discovery.
+        /// </summary>
         [pbr::OriginalName("SIMNET")] Simnet = 3,
       }
 
@@ -1346,7 +1753,11 @@ namespace Pb {
 
   }
 
-  public sealed partial class GetBlockInfoRequest : pb::IMessage<GetBlockInfoRequest> {
+  public sealed partial class GetBlockInfoRequest : pb::IMessage<GetBlockInfoRequest>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
     private static readonly pb::MessageParser<GetBlockInfoRequest> _parser = new pb::MessageParser<GetBlockInfoRequest>(() => new GetBlockInfoRequest());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1390,6 +1801,9 @@ namespace Pb {
 
     /// <summary>Field number for the "hash" field.</summary>
     public const int HashFieldNumber = 1;
+    /// <summary>
+    /// The block hash as a byte array or base64 encoded string, little-endian.
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pb::ByteString Hash {
       get { return hashOrHeightCase_ == HashOrHeightOneofCase.Hash ? (pb::ByteString) hashOrHeight_ : pb::ByteString.Empty; }
@@ -1401,6 +1815,9 @@ namespace Pb {
 
     /// <summary>Field number for the "height" field.</summary>
     public const int HeightFieldNumber = 2;
+    /// <summary>
+    /// The block number.
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int Height {
       get { return hashOrHeightCase_ == HashOrHeightOneofCase.Height ? (int) hashOrHeight_ : 0; }
@@ -1467,6 +1884,9 @@ namespace Pb {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
       if (hashOrHeightCase_ == HashOrHeightOneofCase.Hash) {
         output.WriteRawTag(10);
         output.WriteBytes(Hash);
@@ -1478,7 +1898,25 @@ namespace Pb {
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (hashOrHeightCase_ == HashOrHeightOneofCase.Hash) {
+        output.WriteRawTag(10);
+        output.WriteBytes(Hash);
+      }
+      if (hashOrHeightCase_ == HashOrHeightOneofCase.Height) {
+        output.WriteRawTag(16);
+        output.WriteInt32(Height);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
@@ -1514,6 +1952,9 @@ namespace Pb {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
         switch(tag) {
@@ -1530,11 +1971,38 @@ namespace Pb {
           }
         }
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            Hash = input.ReadBytes();
+            break;
+          }
+          case 16: {
+            Height = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    }
+    #endif
 
   }
 
-  public sealed partial class GetBlockInfoResponse : pb::IMessage<GetBlockInfoResponse> {
+  public sealed partial class GetBlockInfoResponse : pb::IMessage<GetBlockInfoResponse>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
     private static readonly pb::MessageParser<GetBlockInfoResponse> _parser = new pb::MessageParser<GetBlockInfoResponse>(() => new GetBlockInfoResponse());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1571,6 +2039,9 @@ namespace Pb {
     /// <summary>Field number for the "info" field.</summary>
     public const int InfoFieldNumber = 1;
     private global::Pb.BlockInfo info_;
+    /// <summary>
+    /// Marshaled block header data, as well as metadata.
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public global::Pb.BlockInfo Info {
       get { return info_; }
@@ -1613,6 +2084,9 @@ namespace Pb {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
       if (info_ != null) {
         output.WriteRawTag(10);
         output.WriteMessage(Info);
@@ -1620,7 +2094,21 @@ namespace Pb {
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (info_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(Info);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
@@ -1650,6 +2138,9 @@ namespace Pb {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
         switch(tag) {
@@ -1665,11 +2156,37 @@ namespace Pb {
           }
         }
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            if (info_ == null) {
+              Info = new global::Pb.BlockInfo();
+            }
+            input.ReadMessage(Info);
+            break;
+          }
+        }
+      }
+    }
+    #endif
 
   }
 
-  public sealed partial class GetBlockRequest : pb::IMessage<GetBlockRequest> {
+  public sealed partial class GetBlockRequest : pb::IMessage<GetBlockRequest>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
     private static readonly pb::MessageParser<GetBlockRequest> _parser = new pb::MessageParser<GetBlockRequest>(() => new GetBlockRequest());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1714,6 +2231,9 @@ namespace Pb {
 
     /// <summary>Field number for the "hash" field.</summary>
     public const int HashFieldNumber = 1;
+    /// <summary>
+    /// The block hash as a byte array or base64 encoded string, little-endian.
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pb::ByteString Hash {
       get { return hashOrHeightCase_ == HashOrHeightOneofCase.Hash ? (pb::ByteString) hashOrHeight_ : pb::ByteString.Empty; }
@@ -1725,6 +2245,9 @@ namespace Pb {
 
     /// <summary>Field number for the "height" field.</summary>
     public const int HeightFieldNumber = 2;
+    /// <summary>
+    /// The block number.
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int Height {
       get { return hashOrHeightCase_ == HashOrHeightOneofCase.Height ? (int) hashOrHeight_ : 0; }
@@ -1738,7 +2261,8 @@ namespace Pb {
     public const int FullTransactionsFieldNumber = 3;
     private bool fullTransactions_;
     /// <summary>
-    /// Provide full transaction info instead of only the hashes.
+    /// When `full_transactions` is true, full transactions are returned
+    /// instead of just hashes. Default is false.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public bool FullTransactions {
@@ -1807,6 +2331,9 @@ namespace Pb {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
       if (hashOrHeightCase_ == HashOrHeightOneofCase.Hash) {
         output.WriteRawTag(10);
         output.WriteBytes(Hash);
@@ -1822,7 +2349,29 @@ namespace Pb {
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (hashOrHeightCase_ == HashOrHeightOneofCase.Hash) {
+        output.WriteRawTag(10);
+        output.WriteBytes(Hash);
+      }
+      if (hashOrHeightCase_ == HashOrHeightOneofCase.Height) {
+        output.WriteRawTag(16);
+        output.WriteInt32(Height);
+      }
+      if (FullTransactions != false) {
+        output.WriteRawTag(24);
+        output.WriteBool(FullTransactions);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
@@ -1864,6 +2413,9 @@ namespace Pb {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
         switch(tag) {
@@ -1884,11 +2436,42 @@ namespace Pb {
           }
         }
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            Hash = input.ReadBytes();
+            break;
+          }
+          case 16: {
+            Height = input.ReadInt32();
+            break;
+          }
+          case 24: {
+            FullTransactions = input.ReadBool();
+            break;
+          }
+        }
+      }
+    }
+    #endif
 
   }
 
-  public sealed partial class GetBlockResponse : pb::IMessage<GetBlockResponse> {
+  public sealed partial class GetBlockResponse : pb::IMessage<GetBlockResponse>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
     private static readonly pb::MessageParser<GetBlockResponse> _parser = new pb::MessageParser<GetBlockResponse>(() => new GetBlockResponse());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1925,6 +2508,9 @@ namespace Pb {
     /// <summary>Field number for the "block" field.</summary>
     public const int BlockFieldNumber = 1;
     private global::Pb.Block block_;
+    /// <summary>
+    /// A marshaled block.
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public global::Pb.Block Block {
       get { return block_; }
@@ -1967,6 +2553,9 @@ namespace Pb {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
       if (block_ != null) {
         output.WriteRawTag(10);
         output.WriteMessage(Block);
@@ -1974,7 +2563,21 @@ namespace Pb {
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (block_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(Block);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
@@ -2004,6 +2607,9 @@ namespace Pb {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
         switch(tag) {
@@ -2019,11 +2625,37 @@ namespace Pb {
           }
         }
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            if (block_ == null) {
+              Block = new global::Pb.Block();
+            }
+            input.ReadMessage(Block);
+            break;
+          }
+        }
+      }
+    }
+    #endif
 
   }
 
-  public sealed partial class GetRawBlockRequest : pb::IMessage<GetRawBlockRequest> {
+  public sealed partial class GetRawBlockRequest : pb::IMessage<GetRawBlockRequest>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
     private static readonly pb::MessageParser<GetRawBlockRequest> _parser = new pb::MessageParser<GetRawBlockRequest>(() => new GetRawBlockRequest());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2067,6 +2699,9 @@ namespace Pb {
 
     /// <summary>Field number for the "hash" field.</summary>
     public const int HashFieldNumber = 1;
+    /// <summary>
+    /// The block hash as a byte array or base64 encoded string, little-endian.
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pb::ByteString Hash {
       get { return hashOrHeightCase_ == HashOrHeightOneofCase.Hash ? (pb::ByteString) hashOrHeight_ : pb::ByteString.Empty; }
@@ -2078,6 +2713,9 @@ namespace Pb {
 
     /// <summary>Field number for the "height" field.</summary>
     public const int HeightFieldNumber = 2;
+    /// <summary>
+    /// The block number.
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int Height {
       get { return hashOrHeightCase_ == HashOrHeightOneofCase.Height ? (int) hashOrHeight_ : 0; }
@@ -2144,6 +2782,9 @@ namespace Pb {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
       if (hashOrHeightCase_ == HashOrHeightOneofCase.Hash) {
         output.WriteRawTag(10);
         output.WriteBytes(Hash);
@@ -2155,7 +2796,25 @@ namespace Pb {
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (hashOrHeightCase_ == HashOrHeightOneofCase.Hash) {
+        output.WriteRawTag(10);
+        output.WriteBytes(Hash);
+      }
+      if (hashOrHeightCase_ == HashOrHeightOneofCase.Height) {
+        output.WriteRawTag(16);
+        output.WriteInt32(Height);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
@@ -2191,6 +2850,9 @@ namespace Pb {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
         switch(tag) {
@@ -2207,11 +2869,38 @@ namespace Pb {
           }
         }
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            Hash = input.ReadBytes();
+            break;
+          }
+          case 16: {
+            Height = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    }
+    #endif
 
   }
 
-  public sealed partial class GetRawBlockResponse : pb::IMessage<GetRawBlockResponse> {
+  public sealed partial class GetRawBlockResponse : pb::IMessage<GetRawBlockResponse>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
     private static readonly pb::MessageParser<GetRawBlockResponse> _parser = new pb::MessageParser<GetRawBlockResponse>(() => new GetRawBlockResponse());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2248,6 +2937,9 @@ namespace Pb {
     /// <summary>Field number for the "block" field.</summary>
     public const int BlockFieldNumber = 1;
     private pb::ByteString block_ = pb::ByteString.Empty;
+    /// <summary>
+    /// Raw block data (with header) serialized according the the bitcoin block protocol.
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pb::ByteString Block {
       get { return block_; }
@@ -2290,6 +2982,9 @@ namespace Pb {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
       if (Block.Length != 0) {
         output.WriteRawTag(10);
         output.WriteBytes(Block);
@@ -2297,7 +2992,21 @@ namespace Pb {
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (Block.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteBytes(Block);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
@@ -2324,6 +3033,9 @@ namespace Pb {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
         switch(tag) {
@@ -2336,11 +3048,34 @@ namespace Pb {
           }
         }
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            Block = input.ReadBytes();
+            break;
+          }
+        }
+      }
+    }
+    #endif
 
   }
 
-  public sealed partial class GetBlockFilterRequest : pb::IMessage<GetBlockFilterRequest> {
+  public sealed partial class GetBlockFilterRequest : pb::IMessage<GetBlockFilterRequest>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
     private static readonly pb::MessageParser<GetBlockFilterRequest> _parser = new pb::MessageParser<GetBlockFilterRequest>(() => new GetBlockFilterRequest());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2384,6 +3119,9 @@ namespace Pb {
 
     /// <summary>Field number for the "hash" field.</summary>
     public const int HashFieldNumber = 1;
+    /// <summary>
+    /// The block hash as a byte array or base64 encoded string, little-endian.
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pb::ByteString Hash {
       get { return hashOrHeightCase_ == HashOrHeightOneofCase.Hash ? (pb::ByteString) hashOrHeight_ : pb::ByteString.Empty; }
@@ -2395,6 +3133,9 @@ namespace Pb {
 
     /// <summary>Field number for the "height" field.</summary>
     public const int HeightFieldNumber = 2;
+    /// <summary>
+    /// The block number.
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int Height {
       get { return hashOrHeightCase_ == HashOrHeightOneofCase.Height ? (int) hashOrHeight_ : 0; }
@@ -2461,6 +3202,9 @@ namespace Pb {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
       if (hashOrHeightCase_ == HashOrHeightOneofCase.Hash) {
         output.WriteRawTag(10);
         output.WriteBytes(Hash);
@@ -2472,7 +3216,25 @@ namespace Pb {
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (hashOrHeightCase_ == HashOrHeightOneofCase.Hash) {
+        output.WriteRawTag(10);
+        output.WriteBytes(Hash);
+      }
+      if (hashOrHeightCase_ == HashOrHeightOneofCase.Height) {
+        output.WriteRawTag(16);
+        output.WriteInt32(Height);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
@@ -2508,6 +3270,9 @@ namespace Pb {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
         switch(tag) {
@@ -2524,11 +3289,38 @@ namespace Pb {
           }
         }
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            Hash = input.ReadBytes();
+            break;
+          }
+          case 16: {
+            Height = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    }
+    #endif
 
   }
 
-  public sealed partial class GetBlockFilterResponse : pb::IMessage<GetBlockFilterResponse> {
+  public sealed partial class GetBlockFilterResponse : pb::IMessage<GetBlockFilterResponse>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
     private static readonly pb::MessageParser<GetBlockFilterResponse> _parser = new pb::MessageParser<GetBlockFilterResponse>(() => new GetBlockFilterResponse());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2565,6 +3357,10 @@ namespace Pb {
     /// <summary>Field number for the "filter" field.</summary>
     public const int FilterFieldNumber = 1;
     private pb::ByteString filter_ = pb::ByteString.Empty;
+    /// <summary>
+    /// A compact filter matching input outpoints and public key scripts contained
+    /// in a block (encoded according to BIP158).
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pb::ByteString Filter {
       get { return filter_; }
@@ -2607,6 +3403,9 @@ namespace Pb {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
       if (Filter.Length != 0) {
         output.WriteRawTag(10);
         output.WriteBytes(Filter);
@@ -2614,7 +3413,21 @@ namespace Pb {
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (Filter.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteBytes(Filter);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
@@ -2641,6 +3454,9 @@ namespace Pb {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
         switch(tag) {
@@ -2653,11 +3469,37 @@ namespace Pb {
           }
         }
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            Filter = input.ReadBytes();
+            break;
+          }
+        }
+      }
+    }
+    #endif
 
   }
 
-  public sealed partial class GetHeadersRequest : pb::IMessage<GetHeadersRequest> {
+  /// <summary>
+  /// Request headers using a list of known block hashes.
+  /// </summary>
+  public sealed partial class GetHeadersRequest : pb::IMessage<GetHeadersRequest>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
     private static readonly pb::MessageParser<GetHeadersRequest> _parser = new pb::MessageParser<GetHeadersRequest>(() => new GetHeadersRequest());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2697,6 +3539,12 @@ namespace Pb {
     private static readonly pb::FieldCodec<pb::ByteString> _repeated_blockLocatorHashes_codec
         = pb::FieldCodec.ForBytes(10);
     private readonly pbc::RepeatedField<pb::ByteString> blockLocatorHashes_ = new pbc::RepeatedField<pb::ByteString>();
+    /// <summary>
+    /// A list of block hashes known to the client (most recent first) which
+    /// is exponentially sparser toward the genesis block (0), little-endian.
+    /// Common practice is to include all of the last 10 blocks, and then
+    /// 9 blocks for each order of ten thereafter.
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pbc::RepeatedField<pb::ByteString> BlockLocatorHashes {
       get { return blockLocatorHashes_; }
@@ -2705,6 +3553,10 @@ namespace Pb {
     /// <summary>Field number for the "stop_hash" field.</summary>
     public const int StopHashFieldNumber = 2;
     private pb::ByteString stopHash_ = pb::ByteString.Empty;
+    /// <summary>
+    /// hash of the latest desired block header, little-endian; only blocks
+    /// occurring before the stop will be returned.
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pb::ByteString StopHash {
       get { return stopHash_; }
@@ -2749,6 +3601,9 @@ namespace Pb {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
       blockLocatorHashes_.WriteTo(output, _repeated_blockLocatorHashes_codec);
       if (StopHash.Length != 0) {
         output.WriteRawTag(18);
@@ -2757,7 +3612,22 @@ namespace Pb {
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      blockLocatorHashes_.WriteTo(ref output, _repeated_blockLocatorHashes_codec);
+      if (StopHash.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteBytes(StopHash);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
@@ -2786,6 +3656,9 @@ namespace Pb {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
         switch(tag) {
@@ -2802,11 +3675,38 @@ namespace Pb {
           }
         }
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            blockLocatorHashes_.AddEntriesFrom(ref input, _repeated_blockLocatorHashes_codec);
+            break;
+          }
+          case 18: {
+            StopHash = input.ReadBytes();
+            break;
+          }
+        }
+      }
+    }
+    #endif
 
   }
 
-  public sealed partial class GetHeadersResponse : pb::IMessage<GetHeadersResponse> {
+  public sealed partial class GetHeadersResponse : pb::IMessage<GetHeadersResponse>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
     private static readonly pb::MessageParser<GetHeadersResponse> _parser = new pb::MessageParser<GetHeadersResponse>(() => new GetHeadersResponse());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2845,6 +3745,9 @@ namespace Pb {
     private static readonly pb::FieldCodec<global::Pb.BlockInfo> _repeated_headers_codec
         = pb::FieldCodec.ForMessage(10, global::Pb.BlockInfo.Parser);
     private readonly pbc::RepeatedField<global::Pb.BlockInfo> headers_ = new pbc::RepeatedField<global::Pb.BlockInfo>();
+    /// <summary>
+    /// List of block headers.
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pbc::RepeatedField<global::Pb.BlockInfo> Headers {
       get { return headers_; }
@@ -2884,11 +3787,25 @@ namespace Pb {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
       headers_.WriteTo(output, _repeated_headers_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      headers_.WriteTo(ref output, _repeated_headers_codec);
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
@@ -2911,6 +3828,9 @@ namespace Pb {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
         switch(tag) {
@@ -2923,11 +3843,37 @@ namespace Pb {
           }
         }
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            headers_.AddEntriesFrom(ref input, _repeated_headers_codec);
+            break;
+          }
+        }
+      }
+    }
+    #endif
 
   }
 
-  public sealed partial class GetTransactionRequest : pb::IMessage<GetTransactionRequest> {
+  /// <summary>
+  /// Get a transaction from a transaction hash.
+  /// </summary>
+  public sealed partial class GetTransactionRequest : pb::IMessage<GetTransactionRequest>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
     private static readonly pb::MessageParser<GetTransactionRequest> _parser = new pb::MessageParser<GetTransactionRequest>(() => new GetTransactionRequest());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2964,6 +3910,9 @@ namespace Pb {
     /// <summary>Field number for the "hash" field.</summary>
     public const int HashFieldNumber = 1;
     private pb::ByteString hash_ = pb::ByteString.Empty;
+    /// <summary>
+    /// A transaction hash, little-endian.
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pb::ByteString Hash {
       get { return hash_; }
@@ -3006,6 +3955,9 @@ namespace Pb {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
       if (Hash.Length != 0) {
         output.WriteRawTag(10);
         output.WriteBytes(Hash);
@@ -3013,7 +3965,21 @@ namespace Pb {
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (Hash.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteBytes(Hash);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
@@ -3040,6 +4006,9 @@ namespace Pb {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
         switch(tag) {
@@ -3052,11 +4021,34 @@ namespace Pb {
           }
         }
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            Hash = input.ReadBytes();
+            break;
+          }
+        }
+      }
+    }
+    #endif
 
   }
 
-  public sealed partial class GetTransactionResponse : pb::IMessage<GetTransactionResponse> {
+  public sealed partial class GetTransactionResponse : pb::IMessage<GetTransactionResponse>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
     private static readonly pb::MessageParser<GetTransactionResponse> _parser = new pb::MessageParser<GetTransactionResponse>(() => new GetTransactionResponse());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3093,6 +4085,9 @@ namespace Pb {
     /// <summary>Field number for the "transaction" field.</summary>
     public const int TransactionFieldNumber = 1;
     private global::Pb.Transaction transaction_;
+    /// <summary>
+    /// A marshaled transaction.
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public global::Pb.Transaction Transaction {
       get { return transaction_; }
@@ -3135,6 +4130,9 @@ namespace Pb {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
       if (transaction_ != null) {
         output.WriteRawTag(10);
         output.WriteMessage(Transaction);
@@ -3142,7 +4140,21 @@ namespace Pb {
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (transaction_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(Transaction);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
@@ -3172,6 +4184,9 @@ namespace Pb {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
         switch(tag) {
@@ -3187,11 +4202,40 @@ namespace Pb {
           }
         }
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            if (transaction_ == null) {
+              Transaction = new global::Pb.Transaction();
+            }
+            input.ReadMessage(Transaction);
+            break;
+          }
+        }
+      }
+    }
+    #endif
 
   }
 
-  public sealed partial class GetRawTransactionRequest : pb::IMessage<GetRawTransactionRequest> {
+  /// <summary>
+  /// Get an encoded transaction from a transaction hash.
+  /// </summary>
+  public sealed partial class GetRawTransactionRequest : pb::IMessage<GetRawTransactionRequest>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
     private static readonly pb::MessageParser<GetRawTransactionRequest> _parser = new pb::MessageParser<GetRawTransactionRequest>(() => new GetRawTransactionRequest());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3228,6 +4272,9 @@ namespace Pb {
     /// <summary>Field number for the "hash" field.</summary>
     public const int HashFieldNumber = 1;
     private pb::ByteString hash_ = pb::ByteString.Empty;
+    /// <summary>
+    /// A transaction hash, little-endian.
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pb::ByteString Hash {
       get { return hash_; }
@@ -3270,6 +4317,9 @@ namespace Pb {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
       if (Hash.Length != 0) {
         output.WriteRawTag(10);
         output.WriteBytes(Hash);
@@ -3277,7 +4327,21 @@ namespace Pb {
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (Hash.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteBytes(Hash);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
@@ -3304,6 +4368,9 @@ namespace Pb {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
         switch(tag) {
@@ -3316,11 +4383,34 @@ namespace Pb {
           }
         }
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            Hash = input.ReadBytes();
+            break;
+          }
+        }
+      }
+    }
+    #endif
 
   }
 
-  public sealed partial class GetRawTransactionResponse : pb::IMessage<GetRawTransactionResponse> {
+  public sealed partial class GetRawTransactionResponse : pb::IMessage<GetRawTransactionResponse>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
     private static readonly pb::MessageParser<GetRawTransactionResponse> _parser = new pb::MessageParser<GetRawTransactionResponse>(() => new GetRawTransactionResponse());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3357,6 +4447,9 @@ namespace Pb {
     /// <summary>Field number for the "transaction" field.</summary>
     public const int TransactionFieldNumber = 1;
     private pb::ByteString transaction_ = pb::ByteString.Empty;
+    /// <summary>
+    /// Raw transaction in bytes.
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pb::ByteString Transaction {
       get { return transaction_; }
@@ -3399,6 +4492,9 @@ namespace Pb {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
       if (Transaction.Length != 0) {
         output.WriteRawTag(10);
         output.WriteBytes(Transaction);
@@ -3406,7 +4502,21 @@ namespace Pb {
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (Transaction.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteBytes(Transaction);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
@@ -3433,6 +4543,9 @@ namespace Pb {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
         switch(tag) {
@@ -3445,11 +4558,51 @@ namespace Pb {
           }
         }
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            Transaction = input.ReadBytes();
+            break;
+          }
+        }
+      }
+    }
+    #endif
 
   }
 
-  public sealed partial class GetAddressTransactionsRequest : pb::IMessage<GetAddressTransactionsRequest> {
+  /// <summary>
+  /// Get marshaled transactions related to a specific address.
+  ///
+  /// RECOMMENDED:
+  /// Parameters have been provided to query without creating
+  ///   performance issues on the node or client.
+  ///
+  /// - The number of transactions to skip and fetch allow for iterating
+  ///       over a large set of transactions, if necessary.
+  ///
+  /// - A starting block parameter (either `hash` or `height`)
+  ///       may then be used to filter results to those occurring
+  ///       after a certain time.
+  ///
+  /// This approach will reduce network traffic and response processing
+  ///   for the client, as well as reduce workload on the node.
+  /// </summary>
+  public sealed partial class GetAddressTransactionsRequest : pb::IMessage<GetAddressTransactionsRequest>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
     private static readonly pb::MessageParser<GetAddressTransactionsRequest> _parser = new pb::MessageParser<GetAddressTransactionsRequest>(() => new GetAddressTransactionsRequest());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3497,6 +4650,10 @@ namespace Pb {
     /// <summary>Field number for the "address" field.</summary>
     public const int AddressFieldNumber = 1;
     private string address_ = "";
+    /// <summary>
+    /// The address to query transactions, in lowercase cashaddr format.
+    /// The network prefix is optional (i.e. "cashaddress:").
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string Address {
       get { return address_; }
@@ -3509,9 +4666,8 @@ namespace Pb {
     public const int NbSkipFieldNumber = 2;
     private uint nbSkip_;
     /// <summary>
-    /// Control the number of transactions to be fetched from the blockchain.
-    /// These controls only apply to the confirmed transactions. All unconfirmed
-    /// ones will be returned always.
+    /// The number of confirmed transactions to skip, starting with the oldest first.
+    /// Does not affect results of unconfirmed transactions.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public uint NbSkip {
@@ -3524,6 +4680,9 @@ namespace Pb {
     /// <summary>Field number for the "nb_fetch" field.</summary>
     public const int NbFetchFieldNumber = 3;
     private uint nbFetch_;
+    /// <summary>
+    /// Specify the number of transactions to fetch.
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public uint NbFetch {
       get { return nbFetch_; }
@@ -3534,6 +4693,10 @@ namespace Pb {
 
     /// <summary>Field number for the "hash" field.</summary>
     public const int HashFieldNumber = 4;
+    /// <summary>
+    /// Recommended. Only get transactions after (or within) a
+    /// starting block identified by hash, little-endian.
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pb::ByteString Hash {
       get { return startBlockCase_ == StartBlockOneofCase.Hash ? (pb::ByteString) startBlock_ : pb::ByteString.Empty; }
@@ -3545,6 +4708,10 @@ namespace Pb {
 
     /// <summary>Field number for the "height" field.</summary>
     public const int HeightFieldNumber = 5;
+    /// <summary>
+    /// Recommended. Only get transactions after (or within) a
+    /// starting block identified by block number.
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int Height {
       get { return startBlockCase_ == StartBlockOneofCase.Height ? (int) startBlock_ : 0; }
@@ -3617,6 +4784,9 @@ namespace Pb {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
       if (Address.Length != 0) {
         output.WriteRawTag(10);
         output.WriteString(Address);
@@ -3640,7 +4810,37 @@ namespace Pb {
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (Address.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(Address);
+      }
+      if (NbSkip != 0) {
+        output.WriteRawTag(16);
+        output.WriteUInt32(NbSkip);
+      }
+      if (NbFetch != 0) {
+        output.WriteRawTag(24);
+        output.WriteUInt32(NbFetch);
+      }
+      if (startBlockCase_ == StartBlockOneofCase.Hash) {
+        output.WriteRawTag(34);
+        output.WriteBytes(Hash);
+      }
+      if (startBlockCase_ == StartBlockOneofCase.Height) {
+        output.WriteRawTag(40);
+        output.WriteInt32(Height);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
@@ -3694,6 +4894,9 @@ namespace Pb {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
         switch(tag) {
@@ -3722,11 +4925,50 @@ namespace Pb {
           }
         }
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            Address = input.ReadString();
+            break;
+          }
+          case 16: {
+            NbSkip = input.ReadUInt32();
+            break;
+          }
+          case 24: {
+            NbFetch = input.ReadUInt32();
+            break;
+          }
+          case 34: {
+            Hash = input.ReadBytes();
+            break;
+          }
+          case 40: {
+            Height = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    }
+    #endif
 
   }
 
-  public sealed partial class GetAddressTransactionsResponse : pb::IMessage<GetAddressTransactionsResponse> {
+  public sealed partial class GetAddressTransactionsResponse : pb::IMessage<GetAddressTransactionsResponse>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
     private static readonly pb::MessageParser<GetAddressTransactionsResponse> _parser = new pb::MessageParser<GetAddressTransactionsResponse>(() => new GetAddressTransactionsResponse());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3766,6 +5008,9 @@ namespace Pb {
     private static readonly pb::FieldCodec<global::Pb.Transaction> _repeated_confirmedTransactions_codec
         = pb::FieldCodec.ForMessage(10, global::Pb.Transaction.Parser);
     private readonly pbc::RepeatedField<global::Pb.Transaction> confirmedTransactions_ = new pbc::RepeatedField<global::Pb.Transaction>();
+    /// <summary>
+    /// Transactions that have been included in a block.
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pbc::RepeatedField<global::Pb.Transaction> ConfirmedTransactions {
       get { return confirmedTransactions_; }
@@ -3776,6 +5021,9 @@ namespace Pb {
     private static readonly pb::FieldCodec<global::Pb.MempoolTransaction> _repeated_unconfirmedTransactions_codec
         = pb::FieldCodec.ForMessage(18, global::Pb.MempoolTransaction.Parser);
     private readonly pbc::RepeatedField<global::Pb.MempoolTransaction> unconfirmedTransactions_ = new pbc::RepeatedField<global::Pb.MempoolTransaction>();
+    /// <summary>
+    /// Transactions in mempool which have not been included in a block.
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pbc::RepeatedField<global::Pb.MempoolTransaction> UnconfirmedTransactions {
       get { return unconfirmedTransactions_; }
@@ -3817,12 +5065,27 @@ namespace Pb {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
       confirmedTransactions_.WriteTo(output, _repeated_confirmedTransactions_codec);
       unconfirmedTransactions_.WriteTo(output, _repeated_unconfirmedTransactions_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      confirmedTransactions_.WriteTo(ref output, _repeated_confirmedTransactions_codec);
+      unconfirmedTransactions_.WriteTo(ref output, _repeated_unconfirmedTransactions_codec);
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
@@ -3847,6 +5110,9 @@ namespace Pb {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
         switch(tag) {
@@ -3863,11 +5129,55 @@ namespace Pb {
           }
         }
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            confirmedTransactions_.AddEntriesFrom(ref input, _repeated_confirmedTransactions_codec);
+            break;
+          }
+          case 18: {
+            unconfirmedTransactions_.AddEntriesFrom(ref input, _repeated_unconfirmedTransactions_codec);
+            break;
+          }
+        }
+      }
+    }
+    #endif
 
   }
 
-  public sealed partial class GetRawAddressTransactionsRequest : pb::IMessage<GetRawAddressTransactionsRequest> {
+  /// <summary>
+  /// Get encoded transactions related to a specific address.
+  ///
+  /// RECOMMENDED:
+  /// Parameters have been provided to query without creating
+  ///   performance issues on the node or client.
+  ///
+  /// - The number of transactions to skip and fetch allow for iterating
+  ///       over a large set of transactions, if necessary.
+  ///
+  /// - A starting block parameter (either `hash` or `height`)
+  ///       may then be used to filter results to those occurring
+  ///       after a certain time.
+  ///
+  /// This approach will reduce network traffic and response processing
+  ///   for the client, as well as reduce workload on the node.
+  /// </summary>
+  public sealed partial class GetRawAddressTransactionsRequest : pb::IMessage<GetRawAddressTransactionsRequest>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
     private static readonly pb::MessageParser<GetRawAddressTransactionsRequest> _parser = new pb::MessageParser<GetRawAddressTransactionsRequest>(() => new GetRawAddressTransactionsRequest());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3915,6 +5225,10 @@ namespace Pb {
     /// <summary>Field number for the "address" field.</summary>
     public const int AddressFieldNumber = 1;
     private string address_ = "";
+    /// <summary>
+    /// The address to query transactions, in lowercase cashaddr format.
+    /// The network prefix is optional (i.e. "cashaddress:").
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string Address {
       get { return address_; }
@@ -3927,9 +5241,8 @@ namespace Pb {
     public const int NbSkipFieldNumber = 2;
     private uint nbSkip_;
     /// <summary>
-    /// Control the number of transactions to be fetched from the blockchain.
-    /// These controls only apply to the confirmed transactions. All unconfirmed
-    /// ones will be returned always.
+    /// The number of confirmed transactions to skip, starting with the oldest first.
+    /// Does not affect results of unconfirmed transactions.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public uint NbSkip {
@@ -3942,6 +5255,9 @@ namespace Pb {
     /// <summary>Field number for the "nb_fetch" field.</summary>
     public const int NbFetchFieldNumber = 3;
     private uint nbFetch_;
+    /// <summary>
+    /// Specify the number of transactions to fetch.
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public uint NbFetch {
       get { return nbFetch_; }
@@ -3952,6 +5268,10 @@ namespace Pb {
 
     /// <summary>Field number for the "hash" field.</summary>
     public const int HashFieldNumber = 4;
+    /// <summary>
+    /// Recommended. Only return transactions after some starting block
+    /// identified by hash, little-endian.
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pb::ByteString Hash {
       get { return startBlockCase_ == StartBlockOneofCase.Hash ? (pb::ByteString) startBlock_ : pb::ByteString.Empty; }
@@ -3963,6 +5283,10 @@ namespace Pb {
 
     /// <summary>Field number for the "height" field.</summary>
     public const int HeightFieldNumber = 5;
+    /// <summary>
+    /// Recommended. Only return transactions after some starting block
+    /// identified by block number.
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int Height {
       get { return startBlockCase_ == StartBlockOneofCase.Height ? (int) startBlock_ : 0; }
@@ -4035,6 +5359,9 @@ namespace Pb {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
       if (Address.Length != 0) {
         output.WriteRawTag(10);
         output.WriteString(Address);
@@ -4058,7 +5385,37 @@ namespace Pb {
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (Address.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(Address);
+      }
+      if (NbSkip != 0) {
+        output.WriteRawTag(16);
+        output.WriteUInt32(NbSkip);
+      }
+      if (NbFetch != 0) {
+        output.WriteRawTag(24);
+        output.WriteUInt32(NbFetch);
+      }
+      if (startBlockCase_ == StartBlockOneofCase.Hash) {
+        output.WriteRawTag(34);
+        output.WriteBytes(Hash);
+      }
+      if (startBlockCase_ == StartBlockOneofCase.Height) {
+        output.WriteRawTag(40);
+        output.WriteInt32(Height);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
@@ -4112,6 +5469,9 @@ namespace Pb {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
         switch(tag) {
@@ -4140,11 +5500,50 @@ namespace Pb {
           }
         }
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            Address = input.ReadString();
+            break;
+          }
+          case 16: {
+            NbSkip = input.ReadUInt32();
+            break;
+          }
+          case 24: {
+            NbFetch = input.ReadUInt32();
+            break;
+          }
+          case 34: {
+            Hash = input.ReadBytes();
+            break;
+          }
+          case 40: {
+            Height = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    }
+    #endif
 
   }
 
-  public sealed partial class GetRawAddressTransactionsResponse : pb::IMessage<GetRawAddressTransactionsResponse> {
+  public sealed partial class GetRawAddressTransactionsResponse : pb::IMessage<GetRawAddressTransactionsResponse>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
     private static readonly pb::MessageParser<GetRawAddressTransactionsResponse> _parser = new pb::MessageParser<GetRawAddressTransactionsResponse>(() => new GetRawAddressTransactionsResponse());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4184,6 +5583,9 @@ namespace Pb {
     private static readonly pb::FieldCodec<pb::ByteString> _repeated_confirmedTransactions_codec
         = pb::FieldCodec.ForBytes(10);
     private readonly pbc::RepeatedField<pb::ByteString> confirmedTransactions_ = new pbc::RepeatedField<pb::ByteString>();
+    /// <summary>
+    /// Transactions that have been included in a block.
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pbc::RepeatedField<pb::ByteString> ConfirmedTransactions {
       get { return confirmedTransactions_; }
@@ -4194,6 +5596,9 @@ namespace Pb {
     private static readonly pb::FieldCodec<pb::ByteString> _repeated_unconfirmedTransactions_codec
         = pb::FieldCodec.ForBytes(18);
     private readonly pbc::RepeatedField<pb::ByteString> unconfirmedTransactions_ = new pbc::RepeatedField<pb::ByteString>();
+    /// <summary>
+    /// Transactions in mempool which have not been included in a block.
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pbc::RepeatedField<pb::ByteString> UnconfirmedTransactions {
       get { return unconfirmedTransactions_; }
@@ -4235,12 +5640,27 @@ namespace Pb {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
       confirmedTransactions_.WriteTo(output, _repeated_confirmedTransactions_codec);
       unconfirmedTransactions_.WriteTo(output, _repeated_unconfirmedTransactions_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      confirmedTransactions_.WriteTo(ref output, _repeated_confirmedTransactions_codec);
+      unconfirmedTransactions_.WriteTo(ref output, _repeated_unconfirmedTransactions_codec);
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
@@ -4265,6 +5685,9 @@ namespace Pb {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
         switch(tag) {
@@ -4281,11 +5704,38 @@ namespace Pb {
           }
         }
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            confirmedTransactions_.AddEntriesFrom(ref input, _repeated_confirmedTransactions_codec);
+            break;
+          }
+          case 18: {
+            unconfirmedTransactions_.AddEntriesFrom(ref input, _repeated_unconfirmedTransactions_codec);
+            break;
+          }
+        }
+      }
+    }
+    #endif
 
   }
 
-  public sealed partial class GetAddressUnspentOutputsRequest : pb::IMessage<GetAddressUnspentOutputsRequest> {
+  public sealed partial class GetAddressUnspentOutputsRequest : pb::IMessage<GetAddressUnspentOutputsRequest>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
     private static readonly pb::MessageParser<GetAddressUnspentOutputsRequest> _parser = new pb::MessageParser<GetAddressUnspentOutputsRequest>(() => new GetAddressUnspentOutputsRequest());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4323,6 +5773,10 @@ namespace Pb {
     /// <summary>Field number for the "address" field.</summary>
     public const int AddressFieldNumber = 1;
     private string address_ = "";
+    /// <summary>
+    /// The address to query transactions, in lowercase cashaddr format.
+    /// The network identifier is optional (i.e. "cashaddress:").
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string Address {
       get { return address_; }
@@ -4334,6 +5788,10 @@ namespace Pb {
     /// <summary>Field number for the "include_mempool" field.</summary>
     public const int IncludeMempoolFieldNumber = 2;
     private bool includeMempool_;
+    /// <summary>
+    /// When `include_mempool` is true, unconfirmed transactions from mempool
+    /// are returned. Default is false.
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public bool IncludeMempool {
       get { return includeMempool_; }
@@ -4378,6 +5836,9 @@ namespace Pb {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
       if (Address.Length != 0) {
         output.WriteRawTag(10);
         output.WriteString(Address);
@@ -4389,7 +5850,25 @@ namespace Pb {
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (Address.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(Address);
+      }
+      if (IncludeMempool != false) {
+        output.WriteRawTag(16);
+        output.WriteBool(IncludeMempool);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
@@ -4422,6 +5901,9 @@ namespace Pb {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
         switch(tag) {
@@ -4438,11 +5920,38 @@ namespace Pb {
           }
         }
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            Address = input.ReadString();
+            break;
+          }
+          case 16: {
+            IncludeMempool = input.ReadBool();
+            break;
+          }
+        }
+      }
+    }
+    #endif
 
   }
 
-  public sealed partial class GetAddressUnspentOutputsResponse : pb::IMessage<GetAddressUnspentOutputsResponse> {
+  public sealed partial class GetAddressUnspentOutputsResponse : pb::IMessage<GetAddressUnspentOutputsResponse>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
     private static readonly pb::MessageParser<GetAddressUnspentOutputsResponse> _parser = new pb::MessageParser<GetAddressUnspentOutputsResponse>(() => new GetAddressUnspentOutputsResponse());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4481,6 +5990,9 @@ namespace Pb {
     private static readonly pb::FieldCodec<global::Pb.UnspentOutput> _repeated_outputs_codec
         = pb::FieldCodec.ForMessage(10, global::Pb.UnspentOutput.Parser);
     private readonly pbc::RepeatedField<global::Pb.UnspentOutput> outputs_ = new pbc::RepeatedField<global::Pb.UnspentOutput>();
+    /// <summary>
+    /// List of unspent outputs.
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pbc::RepeatedField<global::Pb.UnspentOutput> Outputs {
       get { return outputs_; }
@@ -4520,11 +6032,25 @@ namespace Pb {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
       outputs_.WriteTo(output, _repeated_outputs_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      outputs_.WriteTo(ref output, _repeated_outputs_codec);
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
@@ -4547,6 +6073,9 @@ namespace Pb {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
         switch(tag) {
@@ -4559,11 +6088,34 @@ namespace Pb {
           }
         }
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            outputs_.AddEntriesFrom(ref input, _repeated_outputs_codec);
+            break;
+          }
+        }
+      }
+    }
+    #endif
 
   }
 
-  public sealed partial class GetUnspentOutputRequest : pb::IMessage<GetUnspentOutputRequest> {
+  public sealed partial class GetUnspentOutputRequest : pb::IMessage<GetUnspentOutputRequest>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
     private static readonly pb::MessageParser<GetUnspentOutputRequest> _parser = new pb::MessageParser<GetUnspentOutputRequest>(() => new GetUnspentOutputRequest());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4602,6 +6154,9 @@ namespace Pb {
     /// <summary>Field number for the "hash" field.</summary>
     public const int HashFieldNumber = 1;
     private pb::ByteString hash_ = pb::ByteString.Empty;
+    /// <summary>
+    /// The hash of the transaction, little-endian.
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pb::ByteString Hash {
       get { return hash_; }
@@ -4613,6 +6168,9 @@ namespace Pb {
     /// <summary>Field number for the "index" field.</summary>
     public const int IndexFieldNumber = 2;
     private uint index_;
+    /// <summary>
+    /// The number of the output, starting from zero.
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public uint Index {
       get { return index_; }
@@ -4624,6 +6182,10 @@ namespace Pb {
     /// <summary>Field number for the "include_mempool" field.</summary>
     public const int IncludeMempoolFieldNumber = 3;
     private bool includeMempool_;
+    /// <summary>
+    /// When include_mempool is true, unconfirmed transactions from mempool
+    /// are returned. Default is false.
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public bool IncludeMempool {
       get { return includeMempool_; }
@@ -4670,6 +6232,9 @@ namespace Pb {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
       if (Hash.Length != 0) {
         output.WriteRawTag(10);
         output.WriteBytes(Hash);
@@ -4685,7 +6250,29 @@ namespace Pb {
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (Hash.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteBytes(Hash);
+      }
+      if (Index != 0) {
+        output.WriteRawTag(16);
+        output.WriteUInt32(Index);
+      }
+      if (IncludeMempool != false) {
+        output.WriteRawTag(24);
+        output.WriteBool(IncludeMempool);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
@@ -4724,6 +6311,9 @@ namespace Pb {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
         switch(tag) {
@@ -4744,11 +6334,42 @@ namespace Pb {
           }
         }
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            Hash = input.ReadBytes();
+            break;
+          }
+          case 16: {
+            Index = input.ReadUInt32();
+            break;
+          }
+          case 24: {
+            IncludeMempool = input.ReadBool();
+            break;
+          }
+        }
+      }
+    }
+    #endif
 
   }
 
-  public sealed partial class GetUnspentOutputResponse : pb::IMessage<GetUnspentOutputResponse> {
+  public sealed partial class GetUnspentOutputResponse : pb::IMessage<GetUnspentOutputResponse>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
     private static readonly pb::MessageParser<GetUnspentOutputResponse> _parser = new pb::MessageParser<GetUnspentOutputResponse>(() => new GetUnspentOutputResponse());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4789,6 +6410,9 @@ namespace Pb {
     /// <summary>Field number for the "outpoint" field.</summary>
     public const int OutpointFieldNumber = 1;
     private global::Pb.Transaction.Types.Input.Types.Outpoint outpoint_;
+    /// <summary>
+    /// A reference to the related input.
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public global::Pb.Transaction.Types.Input.Types.Outpoint Outpoint {
       get { return outpoint_; }
@@ -4800,6 +6424,9 @@ namespace Pb {
     /// <summary>Field number for the "pubkey_script" field.</summary>
     public const int PubkeyScriptFieldNumber = 2;
     private pb::ByteString pubkeyScript_ = pb::ByteString.Empty;
+    /// <summary>
+    /// Locking script dictating how funds can be spent in the future
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pb::ByteString PubkeyScript {
       get { return pubkeyScript_; }
@@ -4811,6 +6438,9 @@ namespace Pb {
     /// <summary>Field number for the "value" field.</summary>
     public const int ValueFieldNumber = 3;
     private long value_;
+    /// <summary>
+    /// Amount in satoshi.
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public long Value {
       get { return value_; }
@@ -4822,6 +6452,10 @@ namespace Pb {
     /// <summary>Field number for the "is_coinbase" field.</summary>
     public const int IsCoinbaseFieldNumber = 4;
     private bool isCoinbase_;
+    /// <summary>
+    /// When is_coinbase is true, the transaction was the first in a block,
+    /// created by a miner, and used to pay the block reward
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public bool IsCoinbase {
       get { return isCoinbase_; }
@@ -4833,6 +6467,9 @@ namespace Pb {
     /// <summary>Field number for the "block_height" field.</summary>
     public const int BlockHeightFieldNumber = 5;
     private int blockHeight_;
+    /// <summary>
+    /// The index number of the block containing the transaction creating the output.
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int BlockHeight {
       get { return blockHeight_; }
@@ -4883,6 +6520,9 @@ namespace Pb {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
       if (outpoint_ != null) {
         output.WriteRawTag(10);
         output.WriteMessage(Outpoint);
@@ -4906,7 +6546,37 @@ namespace Pb {
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (outpoint_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(Outpoint);
+      }
+      if (PubkeyScript.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteBytes(PubkeyScript);
+      }
+      if (Value != 0L) {
+        output.WriteRawTag(24);
+        output.WriteInt64(Value);
+      }
+      if (IsCoinbase != false) {
+        output.WriteRawTag(32);
+        output.WriteBool(IsCoinbase);
+      }
+      if (BlockHeight != 0) {
+        output.WriteRawTag(40);
+        output.WriteInt32(BlockHeight);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
@@ -4960,6 +6630,9 @@ namespace Pb {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
         switch(tag) {
@@ -4991,11 +6664,53 @@ namespace Pb {
           }
         }
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            if (outpoint_ == null) {
+              Outpoint = new global::Pb.Transaction.Types.Input.Types.Outpoint();
+            }
+            input.ReadMessage(Outpoint);
+            break;
+          }
+          case 18: {
+            PubkeyScript = input.ReadBytes();
+            break;
+          }
+          case 24: {
+            Value = input.ReadInt64();
+            break;
+          }
+          case 32: {
+            IsCoinbase = input.ReadBool();
+            break;
+          }
+          case 40: {
+            BlockHeight = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    }
+    #endif
 
   }
 
-  public sealed partial class GetMerkleProofRequest : pb::IMessage<GetMerkleProofRequest> {
+  public sealed partial class GetMerkleProofRequest : pb::IMessage<GetMerkleProofRequest>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
     private static readonly pb::MessageParser<GetMerkleProofRequest> _parser = new pb::MessageParser<GetMerkleProofRequest>(() => new GetMerkleProofRequest());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -5032,6 +6747,9 @@ namespace Pb {
     /// <summary>Field number for the "transaction_hash" field.</summary>
     public const int TransactionHashFieldNumber = 1;
     private pb::ByteString transactionHash_ = pb::ByteString.Empty;
+    /// <summary>
+    /// A transaction hash, little-endian.
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pb::ByteString TransactionHash {
       get { return transactionHash_; }
@@ -5074,6 +6792,9 @@ namespace Pb {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
       if (TransactionHash.Length != 0) {
         output.WriteRawTag(10);
         output.WriteBytes(TransactionHash);
@@ -5081,7 +6802,21 @@ namespace Pb {
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (TransactionHash.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteBytes(TransactionHash);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
@@ -5108,6 +6843,9 @@ namespace Pb {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
         switch(tag) {
@@ -5120,11 +6858,34 @@ namespace Pb {
           }
         }
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            TransactionHash = input.ReadBytes();
+            break;
+          }
+        }
+      }
+    }
+    #endif
 
   }
 
-  public sealed partial class GetMerkleProofResponse : pb::IMessage<GetMerkleProofResponse> {
+  public sealed partial class GetMerkleProofResponse : pb::IMessage<GetMerkleProofResponse>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
     private static readonly pb::MessageParser<GetMerkleProofResponse> _parser = new pb::MessageParser<GetMerkleProofResponse>(() => new GetMerkleProofResponse());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -5163,6 +6924,9 @@ namespace Pb {
     /// <summary>Field number for the "block" field.</summary>
     public const int BlockFieldNumber = 1;
     private global::Pb.BlockInfo block_;
+    /// <summary>
+    /// Block header information for the corresponding transaction
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public global::Pb.BlockInfo Block {
       get { return block_; }
@@ -5176,6 +6940,11 @@ namespace Pb {
     private static readonly pb::FieldCodec<pb::ByteString> _repeated_hashes_codec
         = pb::FieldCodec.ForBytes(18);
     private readonly pbc::RepeatedField<pb::ByteString> hashes_ = new pbc::RepeatedField<pb::ByteString>();
+    /// <summary>
+    /// A list containing the transaction hash, the adjacent leaf transaction hash
+    /// and the hashes of the highest nodes in the merkle tree not built with the transaction.
+    /// Proof hashes are ordered following transaction order, or left to right on the merkle tree
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pbc::RepeatedField<pb::ByteString> Hashes {
       get { return hashes_; }
@@ -5184,6 +6953,11 @@ namespace Pb {
     /// <summary>Field number for the "flags" field.</summary>
     public const int FlagsFieldNumber = 3;
     private pb::ByteString flags_ = pb::ByteString.Empty;
+    /// <summary>
+    /// Binary representing the location of the matching transaction in the full merkle tree,
+    /// starting with the root (`1`) at position/level 0, where `1` corresponds
+    /// to a left branch and `01` is a right branch.
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pb::ByteString Flags {
       get { return flags_; }
@@ -5230,6 +7004,9 @@ namespace Pb {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
       if (block_ != null) {
         output.WriteRawTag(10);
         output.WriteMessage(Block);
@@ -5242,7 +7019,26 @@ namespace Pb {
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (block_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(Block);
+      }
+      hashes_.WriteTo(ref output, _repeated_hashes_codec);
+      if (Flags.Length != 0) {
+        output.WriteRawTag(26);
+        output.WriteBytes(Flags);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
@@ -5280,6 +7076,9 @@ namespace Pb {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
         switch(tag) {
@@ -5303,11 +7102,45 @@ namespace Pb {
           }
         }
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            if (block_ == null) {
+              Block = new global::Pb.BlockInfo();
+            }
+            input.ReadMessage(Block);
+            break;
+          }
+          case 18: {
+            hashes_.AddEntriesFrom(ref input, _repeated_hashes_codec);
+            break;
+          }
+          case 26: {
+            Flags = input.ReadBytes();
+            break;
+          }
+        }
+      }
+    }
+    #endif
 
   }
 
-  public sealed partial class SubmitTransactionRequest : pb::IMessage<SubmitTransactionRequest> {
+  public sealed partial class SubmitTransactionRequest : pb::IMessage<SubmitTransactionRequest>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
     private static readonly pb::MessageParser<SubmitTransactionRequest> _parser = new pb::MessageParser<SubmitTransactionRequest>(() => new SubmitTransactionRequest());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -5344,6 +7177,9 @@ namespace Pb {
     /// <summary>Field number for the "transaction" field.</summary>
     public const int TransactionFieldNumber = 1;
     private pb::ByteString transaction_ = pb::ByteString.Empty;
+    /// <summary>
+    /// The encoded transaction.
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pb::ByteString Transaction {
       get { return transaction_; }
@@ -5386,6 +7222,9 @@ namespace Pb {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
       if (Transaction.Length != 0) {
         output.WriteRawTag(10);
         output.WriteBytes(Transaction);
@@ -5393,7 +7232,21 @@ namespace Pb {
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (Transaction.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteBytes(Transaction);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
@@ -5420,6 +7273,9 @@ namespace Pb {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
         switch(tag) {
@@ -5432,11 +7288,34 @@ namespace Pb {
           }
         }
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            Transaction = input.ReadBytes();
+            break;
+          }
+        }
+      }
+    }
+    #endif
 
   }
 
-  public sealed partial class SubmitTransactionResponse : pb::IMessage<SubmitTransactionResponse> {
+  public sealed partial class SubmitTransactionResponse : pb::IMessage<SubmitTransactionResponse>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
     private static readonly pb::MessageParser<SubmitTransactionResponse> _parser = new pb::MessageParser<SubmitTransactionResponse>(() => new SubmitTransactionResponse());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -5473,6 +7352,9 @@ namespace Pb {
     /// <summary>Field number for the "hash" field.</summary>
     public const int HashFieldNumber = 1;
     private pb::ByteString hash_ = pb::ByteString.Empty;
+    /// <summary>
+    /// Transaction hash, little-endian.
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pb::ByteString Hash {
       get { return hash_; }
@@ -5515,6 +7397,9 @@ namespace Pb {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
       if (Hash.Length != 0) {
         output.WriteRawTag(10);
         output.WriteBytes(Hash);
@@ -5522,7 +7407,21 @@ namespace Pb {
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (Hash.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteBytes(Hash);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
@@ -5549,6 +7448,9 @@ namespace Pb {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
         switch(tag) {
@@ -5561,11 +7463,37 @@ namespace Pb {
           }
         }
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            Hash = input.ReadBytes();
+            break;
+          }
+        }
+      }
+    }
+    #endif
 
   }
 
-  public sealed partial class SubscribeTransactionsRequest : pb::IMessage<SubscribeTransactionsRequest> {
+  /// <summary>
+  /// Request to subscribe or unsubscribe from a stream of transactions.
+  /// </summary>
+  public sealed partial class SubscribeTransactionsRequest : pb::IMessage<SubscribeTransactionsRequest>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
     private static readonly pb::MessageParser<SubscribeTransactionsRequest> _parser = new pb::MessageParser<SubscribeTransactionsRequest>(() => new SubscribeTransactionsRequest());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -5606,6 +7534,9 @@ namespace Pb {
     /// <summary>Field number for the "subscribe" field.</summary>
     public const int SubscribeFieldNumber = 1;
     private global::Pb.TransactionFilter subscribe_;
+    /// <summary>
+    /// Subscribe to a filter. add items to a filter
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public global::Pb.TransactionFilter Subscribe {
       get { return subscribe_; }
@@ -5617,6 +7548,9 @@ namespace Pb {
     /// <summary>Field number for the "unsubscribe" field.</summary>
     public const int UnsubscribeFieldNumber = 2;
     private global::Pb.TransactionFilter unsubscribe_;
+    /// <summary>
+    /// Unsubscribe to a filter, remove items from a filter
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public global::Pb.TransactionFilter Unsubscribe {
       get { return unsubscribe_; }
@@ -5629,7 +7563,7 @@ namespace Pb {
     public const int IncludeMempoolFieldNumber = 3;
     private bool includeMempool_;
     /// <summary>
-    /// When include_mempool is true, new transactions coming in from the mempool are
+    /// When include_mempool is true, new unconfirmed transactions from mempool are
     /// included apart from the ones confirmed in a block.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -5659,8 +7593,9 @@ namespace Pb {
     public const int SerializeTxFieldNumber = 5;
     private bool serializeTx_;
     /// <summary>
-    /// When serialize_tx is true, transactions are serialized using bitcoin protocol encoding. 
-    /// Default is false, transaction will be Marshaled (see `Transaction`, `MempoolTransaction` and `TransactionNotification`)
+    /// When serialize_tx is true, transactions are serialized using
+    /// bitcoin protocol encoding. Default is false, transaction will be Marshaled
+    /// (see `Transaction`, `MempoolTransaction` and `TransactionNotification`)
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public bool SerializeTx {
@@ -5712,6 +7647,9 @@ namespace Pb {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
       if (subscribe_ != null) {
         output.WriteRawTag(10);
         output.WriteMessage(Subscribe);
@@ -5735,7 +7673,37 @@ namespace Pb {
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (subscribe_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(Subscribe);
+      }
+      if (unsubscribe_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(Unsubscribe);
+      }
+      if (IncludeMempool != false) {
+        output.WriteRawTag(24);
+        output.WriteBool(IncludeMempool);
+      }
+      if (IncludeInBlock != false) {
+        output.WriteRawTag(32);
+        output.WriteBool(IncludeInBlock);
+      }
+      if (SerializeTx != false) {
+        output.WriteRawTag(40);
+        output.WriteBool(SerializeTx);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
@@ -5792,6 +7760,9 @@ namespace Pb {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
         switch(tag) {
@@ -5826,7 +7797,48 @@ namespace Pb {
           }
         }
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            if (subscribe_ == null) {
+              Subscribe = new global::Pb.TransactionFilter();
+            }
+            input.ReadMessage(Subscribe);
+            break;
+          }
+          case 18: {
+            if (unsubscribe_ == null) {
+              Unsubscribe = new global::Pb.TransactionFilter();
+            }
+            input.ReadMessage(Unsubscribe);
+            break;
+          }
+          case 24: {
+            IncludeMempool = input.ReadBool();
+            break;
+          }
+          case 32: {
+            IncludeInBlock = input.ReadBool();
+            break;
+          }
+          case 40: {
+            SerializeTx = input.ReadBool();
+            break;
+          }
+        }
+      }
+    }
+    #endif
 
   }
 
@@ -5850,7 +7862,11 @@ namespace Pb {
   ///            serialize_block = true
   ///        }
   /// </summary>
-  public sealed partial class SubscribeBlocksRequest : pb::IMessage<SubscribeBlocksRequest> {
+  public sealed partial class SubscribeBlocksRequest : pb::IMessage<SubscribeBlocksRequest>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
     private static readonly pb::MessageParser<SubscribeBlocksRequest> _parser = new pb::MessageParser<SubscribeBlocksRequest>(() => new SubscribeBlocksRequest());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -5905,8 +7921,10 @@ namespace Pb {
     public const int FullTransactionsFieldNumber = 2;
     private bool fullTransactions_;
     /// <summary>
-    /// When full_transactions is true, provide full transaction info for a marshaled block.
-    /// Default is false, only the transaction hashes are included for a marshaled block. See `TransactionData`.
+    /// When full_transactions is true, provide full transaction info
+    /// for a marshaled block.
+    /// Default is false, only the transaction hashes are included for
+    /// a marshaled block. See `TransactionData`.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public bool FullTransactions {
@@ -5920,7 +7938,7 @@ namespace Pb {
     public const int SerializeBlockFieldNumber = 3;
     private bool serializeBlock_;
     /// <summary>
-    /// When serialize_block is true, blocks are serialized using bitcoin protocol encoding. 
+    /// When serialize_block is true, blocks are serialized using bitcoin protocol encoding.
     /// Default is false, block will be Marshaled (see `BlockInfo` and `BlockNotification`)
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -5969,6 +7987,9 @@ namespace Pb {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
       if (FullBlock != false) {
         output.WriteRawTag(8);
         output.WriteBool(FullBlock);
@@ -5984,7 +8005,29 @@ namespace Pb {
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (FullBlock != false) {
+        output.WriteRawTag(8);
+        output.WriteBool(FullBlock);
+      }
+      if (FullTransactions != false) {
+        output.WriteRawTag(16);
+        output.WriteBool(FullTransactions);
+      }
+      if (SerializeBlock != false) {
+        output.WriteRawTag(24);
+        output.WriteBool(SerializeBlock);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
@@ -6023,6 +8066,9 @@ namespace Pb {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
         switch(tag) {
@@ -6043,11 +8089,42 @@ namespace Pb {
           }
         }
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 8: {
+            FullBlock = input.ReadBool();
+            break;
+          }
+          case 16: {
+            FullTransactions = input.ReadBool();
+            break;
+          }
+          case 24: {
+            SerializeBlock = input.ReadBool();
+            break;
+          }
+        }
+      }
+    }
+    #endif
 
   }
 
-  public sealed partial class BlockNotification : pb::IMessage<BlockNotification> {
+  public sealed partial class BlockNotification : pb::IMessage<BlockNotification>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
     private static readonly pb::MessageParser<BlockNotification> _parser = new pb::MessageParser<BlockNotification>(() => new BlockNotification());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -6096,6 +8173,9 @@ namespace Pb {
     /// <summary>Field number for the "type" field.</summary>
     public const int TypeFieldNumber = 1;
     private global::Pb.BlockNotification.Types.Type type_ = global::Pb.BlockNotification.Types.Type.Connected;
+    /// <summary>
+    /// Whether the block is connected to the chain.
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public global::Pb.BlockNotification.Types.Type Type {
       get { return type_; }
@@ -6106,6 +8186,9 @@ namespace Pb {
 
     /// <summary>Field number for the "block_info" field.</summary>
     public const int BlockInfoFieldNumber = 2;
+    /// <summary>
+    /// Marshaled block header data, as well as metadata stored by the node.
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public global::Pb.BlockInfo BlockInfo {
       get { return blockCase_ == BlockOneofCase.BlockInfo ? (global::Pb.BlockInfo) block_ : null; }
@@ -6117,6 +8200,9 @@ namespace Pb {
 
     /// <summary>Field number for the "marshaled_block" field.</summary>
     public const int MarshaledBlockFieldNumber = 3;
+    /// <summary>
+    /// A Block.
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public global::Pb.Block MarshaledBlock {
       get { return blockCase_ == BlockOneofCase.MarshaledBlock ? (global::Pb.Block) block_ : null; }
@@ -6128,6 +8214,9 @@ namespace Pb {
 
     /// <summary>Field number for the "serialized_block" field.</summary>
     public const int SerializedBlockFieldNumber = 4;
+    /// <summary>
+    /// Binary block, serialized using bitcoin protocol encoding.
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pb::ByteString SerializedBlock {
       get { return blockCase_ == BlockOneofCase.SerializedBlock ? (pb::ByteString) block_ : pb::ByteString.Empty; }
@@ -6199,6 +8288,9 @@ namespace Pb {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
       if (Type != global::Pb.BlockNotification.Types.Type.Connected) {
         output.WriteRawTag(8);
         output.WriteEnum((int) Type);
@@ -6218,7 +8310,33 @@ namespace Pb {
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (Type != global::Pb.BlockNotification.Types.Type.Connected) {
+        output.WriteRawTag(8);
+        output.WriteEnum((int) Type);
+      }
+      if (blockCase_ == BlockOneofCase.BlockInfo) {
+        output.WriteRawTag(18);
+        output.WriteMessage(BlockInfo);
+      }
+      if (blockCase_ == BlockOneofCase.MarshaledBlock) {
+        output.WriteRawTag(26);
+        output.WriteMessage(MarshaledBlock);
+      }
+      if (blockCase_ == BlockOneofCase.SerializedBlock) {
+        output.WriteRawTag(34);
+        output.WriteBytes(SerializedBlock);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
@@ -6272,6 +8390,9 @@ namespace Pb {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
         switch(tag) {
@@ -6306,12 +8427,56 @@ namespace Pb {
           }
         }
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 8: {
+            Type = (global::Pb.BlockNotification.Types.Type) input.ReadEnum();
+            break;
+          }
+          case 18: {
+            global::Pb.BlockInfo subBuilder = new global::Pb.BlockInfo();
+            if (blockCase_ == BlockOneofCase.BlockInfo) {
+              subBuilder.MergeFrom(BlockInfo);
+            }
+            input.ReadMessage(subBuilder);
+            BlockInfo = subBuilder;
+            break;
+          }
+          case 26: {
+            global::Pb.Block subBuilder = new global::Pb.Block();
+            if (blockCase_ == BlockOneofCase.MarshaledBlock) {
+              subBuilder.MergeFrom(MarshaledBlock);
+            }
+            input.ReadMessage(subBuilder);
+            MarshaledBlock = subBuilder;
+            break;
+          }
+          case 34: {
+            SerializedBlock = input.ReadBytes();
+            break;
+          }
+        }
+      }
+    }
+    #endif
 
     #region Nested types
     /// <summary>Container for nested types declared in the BlockNotification message type.</summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static partial class Types {
+      /// <summary>
+      /// State of the block in relation to the chain.
+      /// </summary>
       public enum Type {
         [pbr::OriginalName("CONNECTED")] Connected = 0,
         [pbr::OriginalName("DISCONNECTED")] Disconnected = 1,
@@ -6322,7 +8487,11 @@ namespace Pb {
 
   }
 
-  public sealed partial class TransactionNotification : pb::IMessage<TransactionNotification> {
+  public sealed partial class TransactionNotification : pb::IMessage<TransactionNotification>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
     private static readonly pb::MessageParser<TransactionNotification> _parser = new pb::MessageParser<TransactionNotification>(() => new TransactionNotification());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -6371,6 +8540,9 @@ namespace Pb {
     /// <summary>Field number for the "type" field.</summary>
     public const int TypeFieldNumber = 1;
     private global::Pb.TransactionNotification.Types.Type type_ = global::Pb.TransactionNotification.Types.Type.Unconfirmed;
+    /// <summary>
+    /// Whether or not the transaction has been included in a block.
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public global::Pb.TransactionNotification.Types.Type Type {
       get { return type_; }
@@ -6381,6 +8553,9 @@ namespace Pb {
 
     /// <summary>Field number for the "confirmed_transaction" field.</summary>
     public const int ConfirmedTransactionFieldNumber = 2;
+    /// <summary>
+    /// A transaction included in a block.
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public global::Pb.Transaction ConfirmedTransaction {
       get { return transactionCase_ == TransactionOneofCase.ConfirmedTransaction ? (global::Pb.Transaction) transaction_ : null; }
@@ -6392,6 +8567,9 @@ namespace Pb {
 
     /// <summary>Field number for the "unconfirmed_transaction" field.</summary>
     public const int UnconfirmedTransactionFieldNumber = 3;
+    /// <summary>
+    /// A transaction in mempool.
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public global::Pb.MempoolTransaction UnconfirmedTransaction {
       get { return transactionCase_ == TransactionOneofCase.UnconfirmedTransaction ? (global::Pb.MempoolTransaction) transaction_ : null; }
@@ -6403,6 +8581,9 @@ namespace Pb {
 
     /// <summary>Field number for the "serialized_transaction" field.</summary>
     public const int SerializedTransactionFieldNumber = 4;
+    /// <summary>
+    /// Binary transaction, serialized using bitcoin protocol encoding.
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pb::ByteString SerializedTransaction {
       get { return transactionCase_ == TransactionOneofCase.SerializedTransaction ? (pb::ByteString) transaction_ : pb::ByteString.Empty; }
@@ -6474,6 +8655,9 @@ namespace Pb {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
       if (Type != global::Pb.TransactionNotification.Types.Type.Unconfirmed) {
         output.WriteRawTag(8);
         output.WriteEnum((int) Type);
@@ -6493,7 +8677,33 @@ namespace Pb {
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (Type != global::Pb.TransactionNotification.Types.Type.Unconfirmed) {
+        output.WriteRawTag(8);
+        output.WriteEnum((int) Type);
+      }
+      if (transactionCase_ == TransactionOneofCase.ConfirmedTransaction) {
+        output.WriteRawTag(18);
+        output.WriteMessage(ConfirmedTransaction);
+      }
+      if (transactionCase_ == TransactionOneofCase.UnconfirmedTransaction) {
+        output.WriteRawTag(26);
+        output.WriteMessage(UnconfirmedTransaction);
+      }
+      if (transactionCase_ == TransactionOneofCase.SerializedTransaction) {
+        output.WriteRawTag(34);
+        output.WriteBytes(SerializedTransaction);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
@@ -6547,6 +8757,9 @@ namespace Pb {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
         switch(tag) {
@@ -6581,14 +8794,64 @@ namespace Pb {
           }
         }
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 8: {
+            Type = (global::Pb.TransactionNotification.Types.Type) input.ReadEnum();
+            break;
+          }
+          case 18: {
+            global::Pb.Transaction subBuilder = new global::Pb.Transaction();
+            if (transactionCase_ == TransactionOneofCase.ConfirmedTransaction) {
+              subBuilder.MergeFrom(ConfirmedTransaction);
+            }
+            input.ReadMessage(subBuilder);
+            ConfirmedTransaction = subBuilder;
+            break;
+          }
+          case 26: {
+            global::Pb.MempoolTransaction subBuilder = new global::Pb.MempoolTransaction();
+            if (transactionCase_ == TransactionOneofCase.UnconfirmedTransaction) {
+              subBuilder.MergeFrom(UnconfirmedTransaction);
+            }
+            input.ReadMessage(subBuilder);
+            UnconfirmedTransaction = subBuilder;
+            break;
+          }
+          case 34: {
+            SerializedTransaction = input.ReadBytes();
+            break;
+          }
+        }
+      }
+    }
+    #endif
 
     #region Nested types
     /// <summary>Container for nested types declared in the TransactionNotification message type.</summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static partial class Types {
+      /// <summary>
+      /// State of the transaction acceptance.
+      /// </summary>
       public enum Type {
+        /// <summary>
+        /// A transaction in mempool.
+        /// </summary>
         [pbr::OriginalName("UNCONFIRMED")] Unconfirmed = 0,
+        /// <summary>
+        /// A transaction in a block.
+        /// </summary>
         [pbr::OriginalName("CONFIRMED")] Confirmed = 1,
       }
 
@@ -6597,7 +8860,14 @@ namespace Pb {
 
   }
 
-  public sealed partial class BlockInfo : pb::IMessage<BlockInfo> {
+  /// <summary>
+  /// Metadata for identifying and validating a block
+  /// </summary>
+  public sealed partial class BlockInfo : pb::IMessage<BlockInfo>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
     private static readonly pb::MessageParser<BlockInfo> _parser = new pb::MessageParser<BlockInfo>(() => new BlockInfo());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -6647,7 +8917,9 @@ namespace Pb {
     public const int HashFieldNumber = 1;
     private pb::ByteString hash_ = pb::ByteString.Empty;
     /// <summary>
-    /// Identification.
+    /// The double sha256 hash of the six header fields in the first 80 bytes
+    /// of the block, when encoded according the bitcoin protocol, little-endian.
+    /// sha256(sha256(encoded_header))
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pb::ByteString Hash {
@@ -6660,6 +8932,9 @@ namespace Pb {
     /// <summary>Field number for the "height" field.</summary>
     public const int HeightFieldNumber = 2;
     private int height_;
+    /// <summary>
+    /// The block number, an incremental index for each block mined.
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int Height {
       get { return height_; }
@@ -6672,7 +8947,7 @@ namespace Pb {
     public const int VersionFieldNumber = 3;
     private int version_;
     /// <summary>
-    /// Block header data.
+    /// A version number to track software/protocol upgrades.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int Version {
@@ -6685,6 +8960,9 @@ namespace Pb {
     /// <summary>Field number for the "previous_block" field.</summary>
     public const int PreviousBlockFieldNumber = 4;
     private pb::ByteString previousBlock_ = pb::ByteString.Empty;
+    /// <summary>
+    /// Hash of the previous block, little-endian.
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pb::ByteString PreviousBlock {
       get { return previousBlock_; }
@@ -6696,6 +8974,9 @@ namespace Pb {
     /// <summary>Field number for the "merkle_root" field.</summary>
     public const int MerkleRootFieldNumber = 5;
     private pb::ByteString merkleRoot_ = pb::ByteString.Empty;
+    /// <summary>
+    /// The root of the Merkle Tree built from all transactions in the block, little-endian.
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pb::ByteString MerkleRoot {
       get { return merkleRoot_; }
@@ -6707,6 +8988,9 @@ namespace Pb {
     /// <summary>Field number for the "timestamp" field.</summary>
     public const int TimestampFieldNumber = 6;
     private long timestamp_;
+    /// <summary>
+    /// When mining of the block started, expressed in seconds since 1970-01-01.
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public long Timestamp {
       get { return timestamp_; }
@@ -6718,6 +9002,9 @@ namespace Pb {
     /// <summary>Field number for the "bits" field.</summary>
     public const int BitsFieldNumber = 7;
     private uint bits_;
+    /// <summary>
+    /// Difficulty in Compressed Target Format.
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public uint Bits {
       get { return bits_; }
@@ -6729,6 +9016,10 @@ namespace Pb {
     /// <summary>Field number for the "nonce" field.</summary>
     public const int NonceFieldNumber = 8;
     private uint nonce_;
+    /// <summary>
+    /// A random value that was generated during block mining which happened to
+    /// result in a computed block hash below the difficulty target at the time.
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public uint Nonce {
       get { return nonce_; }
@@ -6741,7 +9032,7 @@ namespace Pb {
     public const int ConfirmationsFieldNumber = 9;
     private int confirmations_;
     /// <summary>
-    /// Metadata.
+    /// Number of blocks in a chain, including the block itself upon creation.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int Confirmations {
@@ -6754,6 +9045,9 @@ namespace Pb {
     /// <summary>Field number for the "difficulty" field.</summary>
     public const int DifficultyFieldNumber = 10;
     private double difficulty_;
+    /// <summary>
+    /// Difficulty target at time of creation.
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public double Difficulty {
       get { return difficulty_; }
@@ -6765,6 +9059,9 @@ namespace Pb {
     /// <summary>Field number for the "next_block_hash" field.</summary>
     public const int NextBlockHashFieldNumber = 11;
     private pb::ByteString nextBlockHash_ = pb::ByteString.Empty;
+    /// <summary>
+    /// Hash of the next block in this chain, little-endian.
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pb::ByteString NextBlockHash {
       get { return nextBlockHash_; }
@@ -6776,6 +9073,9 @@ namespace Pb {
     /// <summary>Field number for the "size" field.</summary>
     public const int SizeFieldNumber = 12;
     private int size_;
+    /// <summary>
+    /// Size of the block in bytes.
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int Size {
       get { return size_; }
@@ -6787,6 +9087,9 @@ namespace Pb {
     /// <summary>Field number for the "median_time" field.</summary>
     public const int MedianTimeFieldNumber = 13;
     private long medianTime_;
+    /// <summary>
+    /// The median block time of the latest 11 block timestamps.
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public long MedianTime {
       get { return medianTime_; }
@@ -6853,6 +9156,9 @@ namespace Pb {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
       if (Hash.Length != 0) {
         output.WriteRawTag(10);
         output.WriteBytes(Hash);
@@ -6908,7 +9214,69 @@ namespace Pb {
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (Hash.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteBytes(Hash);
+      }
+      if (Height != 0) {
+        output.WriteRawTag(16);
+        output.WriteInt32(Height);
+      }
+      if (Version != 0) {
+        output.WriteRawTag(24);
+        output.WriteInt32(Version);
+      }
+      if (PreviousBlock.Length != 0) {
+        output.WriteRawTag(34);
+        output.WriteBytes(PreviousBlock);
+      }
+      if (MerkleRoot.Length != 0) {
+        output.WriteRawTag(42);
+        output.WriteBytes(MerkleRoot);
+      }
+      if (Timestamp != 0L) {
+        output.WriteRawTag(48);
+        output.WriteInt64(Timestamp);
+      }
+      if (Bits != 0) {
+        output.WriteRawTag(56);
+        output.WriteUInt32(Bits);
+      }
+      if (Nonce != 0) {
+        output.WriteRawTag(64);
+        output.WriteUInt32(Nonce);
+      }
+      if (Confirmations != 0) {
+        output.WriteRawTag(72);
+        output.WriteInt32(Confirmations);
+      }
+      if (Difficulty != 0D) {
+        output.WriteRawTag(81);
+        output.WriteDouble(Difficulty);
+      }
+      if (NextBlockHash.Length != 0) {
+        output.WriteRawTag(90);
+        output.WriteBytes(NextBlockHash);
+      }
+      if (Size != 0) {
+        output.WriteRawTag(96);
+        output.WriteInt32(Size);
+      }
+      if (MedianTime != 0L) {
+        output.WriteRawTag(104);
+        output.WriteInt64(MedianTime);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
@@ -7007,6 +9375,9 @@ namespace Pb {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
         switch(tag) {
@@ -7067,11 +9438,82 @@ namespace Pb {
           }
         }
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            Hash = input.ReadBytes();
+            break;
+          }
+          case 16: {
+            Height = input.ReadInt32();
+            break;
+          }
+          case 24: {
+            Version = input.ReadInt32();
+            break;
+          }
+          case 34: {
+            PreviousBlock = input.ReadBytes();
+            break;
+          }
+          case 42: {
+            MerkleRoot = input.ReadBytes();
+            break;
+          }
+          case 48: {
+            Timestamp = input.ReadInt64();
+            break;
+          }
+          case 56: {
+            Bits = input.ReadUInt32();
+            break;
+          }
+          case 64: {
+            Nonce = input.ReadUInt32();
+            break;
+          }
+          case 72: {
+            Confirmations = input.ReadInt32();
+            break;
+          }
+          case 81: {
+            Difficulty = input.ReadDouble();
+            break;
+          }
+          case 90: {
+            NextBlockHash = input.ReadBytes();
+            break;
+          }
+          case 96: {
+            Size = input.ReadInt32();
+            break;
+          }
+          case 104: {
+            MedianTime = input.ReadInt64();
+            break;
+          }
+        }
+      }
+    }
+    #endif
 
   }
 
-  public sealed partial class Block : pb::IMessage<Block> {
+  public sealed partial class Block : pb::IMessage<Block>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
     private static readonly pb::MessageParser<Block> _parser = new pb::MessageParser<Block>(() => new Block());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -7109,6 +9551,9 @@ namespace Pb {
     /// <summary>Field number for the "info" field.</summary>
     public const int InfoFieldNumber = 1;
     private global::Pb.BlockInfo info_;
+    /// <summary>
+    /// Block header data, as well as metadata stored by the node.
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public global::Pb.BlockInfo Info {
       get { return info_; }
@@ -7122,6 +9567,9 @@ namespace Pb {
     private static readonly pb::FieldCodec<global::Pb.Block.Types.TransactionData> _repeated_transactionData_codec
         = pb::FieldCodec.ForMessage(18, global::Pb.Block.Types.TransactionData.Parser);
     private readonly pbc::RepeatedField<global::Pb.Block.Types.TransactionData> transactionData_ = new pbc::RepeatedField<global::Pb.Block.Types.TransactionData>();
+    /// <summary>
+    /// List of transactions or transaction hashes.
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pbc::RepeatedField<global::Pb.Block.Types.TransactionData> TransactionData {
       get { return transactionData_; }
@@ -7163,6 +9611,9 @@ namespace Pb {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
       if (info_ != null) {
         output.WriteRawTag(10);
         output.WriteMessage(Info);
@@ -7171,7 +9622,22 @@ namespace Pb {
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (info_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(Info);
+      }
+      transactionData_.WriteTo(ref output, _repeated_transactionData_codec);
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
@@ -7203,6 +9669,9 @@ namespace Pb {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
         switch(tag) {
@@ -7222,13 +9691,43 @@ namespace Pb {
           }
         }
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            if (info_ == null) {
+              Info = new global::Pb.BlockInfo();
+            }
+            input.ReadMessage(Info);
+            break;
+          }
+          case 18: {
+            transactionData_.AddEntriesFrom(ref input, _repeated_transactionData_codec);
+            break;
+          }
+        }
+      }
+    }
+    #endif
 
     #region Nested types
     /// <summary>Container for nested types declared in the Block message type.</summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static partial class Types {
-      public sealed partial class TransactionData : pb::IMessage<TransactionData> {
+      public sealed partial class TransactionData : pb::IMessage<TransactionData>
+      #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+          , pb::IBufferMessage
+      #endif
+      {
         private static readonly pb::MessageParser<TransactionData> _parser = new pb::MessageParser<TransactionData>(() => new TransactionData());
         private pb::UnknownFieldSet _unknownFields;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -7272,6 +9771,9 @@ namespace Pb {
 
         /// <summary>Field number for the "transaction_hash" field.</summary>
         public const int TransactionHashFieldNumber = 1;
+        /// <summary>
+        /// Just the transaction hash, little-endian.
+        /// </summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         public pb::ByteString TransactionHash {
           get { return txidsOrTxsCase_ == TxidsOrTxsOneofCase.TransactionHash ? (pb::ByteString) txidsOrTxs_ : pb::ByteString.Empty; }
@@ -7283,6 +9785,9 @@ namespace Pb {
 
         /// <summary>Field number for the "transaction" field.</summary>
         public const int TransactionFieldNumber = 2;
+        /// <summary>
+        /// A marshaled transaction.
+        /// </summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         public global::Pb.Transaction Transaction {
           get { return txidsOrTxsCase_ == TxidsOrTxsOneofCase.Transaction ? (global::Pb.Transaction) txidsOrTxs_ : null; }
@@ -7349,6 +9854,9 @@ namespace Pb {
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         public void WriteTo(pb::CodedOutputStream output) {
+        #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+          output.WriteRawMessage(this);
+        #else
           if (txidsOrTxsCase_ == TxidsOrTxsOneofCase.TransactionHash) {
             output.WriteRawTag(10);
             output.WriteBytes(TransactionHash);
@@ -7360,7 +9868,25 @@ namespace Pb {
           if (_unknownFields != null) {
             _unknownFields.WriteTo(output);
           }
+        #endif
         }
+
+        #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+          if (txidsOrTxsCase_ == TxidsOrTxsOneofCase.TransactionHash) {
+            output.WriteRawTag(10);
+            output.WriteBytes(TransactionHash);
+          }
+          if (txidsOrTxsCase_ == TxidsOrTxsOneofCase.Transaction) {
+            output.WriteRawTag(18);
+            output.WriteMessage(Transaction);
+          }
+          if (_unknownFields != null) {
+            _unknownFields.WriteTo(ref output);
+          }
+        }
+        #endif
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         public int CalculateSize() {
@@ -7399,6 +9925,9 @@ namespace Pb {
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         public void MergeFrom(pb::CodedInputStream input) {
+        #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+          input.ReadRawMessage(this);
+        #else
           uint tag;
           while ((tag = input.ReadTag()) != 0) {
             switch(tag) {
@@ -7420,7 +9949,35 @@ namespace Pb {
               }
             }
           }
+        #endif
         }
+
+        #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+          uint tag;
+          while ((tag = input.ReadTag()) != 0) {
+            switch(tag) {
+              default:
+                _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+                break;
+              case 10: {
+                TransactionHash = input.ReadBytes();
+                break;
+              }
+              case 18: {
+                global::Pb.Transaction subBuilder = new global::Pb.Transaction();
+                if (txidsOrTxsCase_ == TxidsOrTxsOneofCase.Transaction) {
+                  subBuilder.MergeFrom(Transaction);
+                }
+                input.ReadMessage(subBuilder);
+                Transaction = subBuilder;
+                break;
+              }
+            }
+          }
+        }
+        #endif
 
       }
 
@@ -7429,7 +9986,11 @@ namespace Pb {
 
   }
 
-  public sealed partial class Transaction : pb::IMessage<Transaction> {
+  public sealed partial class Transaction : pb::IMessage<Transaction>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
     private static readonly pb::MessageParser<Transaction> _parser = new pb::MessageParser<Transaction>(() => new Transaction());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -7475,6 +10036,10 @@ namespace Pb {
     /// <summary>Field number for the "hash" field.</summary>
     public const int HashFieldNumber = 1;
     private pb::ByteString hash_ = pb::ByteString.Empty;
+    /// <summary>
+    /// The double sha256 hash of the encoded transaction, little-endian.
+    /// sha256(sha256(encoded_transaction))
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pb::ByteString Hash {
       get { return hash_; }
@@ -7486,6 +10051,9 @@ namespace Pb {
     /// <summary>Field number for the "version" field.</summary>
     public const int VersionFieldNumber = 2;
     private int version_;
+    /// <summary>
+    /// The version of the transaction format.
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int Version {
       get { return version_; }
@@ -7499,6 +10067,9 @@ namespace Pb {
     private static readonly pb::FieldCodec<global::Pb.Transaction.Types.Input> _repeated_inputs_codec
         = pb::FieldCodec.ForMessage(26, global::Pb.Transaction.Types.Input.Parser);
     private readonly pbc::RepeatedField<global::Pb.Transaction.Types.Input> inputs_ = new pbc::RepeatedField<global::Pb.Transaction.Types.Input>();
+    /// <summary>
+    /// List of inputs.
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pbc::RepeatedField<global::Pb.Transaction.Types.Input> Inputs {
       get { return inputs_; }
@@ -7509,6 +10080,9 @@ namespace Pb {
     private static readonly pb::FieldCodec<global::Pb.Transaction.Types.Output> _repeated_outputs_codec
         = pb::FieldCodec.ForMessage(34, global::Pb.Transaction.Types.Output.Parser);
     private readonly pbc::RepeatedField<global::Pb.Transaction.Types.Output> outputs_ = new pbc::RepeatedField<global::Pb.Transaction.Types.Output>();
+    /// <summary>
+    /// List of outputs.
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pbc::RepeatedField<global::Pb.Transaction.Types.Output> Outputs {
       get { return outputs_; }
@@ -7517,6 +10091,11 @@ namespace Pb {
     /// <summary>Field number for the "lock_time" field.</summary>
     public const int LockTimeFieldNumber = 5;
     private uint lockTime_;
+    /// <summary>
+    /// The block height or timestamp after which this transaction is allowed.
+    /// If value is greater than 500 million, it is assumed to be an epoch timestamp,
+    /// otherwise it is treated as a block-height. Default is zero, or lock.
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public uint LockTime {
       get { return lockTime_; }
@@ -7529,7 +10108,7 @@ namespace Pb {
     public const int SizeFieldNumber = 8;
     private int size_;
     /// <summary>
-    /// Metadata
+    /// The size of the transaction in bytes.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int Size {
@@ -7542,6 +10121,9 @@ namespace Pb {
     /// <summary>Field number for the "timestamp" field.</summary>
     public const int TimestampFieldNumber = 9;
     private long timestamp_;
+    /// <summary>
+    /// When the transaction was included in a block, in epoch time.
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public long Timestamp {
       get { return timestamp_; }
@@ -7553,6 +10135,10 @@ namespace Pb {
     /// <summary>Field number for the "confirmations" field.</summary>
     public const int ConfirmationsFieldNumber = 10;
     private int confirmations_;
+    /// <summary>
+    /// Number of blocks including proof of the transaction, including
+    /// the block it appeared.
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int Confirmations {
       get { return confirmations_; }
@@ -7564,6 +10150,9 @@ namespace Pb {
     /// <summary>Field number for the "block_height" field.</summary>
     public const int BlockHeightFieldNumber = 11;
     private int blockHeight_;
+    /// <summary>
+    /// Number of the block containing the transaction.
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int BlockHeight {
       get { return blockHeight_; }
@@ -7575,6 +10164,9 @@ namespace Pb {
     /// <summary>Field number for the "block_hash" field.</summary>
     public const int BlockHashFieldNumber = 12;
     private pb::ByteString blockHash_ = pb::ByteString.Empty;
+    /// <summary>
+    /// Hash of the block the transaction was recorded in, little-endian.
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pb::ByteString BlockHash {
       get { return blockHash_; }
@@ -7635,6 +10227,9 @@ namespace Pb {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
       if (Hash.Length != 0) {
         output.WriteRawTag(10);
         output.WriteBytes(Hash);
@@ -7672,7 +10267,51 @@ namespace Pb {
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (Hash.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteBytes(Hash);
+      }
+      if (Version != 0) {
+        output.WriteRawTag(16);
+        output.WriteInt32(Version);
+      }
+      inputs_.WriteTo(ref output, _repeated_inputs_codec);
+      outputs_.WriteTo(ref output, _repeated_outputs_codec);
+      if (LockTime != 0) {
+        output.WriteRawTag(40);
+        output.WriteUInt32(LockTime);
+      }
+      if (Size != 0) {
+        output.WriteRawTag(64);
+        output.WriteInt32(Size);
+      }
+      if (Timestamp != 0L) {
+        output.WriteRawTag(72);
+        output.WriteInt64(Timestamp);
+      }
+      if (Confirmations != 0) {
+        output.WriteRawTag(80);
+        output.WriteInt32(Confirmations);
+      }
+      if (BlockHeight != 0) {
+        output.WriteRawTag(88);
+        output.WriteInt32(BlockHeight);
+      }
+      if (BlockHash.Length != 0) {
+        output.WriteRawTag(98);
+        output.WriteBytes(BlockHash);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
@@ -7745,6 +10384,9 @@ namespace Pb {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
         switch(tag) {
@@ -7793,13 +10435,72 @@ namespace Pb {
           }
         }
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            Hash = input.ReadBytes();
+            break;
+          }
+          case 16: {
+            Version = input.ReadInt32();
+            break;
+          }
+          case 26: {
+            inputs_.AddEntriesFrom(ref input, _repeated_inputs_codec);
+            break;
+          }
+          case 34: {
+            outputs_.AddEntriesFrom(ref input, _repeated_outputs_codec);
+            break;
+          }
+          case 40: {
+            LockTime = input.ReadUInt32();
+            break;
+          }
+          case 64: {
+            Size = input.ReadInt32();
+            break;
+          }
+          case 72: {
+            Timestamp = input.ReadInt64();
+            break;
+          }
+          case 80: {
+            Confirmations = input.ReadInt32();
+            break;
+          }
+          case 88: {
+            BlockHeight = input.ReadInt32();
+            break;
+          }
+          case 98: {
+            BlockHash = input.ReadBytes();
+            break;
+          }
+        }
+      }
+    }
+    #endif
 
     #region Nested types
     /// <summary>Container for nested types declared in the Transaction message type.</summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static partial class Types {
-      public sealed partial class Input : pb::IMessage<Input> {
+      public sealed partial class Input : pb::IMessage<Input>
+      #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+          , pb::IBufferMessage
+      #endif
+      {
         private static readonly pb::MessageParser<Input> _parser = new pb::MessageParser<Input>(() => new Input());
         private pb::UnknownFieldSet _unknownFields;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -7842,6 +10543,9 @@ namespace Pb {
         /// <summary>Field number for the "index" field.</summary>
         public const int IndexFieldNumber = 1;
         private uint index_;
+        /// <summary>
+        /// The number of the input, starting from zero.
+        /// </summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         public uint Index {
           get { return index_; }
@@ -7853,6 +10557,9 @@ namespace Pb {
         /// <summary>Field number for the "outpoint" field.</summary>
         public const int OutpointFieldNumber = 2;
         private global::Pb.Transaction.Types.Input.Types.Outpoint outpoint_;
+        /// <summary>
+        /// The related outpoint.
+        /// </summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         public global::Pb.Transaction.Types.Input.Types.Outpoint Outpoint {
           get { return outpoint_; }
@@ -7864,6 +10571,10 @@ namespace Pb {
         /// <summary>Field number for the "signature_script" field.</summary>
         public const int SignatureScriptFieldNumber = 3;
         private pb::ByteString signatureScript_ = pb::ByteString.Empty;
+        /// <summary>
+        /// An unlocking script asserting a transaction is permitted to spend
+        /// the Outpoint (UTXO)
+        /// </summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         public pb::ByteString SignatureScript {
           get { return signatureScript_; }
@@ -7875,6 +10586,10 @@ namespace Pb {
         /// <summary>Field number for the "sequence" field.</summary>
         public const int SequenceFieldNumber = 4;
         private uint sequence_;
+        /// <summary>
+        /// As of BIP-68, the sequence number is interpreted as a relative
+        /// lock-time for the input.
+        /// </summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         public uint Sequence {
           get { return sequence_; }
@@ -7886,6 +10601,9 @@ namespace Pb {
         /// <summary>Field number for the "value" field.</summary>
         public const int ValueFieldNumber = 5;
         private long value_;
+        /// <summary>
+        /// Amount in satoshi.
+        /// </summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         public long Value {
           get { return value_; }
@@ -7897,6 +10615,9 @@ namespace Pb {
         /// <summary>Field number for the "previous_script" field.</summary>
         public const int PreviousScriptFieldNumber = 6;
         private pb::ByteString previousScript_ = pb::ByteString.Empty;
+        /// <summary>
+        /// The pubkey_script of the previous output that is being spent.
+        /// </summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         public pb::ByteString PreviousScript {
           get { return previousScript_; }
@@ -7908,6 +10629,9 @@ namespace Pb {
         /// <summary>Field number for the "address" field.</summary>
         public const int AddressFieldNumber = 7;
         private string address_ = "";
+        /// <summary>
+        /// The bitcoin addresses associated with this input.
+        /// </summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         public string Address {
           get { return address_; }
@@ -7962,6 +10686,9 @@ namespace Pb {
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         public void WriteTo(pb::CodedOutputStream output) {
+        #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+          output.WriteRawMessage(this);
+        #else
           if (Index != 0) {
             output.WriteRawTag(8);
             output.WriteUInt32(Index);
@@ -7993,7 +10720,45 @@ namespace Pb {
           if (_unknownFields != null) {
             _unknownFields.WriteTo(output);
           }
+        #endif
         }
+
+        #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+          if (Index != 0) {
+            output.WriteRawTag(8);
+            output.WriteUInt32(Index);
+          }
+          if (outpoint_ != null) {
+            output.WriteRawTag(18);
+            output.WriteMessage(Outpoint);
+          }
+          if (SignatureScript.Length != 0) {
+            output.WriteRawTag(26);
+            output.WriteBytes(SignatureScript);
+          }
+          if (Sequence != 0) {
+            output.WriteRawTag(32);
+            output.WriteUInt32(Sequence);
+          }
+          if (Value != 0L) {
+            output.WriteRawTag(40);
+            output.WriteInt64(Value);
+          }
+          if (PreviousScript.Length != 0) {
+            output.WriteRawTag(50);
+            output.WriteBytes(PreviousScript);
+          }
+          if (Address.Length != 0) {
+            output.WriteRawTag(58);
+            output.WriteString(Address);
+          }
+          if (_unknownFields != null) {
+            _unknownFields.WriteTo(ref output);
+          }
+        }
+        #endif
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         public int CalculateSize() {
@@ -8059,6 +10824,9 @@ namespace Pb {
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         public void MergeFrom(pb::CodedInputStream input) {
+        #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+          input.ReadRawMessage(this);
+        #else
           uint tag;
           while ((tag = input.ReadTag()) != 0) {
             switch(tag) {
@@ -8098,13 +10866,63 @@ namespace Pb {
               }
             }
           }
+        #endif
         }
+
+        #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+          uint tag;
+          while ((tag = input.ReadTag()) != 0) {
+            switch(tag) {
+              default:
+                _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+                break;
+              case 8: {
+                Index = input.ReadUInt32();
+                break;
+              }
+              case 18: {
+                if (outpoint_ == null) {
+                  Outpoint = new global::Pb.Transaction.Types.Input.Types.Outpoint();
+                }
+                input.ReadMessage(Outpoint);
+                break;
+              }
+              case 26: {
+                SignatureScript = input.ReadBytes();
+                break;
+              }
+              case 32: {
+                Sequence = input.ReadUInt32();
+                break;
+              }
+              case 40: {
+                Value = input.ReadInt64();
+                break;
+              }
+              case 50: {
+                PreviousScript = input.ReadBytes();
+                break;
+              }
+              case 58: {
+                Address = input.ReadString();
+                break;
+              }
+            }
+          }
+        }
+        #endif
 
         #region Nested types
         /// <summary>Container for nested types declared in the Input message type.</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         public static partial class Types {
-          public sealed partial class Outpoint : pb::IMessage<Outpoint> {
+          public sealed partial class Outpoint : pb::IMessage<Outpoint>
+          #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+              , pb::IBufferMessage
+          #endif
+          {
             private static readonly pb::MessageParser<Outpoint> _parser = new pb::MessageParser<Outpoint>(() => new Outpoint());
             private pb::UnknownFieldSet _unknownFields;
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -8142,6 +10960,9 @@ namespace Pb {
             /// <summary>Field number for the "hash" field.</summary>
             public const int HashFieldNumber = 1;
             private pb::ByteString hash_ = pb::ByteString.Empty;
+            /// <summary>
+            /// The hash of the transaction containing the output to be spent, little-endian
+            /// </summary>
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
             public pb::ByteString Hash {
               get { return hash_; }
@@ -8153,6 +10974,9 @@ namespace Pb {
             /// <summary>Field number for the "index" field.</summary>
             public const int IndexFieldNumber = 2;
             private uint index_;
+            /// <summary>
+            /// The index of specific output on the transaction.
+            /// </summary>
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
             public uint Index {
               get { return index_; }
@@ -8197,6 +11021,9 @@ namespace Pb {
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
             public void WriteTo(pb::CodedOutputStream output) {
+            #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+              output.WriteRawMessage(this);
+            #else
               if (Hash.Length != 0) {
                 output.WriteRawTag(10);
                 output.WriteBytes(Hash);
@@ -8208,7 +11035,25 @@ namespace Pb {
               if (_unknownFields != null) {
                 _unknownFields.WriteTo(output);
               }
+            #endif
             }
+
+            #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+            void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+              if (Hash.Length != 0) {
+                output.WriteRawTag(10);
+                output.WriteBytes(Hash);
+              }
+              if (Index != 0) {
+                output.WriteRawTag(16);
+                output.WriteUInt32(Index);
+              }
+              if (_unknownFields != null) {
+                _unknownFields.WriteTo(ref output);
+              }
+            }
+            #endif
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
             public int CalculateSize() {
@@ -8241,6 +11086,9 @@ namespace Pb {
 
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
             public void MergeFrom(pb::CodedInputStream input) {
+            #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+              input.ReadRawMessage(this);
+            #else
               uint tag;
               while ((tag = input.ReadTag()) != 0) {
                 switch(tag) {
@@ -8257,7 +11105,30 @@ namespace Pb {
                   }
                 }
               }
+            #endif
             }
+
+            #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+            void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+              uint tag;
+              while ((tag = input.ReadTag()) != 0) {
+                switch(tag) {
+                  default:
+                    _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+                    break;
+                  case 10: {
+                    Hash = input.ReadBytes();
+                    break;
+                  }
+                  case 16: {
+                    Index = input.ReadUInt32();
+                    break;
+                  }
+                }
+              }
+            }
+            #endif
 
           }
 
@@ -8266,7 +11137,11 @@ namespace Pb {
 
       }
 
-      public sealed partial class Output : pb::IMessage<Output> {
+      public sealed partial class Output : pb::IMessage<Output>
+      #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+          , pb::IBufferMessage
+      #endif
+      {
         private static readonly pb::MessageParser<Output> _parser = new pb::MessageParser<Output>(() => new Output());
         private pb::UnknownFieldSet _unknownFields;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -8308,6 +11183,9 @@ namespace Pb {
         /// <summary>Field number for the "index" field.</summary>
         public const int IndexFieldNumber = 1;
         private uint index_;
+        /// <summary>
+        /// The number of the output, starting from zero.
+        /// </summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         public uint Index {
           get { return index_; }
@@ -8319,6 +11197,9 @@ namespace Pb {
         /// <summary>Field number for the "value" field.</summary>
         public const int ValueFieldNumber = 2;
         private long value_;
+        /// <summary>
+        /// The number of satoshis to be transferred.
+        /// </summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         public long Value {
           get { return value_; }
@@ -8330,6 +11211,9 @@ namespace Pb {
         /// <summary>Field number for the "pubkey_script" field.</summary>
         public const int PubkeyScriptFieldNumber = 3;
         private pb::ByteString pubkeyScript_ = pb::ByteString.Empty;
+        /// <summary>
+        /// The public key script used to pay coins.
+        /// </summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         public pb::ByteString PubkeyScript {
           get { return pubkeyScript_; }
@@ -8341,6 +11225,9 @@ namespace Pb {
         /// <summary>Field number for the "address" field.</summary>
         public const int AddressFieldNumber = 4;
         private string address_ = "";
+        /// <summary>
+        /// The bitcoin addresses associated with this output.
+        /// </summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         public string Address {
           get { return address_; }
@@ -8352,6 +11239,9 @@ namespace Pb {
         /// <summary>Field number for the "script_class" field.</summary>
         public const int ScriptClassFieldNumber = 5;
         private string scriptClass_ = "";
+        /// <summary>
+        /// The type of script.
+        /// </summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         public string ScriptClass {
           get { return scriptClass_; }
@@ -8363,6 +11253,9 @@ namespace Pb {
         /// <summary>Field number for the "disassembled_script" field.</summary>
         public const int DisassembledScriptFieldNumber = 6;
         private string disassembledScript_ = "";
+        /// <summary>
+        /// The script expressed in Bitcoin Cash Script.
+        /// </summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         public string DisassembledScript {
           get { return disassembledScript_; }
@@ -8415,6 +11308,9 @@ namespace Pb {
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         public void WriteTo(pb::CodedOutputStream output) {
+        #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+          output.WriteRawMessage(this);
+        #else
           if (Index != 0) {
             output.WriteRawTag(8);
             output.WriteUInt32(Index);
@@ -8442,7 +11338,41 @@ namespace Pb {
           if (_unknownFields != null) {
             _unknownFields.WriteTo(output);
           }
+        #endif
         }
+
+        #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+          if (Index != 0) {
+            output.WriteRawTag(8);
+            output.WriteUInt32(Index);
+          }
+          if (Value != 0L) {
+            output.WriteRawTag(16);
+            output.WriteInt64(Value);
+          }
+          if (PubkeyScript.Length != 0) {
+            output.WriteRawTag(26);
+            output.WriteBytes(PubkeyScript);
+          }
+          if (Address.Length != 0) {
+            output.WriteRawTag(34);
+            output.WriteString(Address);
+          }
+          if (ScriptClass.Length != 0) {
+            output.WriteRawTag(42);
+            output.WriteString(ScriptClass);
+          }
+          if (DisassembledScript.Length != 0) {
+            output.WriteRawTag(50);
+            output.WriteString(DisassembledScript);
+          }
+          if (_unknownFields != null) {
+            _unknownFields.WriteTo(ref output);
+          }
+        }
+        #endif
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         public int CalculateSize() {
@@ -8499,6 +11429,9 @@ namespace Pb {
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         public void MergeFrom(pb::CodedInputStream input) {
+        #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+          input.ReadRawMessage(this);
+        #else
           uint tag;
           while ((tag = input.ReadTag()) != 0) {
             switch(tag) {
@@ -8531,7 +11464,46 @@ namespace Pb {
               }
             }
           }
+        #endif
         }
+
+        #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+          uint tag;
+          while ((tag = input.ReadTag()) != 0) {
+            switch(tag) {
+              default:
+                _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+                break;
+              case 8: {
+                Index = input.ReadUInt32();
+                break;
+              }
+              case 16: {
+                Value = input.ReadInt64();
+                break;
+              }
+              case 26: {
+                PubkeyScript = input.ReadBytes();
+                break;
+              }
+              case 34: {
+                Address = input.ReadString();
+                break;
+              }
+              case 42: {
+                ScriptClass = input.ReadString();
+                break;
+              }
+              case 50: {
+                DisassembledScript = input.ReadString();
+                break;
+              }
+            }
+          }
+        }
+        #endif
 
       }
 
@@ -8540,7 +11512,11 @@ namespace Pb {
 
   }
 
-  public sealed partial class MempoolTransaction : pb::IMessage<MempoolTransaction> {
+  public sealed partial class MempoolTransaction : pb::IMessage<MempoolTransaction>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
     private static readonly pb::MessageParser<MempoolTransaction> _parser = new pb::MessageParser<MempoolTransaction>(() => new MempoolTransaction());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -8704,6 +11680,9 @@ namespace Pb {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
       if (transaction_ != null) {
         output.WriteRawTag(10);
         output.WriteMessage(Transaction);
@@ -8731,7 +11710,41 @@ namespace Pb {
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (transaction_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(Transaction);
+      }
+      if (AddedTime != 0L) {
+        output.WriteRawTag(16);
+        output.WriteInt64(AddedTime);
+      }
+      if (AddedHeight != 0) {
+        output.WriteRawTag(24);
+        output.WriteInt32(AddedHeight);
+      }
+      if (Fee != 0L) {
+        output.WriteRawTag(32);
+        output.WriteInt64(Fee);
+      }
+      if (FeePerKb != 0L) {
+        output.WriteRawTag(40);
+        output.WriteInt64(FeePerKb);
+      }
+      if (StartingPriority != 0D) {
+        output.WriteRawTag(49);
+        output.WriteDouble(StartingPriority);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
@@ -8791,6 +11804,9 @@ namespace Pb {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
         switch(tag) {
@@ -8826,11 +11842,57 @@ namespace Pb {
           }
         }
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            if (transaction_ == null) {
+              Transaction = new global::Pb.Transaction();
+            }
+            input.ReadMessage(Transaction);
+            break;
+          }
+          case 16: {
+            AddedTime = input.ReadInt64();
+            break;
+          }
+          case 24: {
+            AddedHeight = input.ReadInt32();
+            break;
+          }
+          case 32: {
+            Fee = input.ReadInt64();
+            break;
+          }
+          case 40: {
+            FeePerKb = input.ReadInt64();
+            break;
+          }
+          case 49: {
+            StartingPriority = input.ReadDouble();
+            break;
+          }
+        }
+      }
+    }
+    #endif
 
   }
 
-  public sealed partial class UnspentOutput : pb::IMessage<UnspentOutput> {
+  public sealed partial class UnspentOutput : pb::IMessage<UnspentOutput>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
     private static readonly pb::MessageParser<UnspentOutput> _parser = new pb::MessageParser<UnspentOutput>(() => new UnspentOutput());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -8871,6 +11933,9 @@ namespace Pb {
     /// <summary>Field number for the "outpoint" field.</summary>
     public const int OutpointFieldNumber = 1;
     private global::Pb.Transaction.Types.Input.Types.Outpoint outpoint_;
+    /// <summary>
+    /// A reference to the output given by transaction hash and index.
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public global::Pb.Transaction.Types.Input.Types.Outpoint Outpoint {
       get { return outpoint_; }
@@ -8882,6 +11947,9 @@ namespace Pb {
     /// <summary>Field number for the "pubkey_script" field.</summary>
     public const int PubkeyScriptFieldNumber = 2;
     private pb::ByteString pubkeyScript_ = pb::ByteString.Empty;
+    /// <summary>
+    /// The public key script used to pay coins.
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pb::ByteString PubkeyScript {
       get { return pubkeyScript_; }
@@ -8893,6 +11961,9 @@ namespace Pb {
     /// <summary>Field number for the "value" field.</summary>
     public const int ValueFieldNumber = 3;
     private long value_;
+    /// <summary>
+    /// The amount in satoshis
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public long Value {
       get { return value_; }
@@ -8904,6 +11975,10 @@ namespace Pb {
     /// <summary>Field number for the "is_coinbase" field.</summary>
     public const int IsCoinbaseFieldNumber = 4;
     private bool isCoinbase_;
+    /// <summary>
+    /// When is_coinbase is true, the output is the first in the block,
+    /// a generation transaction, the result of mining.
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public bool IsCoinbase {
       get { return isCoinbase_; }
@@ -8915,6 +11990,9 @@ namespace Pb {
     /// <summary>Field number for the "block_height" field.</summary>
     public const int BlockHeightFieldNumber = 5;
     private int blockHeight_;
+    /// <summary>
+    /// The block number containing the UXTO.
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int BlockHeight {
       get { return blockHeight_; }
@@ -8965,6 +12043,9 @@ namespace Pb {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
       if (outpoint_ != null) {
         output.WriteRawTag(10);
         output.WriteMessage(Outpoint);
@@ -8988,7 +12069,37 @@ namespace Pb {
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (outpoint_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(Outpoint);
+      }
+      if (PubkeyScript.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteBytes(PubkeyScript);
+      }
+      if (Value != 0L) {
+        output.WriteRawTag(24);
+        output.WriteInt64(Value);
+      }
+      if (IsCoinbase != false) {
+        output.WriteRawTag(32);
+        output.WriteBool(IsCoinbase);
+      }
+      if (BlockHeight != 0) {
+        output.WriteRawTag(40);
+        output.WriteInt32(BlockHeight);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
@@ -9042,6 +12153,9 @@ namespace Pb {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
         switch(tag) {
@@ -9073,11 +12187,53 @@ namespace Pb {
           }
         }
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            if (outpoint_ == null) {
+              Outpoint = new global::Pb.Transaction.Types.Input.Types.Outpoint();
+            }
+            input.ReadMessage(Outpoint);
+            break;
+          }
+          case 18: {
+            PubkeyScript = input.ReadBytes();
+            break;
+          }
+          case 24: {
+            Value = input.ReadInt64();
+            break;
+          }
+          case 32: {
+            IsCoinbase = input.ReadBool();
+            break;
+          }
+          case 40: {
+            BlockHeight = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    }
+    #endif
 
   }
 
-  public sealed partial class TransactionFilter : pb::IMessage<TransactionFilter> {
+  public sealed partial class TransactionFilter : pb::IMessage<TransactionFilter>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
     private static readonly pb::MessageParser<TransactionFilter> _parser = new pb::MessageParser<TransactionFilter>(() => new TransactionFilter());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -9119,6 +12275,9 @@ namespace Pb {
     private static readonly pb::FieldCodec<string> _repeated_addresses_codec
         = pb::FieldCodec.ForString(10);
     private readonly pbc::RepeatedField<string> addresses_ = new pbc::RepeatedField<string>();
+    /// <summary>
+    /// Filter by address(es)
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pbc::RepeatedField<string> Addresses {
       get { return addresses_; }
@@ -9129,6 +12288,9 @@ namespace Pb {
     private static readonly pb::FieldCodec<global::Pb.Transaction.Types.Input.Types.Outpoint> _repeated_outpoints_codec
         = pb::FieldCodec.ForMessage(18, global::Pb.Transaction.Types.Input.Types.Outpoint.Parser);
     private readonly pbc::RepeatedField<global::Pb.Transaction.Types.Input.Types.Outpoint> outpoints_ = new pbc::RepeatedField<global::Pb.Transaction.Types.Input.Types.Outpoint>();
+    /// <summary>
+    /// Filter by output hash and index.
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pbc::RepeatedField<global::Pb.Transaction.Types.Input.Types.Outpoint> Outpoints {
       get { return outpoints_; }
@@ -9139,6 +12301,9 @@ namespace Pb {
     private static readonly pb::FieldCodec<pb::ByteString> _repeated_dataElements_codec
         = pb::FieldCodec.ForBytes(26);
     private readonly pbc::RepeatedField<pb::ByteString> dataElements_ = new pbc::RepeatedField<pb::ByteString>();
+    /// <summary>
+    /// Filter by data elements contained in pubkey scripts.
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pbc::RepeatedField<pb::ByteString> DataElements {
       get { return dataElements_; }
@@ -9148,7 +12313,7 @@ namespace Pb {
     public const int AllTransactionsFieldNumber = 4;
     private bool allTransactions_;
     /// <summary>
-    /// Subscribed/Unsubscribe to everything. Other filters
+    /// Subscribe/Unsubscribe to everything. Other filters
     /// will be ignored.
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -9199,6 +12364,9 @@ namespace Pb {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
       addresses_.WriteTo(output, _repeated_addresses_codec);
       outpoints_.WriteTo(output, _repeated_outpoints_codec);
       dataElements_.WriteTo(output, _repeated_dataElements_codec);
@@ -9209,7 +12377,24 @@ namespace Pb {
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      addresses_.WriteTo(ref output, _repeated_addresses_codec);
+      outpoints_.WriteTo(ref output, _repeated_outpoints_codec);
+      dataElements_.WriteTo(ref output, _repeated_dataElements_codec);
+      if (AllTransactions != false) {
+        output.WriteRawTag(32);
+        output.WriteBool(AllTransactions);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
@@ -9242,6 +12427,9 @@ namespace Pb {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
         switch(tag) {
@@ -9266,7 +12454,38 @@ namespace Pb {
           }
         }
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            addresses_.AddEntriesFrom(ref input, _repeated_addresses_codec);
+            break;
+          }
+          case 18: {
+            outpoints_.AddEntriesFrom(ref input, _repeated_outpoints_codec);
+            break;
+          }
+          case 26: {
+            dataElements_.AddEntriesFrom(ref input, _repeated_dataElements_codec);
+            break;
+          }
+          case 32: {
+            AllTransactions = input.ReadBool();
+            break;
+          }
+        }
+      }
+    }
+    #endif
 
   }
 

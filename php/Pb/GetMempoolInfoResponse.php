@@ -14,10 +14,14 @@ use Google\Protobuf\Internal\GPBUtil;
 class GetMempoolInfoResponse extends \Google\Protobuf\Internal\Message
 {
     /**
+     * The count of transactions in the mempool
+     *
      * Generated from protobuf field <code>uint32 size = 1;</code>
      */
     protected $size = 0;
     /**
+     * The size in bytes of all transactions in the mempool
+     *
      * Generated from protobuf field <code>uint32 bytes = 2;</code>
      */
     protected $bytes = 0;
@@ -29,7 +33,9 @@ class GetMempoolInfoResponse extends \Google\Protobuf\Internal\Message
      *     Optional. Data for populating the Message object.
      *
      *     @type int $size
+     *           The count of transactions in the mempool
      *     @type int $bytes
+     *           The size in bytes of all transactions in the mempool
      * }
      */
     public function __construct($data = NULL) {
@@ -38,6 +44,8 @@ class GetMempoolInfoResponse extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * The count of transactions in the mempool
+     *
      * Generated from protobuf field <code>uint32 size = 1;</code>
      * @return int
      */
@@ -47,6 +55,8 @@ class GetMempoolInfoResponse extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * The count of transactions in the mempool
+     *
      * Generated from protobuf field <code>uint32 size = 1;</code>
      * @param int $var
      * @return $this
@@ -60,6 +70,8 @@ class GetMempoolInfoResponse extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * The size in bytes of all transactions in the mempool
+     *
      * Generated from protobuf field <code>uint32 bytes = 2;</code>
      * @return int
      */
@@ -69,6 +81,8 @@ class GetMempoolInfoResponse extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * The size in bytes of all transactions in the mempool
+     *
      * Generated from protobuf field <code>uint32 bytes = 2;</code>
      * @param int $var
      * @return $this

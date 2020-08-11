@@ -9,65 +9,90 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
+ * Metadata for identifying and validating a block
+ *
  * Generated from protobuf message <code>pb.BlockInfo</code>
  */
 class BlockInfo extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Identification.
+     * The double sha256 hash of the six header fields in the first 80 bytes
+     * of the block, when encoded according the bitcoin protocol, little-endian.
+     * sha256(sha256(encoded_header))
      *
      * Generated from protobuf field <code>bytes hash = 1;</code>
      */
     protected $hash = '';
     /**
+     * The block number, an incremental index for each block mined.
+     *
      * Generated from protobuf field <code>int32 height = 2;</code>
      */
     protected $height = 0;
     /**
-     * Block header data.
+     * A version number to track software/protocol upgrades.
      *
      * Generated from protobuf field <code>int32 version = 3;</code>
      */
     protected $version = 0;
     /**
+     * Hash of the previous block, little-endian.
+     *
      * Generated from protobuf field <code>bytes previous_block = 4;</code>
      */
     protected $previous_block = '';
     /**
+     * The root of the Merkle Tree built from all transactions in the block, little-endian.
+     *
      * Generated from protobuf field <code>bytes merkle_root = 5;</code>
      */
     protected $merkle_root = '';
     /**
+     * When mining of the block started, expressed in seconds since 1970-01-01.
+     *
      * Generated from protobuf field <code>int64 timestamp = 6;</code>
      */
     protected $timestamp = 0;
     /**
+     * Difficulty in Compressed Target Format.
+     *
      * Generated from protobuf field <code>uint32 bits = 7;</code>
      */
     protected $bits = 0;
     /**
+     * A random value that was generated during block mining which happened to
+     * result in a computed block hash below the difficulty target at the time.
+     *
      * Generated from protobuf field <code>uint32 nonce = 8;</code>
      */
     protected $nonce = 0;
     /**
-     * Metadata.
+     * Number of blocks in a chain, including the block itself upon creation.
      *
      * Generated from protobuf field <code>int32 confirmations = 9;</code>
      */
     protected $confirmations = 0;
     /**
+     * Difficulty target at time of creation.
+     *
      * Generated from protobuf field <code>double difficulty = 10;</code>
      */
     protected $difficulty = 0.0;
     /**
+     * Hash of the next block in this chain, little-endian.
+     *
      * Generated from protobuf field <code>bytes next_block_hash = 11;</code>
      */
     protected $next_block_hash = '';
     /**
+     * Size of the block in bytes.
+     *
      * Generated from protobuf field <code>int32 size = 12;</code>
      */
     protected $size = 0;
     /**
+     * The median block time of the latest 11 block timestamps.
+     *
      * Generated from protobuf field <code>int64 median_time = 13;</code>
      */
     protected $median_time = 0;
@@ -79,21 +104,34 @@ class BlockInfo extends \Google\Protobuf\Internal\Message
      *     Optional. Data for populating the Message object.
      *
      *     @type string $hash
-     *           Identification.
+     *           The double sha256 hash of the six header fields in the first 80 bytes
+     *           of the block, when encoded according the bitcoin protocol, little-endian.
+     *           sha256(sha256(encoded_header))
      *     @type int $height
+     *           The block number, an incremental index for each block mined.
      *     @type int $version
-     *           Block header data.
+     *           A version number to track software/protocol upgrades.
      *     @type string $previous_block
+     *           Hash of the previous block, little-endian.
      *     @type string $merkle_root
+     *           The root of the Merkle Tree built from all transactions in the block, little-endian.
      *     @type int|string $timestamp
+     *           When mining of the block started, expressed in seconds since 1970-01-01.
      *     @type int $bits
+     *           Difficulty in Compressed Target Format.
      *     @type int $nonce
+     *           A random value that was generated during block mining which happened to
+     *           result in a computed block hash below the difficulty target at the time.
      *     @type int $confirmations
-     *           Metadata.
+     *           Number of blocks in a chain, including the block itself upon creation.
      *     @type float $difficulty
+     *           Difficulty target at time of creation.
      *     @type string $next_block_hash
+     *           Hash of the next block in this chain, little-endian.
      *     @type int $size
+     *           Size of the block in bytes.
      *     @type int|string $median_time
+     *           The median block time of the latest 11 block timestamps.
      * }
      */
     public function __construct($data = NULL) {
@@ -102,7 +140,9 @@ class BlockInfo extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Identification.
+     * The double sha256 hash of the six header fields in the first 80 bytes
+     * of the block, when encoded according the bitcoin protocol, little-endian.
+     * sha256(sha256(encoded_header))
      *
      * Generated from protobuf field <code>bytes hash = 1;</code>
      * @return string
@@ -113,7 +153,9 @@ class BlockInfo extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Identification.
+     * The double sha256 hash of the six header fields in the first 80 bytes
+     * of the block, when encoded according the bitcoin protocol, little-endian.
+     * sha256(sha256(encoded_header))
      *
      * Generated from protobuf field <code>bytes hash = 1;</code>
      * @param string $var
@@ -128,6 +170,8 @@ class BlockInfo extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * The block number, an incremental index for each block mined.
+     *
      * Generated from protobuf field <code>int32 height = 2;</code>
      * @return int
      */
@@ -137,6 +181,8 @@ class BlockInfo extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * The block number, an incremental index for each block mined.
+     *
      * Generated from protobuf field <code>int32 height = 2;</code>
      * @param int $var
      * @return $this
@@ -150,7 +196,7 @@ class BlockInfo extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Block header data.
+     * A version number to track software/protocol upgrades.
      *
      * Generated from protobuf field <code>int32 version = 3;</code>
      * @return int
@@ -161,7 +207,7 @@ class BlockInfo extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Block header data.
+     * A version number to track software/protocol upgrades.
      *
      * Generated from protobuf field <code>int32 version = 3;</code>
      * @param int $var
@@ -176,6 +222,8 @@ class BlockInfo extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * Hash of the previous block, little-endian.
+     *
      * Generated from protobuf field <code>bytes previous_block = 4;</code>
      * @return string
      */
@@ -185,6 +233,8 @@ class BlockInfo extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * Hash of the previous block, little-endian.
+     *
      * Generated from protobuf field <code>bytes previous_block = 4;</code>
      * @param string $var
      * @return $this
@@ -198,6 +248,8 @@ class BlockInfo extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * The root of the Merkle Tree built from all transactions in the block, little-endian.
+     *
      * Generated from protobuf field <code>bytes merkle_root = 5;</code>
      * @return string
      */
@@ -207,6 +259,8 @@ class BlockInfo extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * The root of the Merkle Tree built from all transactions in the block, little-endian.
+     *
      * Generated from protobuf field <code>bytes merkle_root = 5;</code>
      * @param string $var
      * @return $this
@@ -220,6 +274,8 @@ class BlockInfo extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * When mining of the block started, expressed in seconds since 1970-01-01.
+     *
      * Generated from protobuf field <code>int64 timestamp = 6;</code>
      * @return int|string
      */
@@ -229,6 +285,8 @@ class BlockInfo extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * When mining of the block started, expressed in seconds since 1970-01-01.
+     *
      * Generated from protobuf field <code>int64 timestamp = 6;</code>
      * @param int|string $var
      * @return $this
@@ -242,6 +300,8 @@ class BlockInfo extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * Difficulty in Compressed Target Format.
+     *
      * Generated from protobuf field <code>uint32 bits = 7;</code>
      * @return int
      */
@@ -251,6 +311,8 @@ class BlockInfo extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * Difficulty in Compressed Target Format.
+     *
      * Generated from protobuf field <code>uint32 bits = 7;</code>
      * @param int $var
      * @return $this
@@ -264,6 +326,9 @@ class BlockInfo extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * A random value that was generated during block mining which happened to
+     * result in a computed block hash below the difficulty target at the time.
+     *
      * Generated from protobuf field <code>uint32 nonce = 8;</code>
      * @return int
      */
@@ -273,6 +338,9 @@ class BlockInfo extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * A random value that was generated during block mining which happened to
+     * result in a computed block hash below the difficulty target at the time.
+     *
      * Generated from protobuf field <code>uint32 nonce = 8;</code>
      * @param int $var
      * @return $this
@@ -286,7 +354,7 @@ class BlockInfo extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Metadata.
+     * Number of blocks in a chain, including the block itself upon creation.
      *
      * Generated from protobuf field <code>int32 confirmations = 9;</code>
      * @return int
@@ -297,7 +365,7 @@ class BlockInfo extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Metadata.
+     * Number of blocks in a chain, including the block itself upon creation.
      *
      * Generated from protobuf field <code>int32 confirmations = 9;</code>
      * @param int $var
@@ -312,6 +380,8 @@ class BlockInfo extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * Difficulty target at time of creation.
+     *
      * Generated from protobuf field <code>double difficulty = 10;</code>
      * @return float
      */
@@ -321,6 +391,8 @@ class BlockInfo extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * Difficulty target at time of creation.
+     *
      * Generated from protobuf field <code>double difficulty = 10;</code>
      * @param float $var
      * @return $this
@@ -334,6 +406,8 @@ class BlockInfo extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * Hash of the next block in this chain, little-endian.
+     *
      * Generated from protobuf field <code>bytes next_block_hash = 11;</code>
      * @return string
      */
@@ -343,6 +417,8 @@ class BlockInfo extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * Hash of the next block in this chain, little-endian.
+     *
      * Generated from protobuf field <code>bytes next_block_hash = 11;</code>
      * @param string $var
      * @return $this
@@ -356,6 +432,8 @@ class BlockInfo extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * Size of the block in bytes.
+     *
      * Generated from protobuf field <code>int32 size = 12;</code>
      * @return int
      */
@@ -365,6 +443,8 @@ class BlockInfo extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * Size of the block in bytes.
+     *
      * Generated from protobuf field <code>int32 size = 12;</code>
      * @param int $var
      * @return $this
@@ -378,6 +458,8 @@ class BlockInfo extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * The median block time of the latest 11 block timestamps.
+     *
      * Generated from protobuf field <code>int64 median_time = 13;</code>
      * @return int|string
      */
@@ -387,6 +469,8 @@ class BlockInfo extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * The median block time of the latest 11 block timestamps.
+     *
      * Generated from protobuf field <code>int64 median_time = 13;</code>
      * @param int|string $var
      * @return $this
